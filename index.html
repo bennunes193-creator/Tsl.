@@ -1,34 +1,1484 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TSL — Touch Soccer League</title><style>
-:root{--blue:#0878ff;--blue2:#00b8ff;--ink:#10233f;--muted:#667892;--line:#e6eef8;--bg:#f4f9ff;--white:#fff;--ok:#16a36a;--danger:#e64c5d;--shadow:0 18px 55px #1765b512}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:linear-gradient(180deg,#eaf6ff 0,#f8fbff 430px,#f4f8fd 100%)}button,input,select{font:inherit}button{cursor:pointer;border:0}.top{position:sticky;top:0;z-index:20;background:#ffffffdf;backdrop-filter:blur(18px);border-bottom:1px solid #ffffffaa}.nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:11px;font-weight:900}.logo{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 10px 25px #0784ff40}.brand small{display:block;color:#7b8da6;font-weight:600;font-size:11px;margin-top:2px}.links{display:flex;gap:5px;flex-wrap:wrap}.links button{background:transparent;color:#52657e;padding:10px 12px;border-radius:11px;font-weight:750}.links button:hover,.links button.active{background:#eaf5ff;color:#0572ef}.hero{max-width:1180px;margin:28px auto 0;padding:0 20px}.heroCard{position:relative;overflow:hidden;border-radius:30px;padding:42px;background:linear-gradient(135deg,#056cff,#12bdf4);color:#fff;box-shadow:0 25px 60px #0878ff32}.heroCard:after{content:"";position:absolute;width:430px;height:430px;border:70px solid #ffffff18;border-radius:50%;right:-130px;top:-190px}.hero h1{font-size:clamp(32px,6vw,58px);line-height:.98;margin:0 0 14px;max-width:700px;letter-spacing:-2px}.hero p{max-width:650px;font-size:17px;line-height:1.55;color:#eaf9ff}.heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.primary,.ghost{padding:12px 17px;border-radius:13px;font-weight:850}.primary{background:#fff;color:#0878ff}.ghost{background:#ffffff1c;color:#fff;border:1px solid #ffffff55}.wrap{max-width:1180px;margin:24px auto;padding:0 20px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat,.card{background:#fff;border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow)}.stat{padding:19px}.stat b{display:block;font-size:28px}.stat span{color:var(--muted);font-size:13px;font-weight:700}.section{margin-top:28px}.sectionHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.section h2{margin:0;font-size:23px}.divisionTitle{grid-column:1/-1;font-weight:900;font-size:18px;color:#10233f;display:flex;align-items:center;justify-content:space-between;padding:14px 2px 4px}.divisionTitle span{font-size:11px;color:#0878ff;background:#edf7ff;padding:6px 9px;border-radius:999px}.sub{color:var(--muted);font-size:13px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.team,.news,.match{padding:18px}.teamTop{display:flex;align-items:center;gap:13px}.crest{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#e9f5ff,#fff);border:1px solid #d8eaff;display:grid;place-items:center;font-size:22px}.team h3,.news h3{margin:0 0 4px}.pill{display:inline-flex;padding:5px 8px;border-radius:999px;background:#edf7ff;color:#0878ff;font-size:11px;font-weight:850}.players{margin-top:15px;color:#5e7087;font-size:13px;line-height:1.7}.matchLine{display:flex;justify-content:space-between;align-items:center;gap:10px}.score{font-size:25px;font-weight:900}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:13px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}.table th{font-size:11px;text-transform:uppercase;color:#7b8da6}.news p{color:#64758c;line-height:1.55;font-size:14px}.empty{padding:30px;text-align:center;color:#71829a}.footer{margin:45px 0 20px;text-align:center;color:#8493a8;font-size:12px}.modal{position:fixed;inset:0;background:#09203b66;backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}.modal.show{display:flex}.modalBox{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:25px;padding:24px;box-shadow:0 30px 100px #001d4033}.modalHead{display:flex;justify-content:space-between;align-items:center}.x{width:38px;height:38px;border-radius:12px;background:#eef5fb;color:#5d7088}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800;color:#64758c}.field input,.field select,.field textarea{border:1px solid #dce7f2;border-radius:12px;padding:12px;outline:0;background:#fbfdff}.field textarea{min-height:100px;resize:vertical}.adminTabs{display:flex;gap:7px;overflow:auto;padding:4px 0 12px}.adminTabs button{padding:9px 12px;border-radius:10px;background:#f0f6fc;color:#61738b;font-weight:800;white-space:nowrap}.adminTabs button.active{background:#0878ff;color:#fff}.adminList{display:grid;gap:9px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px;border:1px solid var(--line);border-radius:14px}.row strong{display:block}.row small{color:#73849a}.rowBtns{display:flex;gap:6px}.mini{padding:8px 10px;border-radius:9px;background:#eef6ff;color:#0878ff;font-weight:800}.mini.red{background:#fff0f2;color:#d84354}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#10233f;color:#fff;padding:12px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:80;font-weight:750}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@media(max-width:850px){.links{display:none}.grid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}.heroCard{padding:30px 24px}.form{grid-template-columns:1fr}}@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.stat{padding:15px}.stat b{font-size:23px}.wrap,.hero{padding-left:13px;padding-right:13px}.nav{padding:11px 13px}.hero{margin-top:15px}.heroCard{border-radius:23px}.hero h1{font-size:38px}.table th:nth-child(4),.table td:nth-child(4){display:none}}
-</style></head><body>
-<header class="top"><div class="nav"><div class="brand"><div class="logo">TS</div><div>Touch Soccer League<small>TSL • Plataforma oficial</small></div></div><div class="links"><button type="button" class="active" onclick="go('inicio',this)">Início</button><button type="button" onclick="go('times',this)">Times</button><button type="button" onclick="go('jogadores',this)">Jogadores</button><button type="button" onclick="go('partidas',this)">Partidas</button><button type="button" onclick="go('classificacao',this)">Classificação</button><button type="button" onclick="go('noticias',this)">Notícias</button></div><button type="button" class="primary" onclick="openAdmin()">Painel</button></div></header>
-<main><div class="hero" id="inicio"><div class="heroCard"><span class="pill" style="background:#ffffff22;color:#fff">TEMPORADA 2026</span><h1>O futebol começa aqui.</h1><p>Central oficial da Touch Soccer League para acompanhar times, jogadores, partidas, classificação e as últimas notícias da competição.</p><div class="heroActions"><button type="button" class="primary" onclick="go('partidas')">Ver partidas</button><button type="button" class="ghost" onclick="openAdmin()">Gerenciar liga</button></div></div></div>
-<div class="wrap"><div class="grid"><div class="stat"><b id="sTeams">3</b><span>Times inscritos</span></div><div class="stat"><b id="sPlayers">3</b><span>Jogadores cadastrados</span></div><div class="stat"><b id="sMatches">1</b><span>Partidas</span></div><div class="stat"><b>2026</b><span>Temporada atual</span></div></div>
-<section class="section" id="times"><div class="sectionHead"><div><h2>Times participantes</h2><div class="sub">Clubes confirmados na TSL</div></div></div><div class="cards" id="teams"></div></section>
-<section class="section" id="jogadores"><div class="sectionHead"><div><h2>Jogadores</h2><div class="sub">Atletas registrados na competição</div></div></div><div class="card" style="padding:5px 14px"><table class="table"><thead><tr><th>Jogador</th><th>Time</th><th>Posição</th><th>Status</th></tr></thead><tbody id="players"></tbody></table></div></section>
-<section class="section" id="partidas"><div class="sectionHead"><div><h2>Próximas partidas</h2><div class="sub">Agenda oficial</div></div></div><div class="cards" id="matches"></div></section>
-<section class="section" id="classificacao"><div class="sectionHead"><div><h2>Classificação</h2><div class="sub">Tabela da temporada</div></div></div><div class="card" style="padding:5px 14px"><table class="table"><thead><tr><th>#</th><th>Time</th><th>J</th><th>P</th><th>SG</th></tr></thead><tbody id="standings"></tbody></table></div></section>
-<section class="section" id="noticias"><div class="sectionHead"><div><h2>Notícias e avisos</h2><div class="sub">Comunicados publicados pela organização</div></div></div><div class="cards" id="news"></div></section><div class="footer">TSL • Touch Soccer League — sistema beta funcional</div></div></main>
-<div class="modal" id="adminModal"><div class="modalBox"><div class="modalHead"><div><h2 style="margin:0">Painel TSL</h2><div class="sub">Controle da organização</div></div><button type="button" class="x" onclick="closeAdmin()">✕</button></div><div id="login"><div class="form"><div class="field full"><label>Senha do painel</label><input id="ownerPass" type="password" placeholder="Digite a senha do painel" onkeydown="if(event.key==='Enter')login()"></div></div><button type="button" class="primary" style="margin-top:15px" onclick="login()">Entrar no painel</button><div class="sub" style="margin-top:10px">Acesso exclusivo da organização • dados salvos neste navegador.</div></div><div id="dashboard" style="display:none"><div class="adminTabs"><button type="button" class="active" onclick="tab('times',this)">Times</button><button type="button" onclick="tab('jogadores',this)">Jogadores</button><button type="button" onclick="tab('partidas',this)">Partidas</button><button type="button" onclick="tab('noticias',this)">Notícias</button><button type="button" onclick="tab('avisos',this)">Avisos</button><button type="button" onclick="tab('staff',this)">Staff</button></div><div id="adminContent"></div></div></div></div><div class="toast" id="toast"></div>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TSL — Touch Soccer League</title>
+
+<style>
+:root{
+--blue:#0878ff;
+--blue2:#00b8ff;
+--ink:#10233f;
+--muted:#667892;
+--line:#e6eef8;
+--bg:#f4f9ff;
+--white:#fff;
+--danger:#e64c5d;
+--shadow:0 18px 55px #1765b512
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+color:var(--ink);
+background:linear-gradient(180deg,#eaf6ff 0,#f8fbff 430px,#f4f8fd 100%)
+}
+
+button,input,select{font:inherit}
+button{cursor:pointer;border:0}
+
+.top{
+position:sticky;
+top:0;
+z-index:20;
+background:#ffffffdf;
+backdrop-filter:blur(18px);
+border-bottom:1px solid #ffffffaa
+}
+
+.nav{
+max-width:1180px;
+margin:auto;
+padding:14px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:11px;
+font-weight:900
+}
+
+.logo{
+width:43px;
+height:43px;
+border-radius:14px;
+background:linear-gradient(135deg,var(--blue),var(--blue2));
+color:#fff;
+display:grid;
+place-items:center;
+font-size:20px;
+box-shadow:0 10px 25px #0784ff40
+}
+
+.brand small{
+display:block;
+color:#7b8da6;
+font-weight:600;
+font-size:11px;
+margin-top:2px
+}
+
+.links{
+display:flex;
+gap:5px;
+flex-wrap:wrap
+}
+
+.links button{
+background:transparent;
+color:#52657e;
+padding:10px 12px;
+border-radius:11px;
+font-weight:750
+}
+
+.links button:hover,
+.links button.active{
+background:#eaf5ff;
+color:#0572ef
+}
+
+.hero{
+max-width:1180px;
+margin:28px auto 0;
+padding:0 20px
+}
+
+.heroCard{
+position:relative;
+overflow:hidden;
+border-radius:30px;
+padding:42px;
+background:linear-gradient(135deg,#056cff,#12bdf4);
+color:#fff;
+box-shadow:0 25px 60px #0878ff32
+}
+
+.heroCard:after{
+content:"";
+position:absolute;
+width:430px;
+height:430px;
+border:70px solid #ffffff18;
+border-radius:50%;
+right:-130px;
+top:-190px
+}
+
+.hero h1{
+font-size:clamp(32px,6vw,58px);
+line-height:.98;
+margin:0 0 14px;
+max-width:700px;
+letter-spacing:-2px
+}
+
+.hero p{
+max-width:650px;
+font-size:17px;
+line-height:1.55;
+color:#eaf9ff
+}
+
+.heroActions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:22px
+}
+
+.primary,
+.ghost{
+padding:12px 17px;
+border-radius:13px;
+font-weight:850
+}
+
+.primary{
+background:#fff;
+color:#0878ff
+}
+
+.ghost{
+background:#ffffff1c;
+color:#fff;
+border:1px solid #ffffff55
+}
+
+.wrap{
+max-width:1180px;
+margin:24px auto;
+padding:0 20px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px
+}
+
+.stat,
+.card{
+background:#fff;
+border:1px solid var(--line);
+border-radius:19px;
+box-shadow:var(--shadow)
+}
+
+.stat{
+padding:19px
+}
+
+.stat b{
+display:block;
+font-size:28px
+}
+
+.stat span{
+color:var(--muted);
+font-size:13px;
+font-weight:700
+}
+
+.section{
+margin-top:28px
+}
+
+.sectionHead{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+margin-bottom:13px
+}
+
+.section h2{
+margin:0;
+font-size:23px
+}
+
+.sub{
+color:var(--muted);
+font-size:13px
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+
+.divisionTitle{
+grid-column:1/-1;
+font-weight:900;
+font-size:18px;
+color:#10233f;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 2px 4px
+}
+
+.divisionTitle span{
+font-size:11px;
+color:#0878ff;
+background:#edf7ff;
+padding:6px 9px;
+border-radius:999px
+}
+
+.team,
+.news,
+.match{
+padding:18px
+}
+
+.teamTop{
+display:flex;
+align-items:center;
+gap:13px
+}
+
+.crest{
+width:52px;
+height:52px;
+border-radius:16px;
+background:linear-gradient(135deg,#e9f5ff,#fff);
+border:1px solid #d8eaff;
+display:grid;
+place-items:center;
+font-size:22px
+}
+
+.team h3,
+.news h3{
+margin:0 0 4px
+}
+
+.pill{
+display:inline-flex;
+padding:5px 8px;
+border-radius:999px;
+background:#edf7ff;
+color:#0878ff;
+font-size:11px;
+font-weight:850
+}
+
+.players{
+margin-top:15px;
+color:#5e7087;
+font-size:13px;
+line-height:1.7
+}
+
+.matchLine{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px
+}
+
+.score{
+font-size:25px;
+font-weight:900
+}
+
+.table{
+width:100%;
+border-collapse:collapse
+}
+
+.table th,
+.table td{
+padding:13px 12px;
+border-bottom:1px solid var(--line);
+text-align:left;
+font-size:14px
+}
+
+.table th{
+font-size:11px;
+text-transform:uppercase;
+color:#7b8da6
+}
+
+.news p{
+color:#64758c;
+line-height:1.55;
+font-size:14px
+}
+
+.empty{
+padding:30px;
+text-align:center;
+color:#71829a
+}
+
+.footer{
+margin:45px 0 20px;
+text-align:center;
+color:#8493a8;
+font-size:12px
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:#09203b66;
+backdrop-filter:blur(7px);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:50
+}
+
+.modal.show{
+display:flex
+}
+
+.modalBox{
+width:min(760px,100%);
+max-height:90vh;
+overflow:auto;
+background:#fff;
+border-radius:25px;
+padding:24px;
+box-shadow:0 30px 100px #001d4033
+}
+
+.modalHead{
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.x{
+width:38px;
+height:38px;
+border-radius:12px;
+background:#eef5fb;
+color:#5d7088
+}
+
+.form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:18px
+}
+
+.field{
+display:flex;
+flex-direction:column;
+gap:6px
+}
+
+.field.full{
+grid-column:1/-1
+}
+
+.field label{
+font-size:12px;
+font-weight:800;
+color:#64758c
+}
+
+.field input,
+.field select,
+.field textarea{
+border:1px solid #dce7f2;
+border-radius:12px;
+padding:12px;
+outline:0;
+background:#fbfdff
+}
+
+.adminTabs{
+display:flex;
+gap:7px;
+overflow:auto;
+padding:4px 0 12px
+}
+
+.adminTabs button{
+padding:9px 12px;
+border-radius:10px;
+background:#f0f6fc;
+color:#61738b;
+font-weight:800;
+white-space:nowrap
+}
+
+.adminTabs button.active{
+background:#0878ff;
+color:#fff
+}
+
+.adminList{
+display:grid;
+gap:9px
+}
+
+.row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:13px;
+border:1px solid var(--line);
+border-radius:14px
+}
+
+.row strong{
+display:block
+}
+
+.row small{
+color:#73849a
+}
+
+.rowBtns{
+display:flex;
+gap:6px
+}
+
+.mini{
+padding:8px 10px;
+border-radius:9px;
+background:#eef6ff;
+color:#0878ff;
+font-weight:800
+}
+
+.mini.red{
+background:#fff0f2;
+color:#d84354
+}
+
+.toast{
+position:fixed;
+left:50%;
+bottom:22px;
+transform:translateX(-50%) translateY(20px);
+background:#10233f;
+color:#fff;
+padding:12px 16px;
+border-radius:12px;
+opacity:0;
+pointer-events:none;
+transition:.25s;
+z-index:80;
+font-weight:750
+}
+
+.toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(0)
+}
+
+@media(max-width:850px){
+.links{display:none}
+.grid{grid-template-columns:repeat(2,1fr)}
+.cards{grid-template-columns:1fr}
+.heroCard{padding:30px 24px}
+.form{grid-template-columns:1fr}
+}
+
+@media(max-width:520px){
+.grid{grid-template-columns:1fr 1fr}
+.stat{padding:15px}
+.stat b{font-size:23px}
+.wrap,.hero{
+padding-left:13px;
+padding-right:13px
+}
+.nav{padding:11px 13px}
+.hero{margin-top:15px}
+.heroCard{border-radius:23px}
+.hero h1{font-size:38px}
+.table th:nth-child(4),
+.table td:nth-child(4){
+display:none
+}
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+<div class="nav">
+
+<div class="brand">
+<div class="logo">TS</div>
+<div>
+Touch Soccer League
+<small>TSL • Plataforma oficial</small>
+</div>
+</div>
+
+<div class="links">
+<button type="button" class="active" onclick="go('inicio',this)">Início</button>
+<button type="button" onclick="go('times',this)">Times</button>
+<button type="button" onclick="go('jogadores',this)">Jogadores</button>
+<button type="button" onclick="go('partidas',this)">Partidas</button>
+<button type="button" onclick="go('classificacao',this)">Classificação</button>
+<button type="button" onclick="go('noticias',this)">Notícias</button>
+</div>
+
+<button type="button" class="primary" onclick="openAdmin()">Painel</button>
+
+</div>
+</header>
+
+<main>
+
+<div class="hero" id="inicio">
+<div class="heroCard">
+
+<span class="pill" style="background:#ffffff22;color:#fff">
+TEMPORADA 2026
+</span>
+
+<h1>O futebol começa aqui.</h1>
+
+<p>
+Central oficial da Touch Soccer League para acompanhar times,
+jogadores, partidas, classificação e as últimas notícias da competição.
+</p>
+
+<div class="heroActions">
+<button type="button" class="primary" onclick="go('partidas')">
+Ver partidas
+</button>
+
+<button type="button" class="ghost" onclick="openAdmin()">
+Gerenciar liga
+</button>
+</div>
+
+</div>
+</div>
+
+<div class="wrap">
+
+<div class="grid">
+
+<div class="stat">
+<b id="sTeams">0</b>
+<span>Times inscritos</span>
+</div>
+
+<div class="stat">
+<b id="sPlayers">0</b>
+<span>Jogadores cadastrados</span>
+</div>
+
+<div class="stat">
+<b id="sMatches">0</b>
+<span>Partidas</span>
+</div>
+
+<div class="stat">
+<b>2026</b>
+<span>Temporada atual</span>
+</div>
+
+</div>
+
+<section class="section" id="times">
+
+<div class="sectionHead">
+<div>
+<h2>Times participantes</h2>
+<div class="sub">Clubes confirmados na TSL</div>
+</div>
+</div>
+
+<div class="cards" id="teams"></div>
+
+</section>
+
+<section class="section" id="jogadores">
+
+<div class="sectionHead">
+<div>
+<h2>Jogadores</h2>
+<div class="sub">Atletas registrados na competição</div>
+</div>
+</div>
+
+<div class="card" style="padding:5px 14px">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>Jogador</th>
+<th>Time</th>
+<th>Posição</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody id="players"></tbody>
+
+</table>
+
+</div>
+</section>
+
+<section class="section" id="partidas">
+
+<div class="sectionHead">
+<div>
+<h2>Próximas partidas</h2>
+<div class="sub">Agenda oficial</div>
+</div>
+</div>
+
+<div class="cards" id="matches"></div>
+
+</section>
+
+<section class="section" id="classificacao">
+
+<div class="sectionHead">
+<div>
+<h2>Classificação</h2>
+<div class="sub">Tabela da temporada</div>
+</div>
+</div>
+
+<div class="card" style="padding:5px 14px">
+
+<table class="table">
+
+<thead>
+<tr>
+<th>#</th>
+<th>Time</th>
+<th>J</th>
+<th>P</th>
+<th>SG</th>
+</tr>
+</thead>
+
+<tbody id="standings"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<section class="section" id="noticias">
+
+<div class="sectionHead">
+<div>
+<h2>Notícias e avisos</h2>
+<div class="sub">Comunicados publicados pela organização</div>
+</div>
+</div>
+
+<div class="cards" id="news"></div>
+
+</section>
+
+<div class="footer">
+TSL • Touch Soccer League — sistema beta funcional
+</div>
+
+</div>
+</main>
+
+
+<!-- PAINEL -->
+
+<div class="modal" id="adminModal">
+
+<div class="modalBox">
+
+<div class="modalHead">
+
+<div>
+<h2 style="margin:0">Painel TSL</h2>
+<div class="sub">Controle da organização</div>
+</div>
+
+<button type="button" class="x" onclick="closeAdmin()">✕</button>
+
+</div>
+
+
+<!-- LOGIN -->
+
+<div id="login">
+
+<div class="form">
+
+<div class="field full">
+
+<label>Senha do painel</label>
+
+<input
+id="ownerPass"
+type="password"
+placeholder="Digite a senha do painel"
+onkeydown="if(event.key==='Enter')login()">
+
+</div>
+
+</div>
+
+<button
+type="button"
+class="primary"
+style="margin-top:15px"
+onclick="login()">
+
+Entrar no painel
+
+</button>
+
+<div class="sub" style="margin-top:10px">
+Acesso exclusivo da organização • dados salvos neste navegador.
+</div>
+
+</div>
+
+
+<!-- DASHBOARD -->
+
+<div id="dashboard" style="display:none">
+
+<div class="adminTabs">
+
+<button type="button" class="active"
+onclick="tab('times',this)">
+Times
+</button>
+
+<button type="button"
+onclick="tab('jogadores',this)">
+Jogadores
+</button>
+
+<button type="button"
+onclick="tab('partidas',this)">
+Partidas
+</button>
+
+<button type="button"
+onclick="tab('noticias',this)">
+Notícias
+</button>
+
+<button type="button"
+onclick="tab('avisos',this)">
+Avisos
+</button>
+
+<button type="button"
+onclick="tab('staff',this)">
+Staff
+</button>
+
+</div>
+
+<div id="adminContent"></div>
+
+</div>
+
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
 <script>
-const KEY='tsl_final_v2';let db=JSON.parse(localStorage.getItem(KEY)||'null')||{teams:[{name:'Palmeiras',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},{name:'Flamengo',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},{name:'São Paulo',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},{name:'River Plate',city:'Argentina',flag:'🇦🇷',division:'Primeira Divisão',players:0},{name:'Boca Juniors',city:'Argentina',flag:'🇦🇷',division:'Primeira Divisão',players:0},{name:'Santos',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},{name:'Atlético Mineiro',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},{name:'Colo-Colo',city:'Chile',flag:'🇨🇱',division:'Primeira Divisão',players:0},{name:'Talleres',city:'Argentina',flag:'🇦🇷',division:'Segunda Divisão',players:0},{name:'Racing',city:'Argentina',flag:'🇦🇷',division:'Segunda Divisão',players:0},{name:'Corinthians',city:'Brasil',flag:'🇧🇷',division:'Segunda Divisão',players:0},{name:'Fluminense',city:'Brasil',flag:'🇧🇷',division:'Segunda Divisão',players:0},{name:'Barcelona de Guayaquil',city:'Equador',flag:'🇪🇨',division:'Segunda Divisão',players:0},{name:'Internacional',city:'Brasil',flag:'🇧🇷',division:'Segunda Divisão',players:0},{name:'Nacional',city:'Uruguai',flag:'🇺🇾',division:'Segunda Divisão',players:0},{name:'Grêmio',city:'Brasil',flag:'🇧🇷',division:'Segunda Divisão',players:0}],players:[],matches:[],news:[{title:'TSL apresenta as duas divisões',text:'A Touch Soccer League está pronta para receber a nova temporada.'}],notices:[{title:'Comunicado oficial',text:'Primeira e Segunda Divisão já estão cadastradas no sistema.'}],staff:[]};
 
-function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
-function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
-function go(id,btn){var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}if(btn){document.querySelectorAll('.links button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}}
-function render(){document.getElementById('sTeams').textContent=db.teams.length;document.getElementById('sPlayers').textContent=db.players.length;document.getElementById('sMatches').textContent=db.matches.length;const first=db.teams.filter(t=>t.division==='Primeira Divisão'),second=db.teams.filter(t=>t.division==='Segunda Divisão');const teamCard=t=>`<div class="card team"><div class="teamTop"><div class="crest">${t.flag||'⚽'}</div><div><h3>${esc(t.name)}</h3><span class="pill">${esc(t.city)}</span></div></div><div class="players">${t.players||0} jogador(es) registrado(s)</div></div>`;document.getElementById('teams').innerHTML=`<div class="divisionTitle">🥇 Primeira Divisão <span>${first.length} clubes</span></div>${first.map(teamCard).join('')}<div class="divisionTitle" style="margin-top:22px">🥈 Segunda Divisão <span>${second.length} clubes</span></div>${second.map(teamCard).join('')}`;document.getElementById('players').innerHTML=db.players.map(p=>`<tr><td><b>${esc(p.name)}</b></td><td>${esc(p.team)}</td><td>${esc(p.pos)}</td><td><span class="pill">Ativo</span></td></tr>`).join('')||'<tr><td colspan="4" class="empty">Nenhum jogador cadastrado.</td></tr>';document.getElementById('matches').innerHTML=db.matches.map(m=>`<div class="card match"><span class="pill">${esc(m.date)} • ${esc(m.time)}</span><div class="matchLine" style="margin-top:18px"><b>${esc(m.home)}</b><span class="score">VS</span><b>${esc(m.away)}</b></div></div>`).join('')||'<div class="card empty">Nenhuma partida cadastrada ainda.</div>';document.getElementById('standings').innerHTML=db.teams.map((t,i)=>`<tr><td><b>${i+1}</b></td><td>${t.flag||'⚽'} ${esc(t.name)}</td><td>0</td><td>0</td><td>0</td></tr>`).join('');document.getElementById('news').innerHTML=[...db.news,...db.notices].map(n=>`<div class="card news"><span class="pill">COMUNICADO</span><h3 style="margin-top:10px">${esc(n.title)}</h3><p>${esc(n.text)}</p></div>`).join('')||'<div class="card empty">Nenhuma publicação.</div>'}
+const KEY = 'tsl_final_v3';
 
-function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function openAdmin(){document.body.style.overflow='hidden';document.getElementById('adminModal').classList.add('show');document.getElementById('login').style.display='block';document.getElementById('dashboard').style.display='none';document.getElementById('ownerPass').value=''}
-function closeAdmin(){document.getElementById('adminModal').classList.remove('show');document.body.style.overflow=''}
-function login(){let pass=document.getElementById('ownerPass').value;if(pass!=='tslbeta'){toast('Senha incorreta');return}document.getElementById('login').style.display='none';document.getElementById('dashboard').style.display='block';tab('times',document.querySelector('.adminTabs button'));toast('Painel liberado')}
+let db = JSON.parse(localStorage.getItem(KEY) || 'null') || {
 
-function tab(type,btn){document.querySelectorAll('.adminTabs button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');let title=type==='times'?'Times':type==='jogadores'?'Jogadores':type==='partidas'?'Partidas':type==='noticias'?'Notícias':type==='avisos'?'Avisos':'Staff';let arr=type==='times'?db.teams:type==='jogadores'?db.players:type==='partidas'?db.matches:type==='noticias'?db.news:type==='avisos'?db.notices:db.staff;let rows=arr.map((x,i)=>`<div class="row"><div><strong>${esc(x.name||x.title||((x.home||'')+' × '+(x.away||'')))}</strong><small>${esc(x.team||x.city||x.email||x.text||x.date||x.role||'')}</small></div><div class="rowBtns"><button type="button" class="mini" onclick="editItem('${type}',${i})">Editar</button><button type="button" class="mini red" onclick="delItem('${type}',${i})">Excluir</button></div></div>`).join('');document.getElementById('adminContent').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 12px"><div><b>${title}</b><div class="sub">Gerencie os dados da liga</div></div><button type="button" class="primary" onclick="addItem('${type}')">+ Adicionar</button></div><div class="adminList">${rows||'<div class="empty">Nenhum registro.</div>'}</div>`}
+teams:[
+{name:'Palmeiras',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},
+{name:'Flamengo',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},
+{name:'São Paulo',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},
+{name:'River Plate',city:'Argentina',flag:'🇦🇷',division:'Primeira Divisão',players:0},
+{name:'Boca Juniors',city:'Argentina',flag:'🇦🇷',division:'Primeira Divisão',players:0},
+{name:'Santos',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},
+{name:'Atlético Mineiro',city:'Brasil',flag:'🇧🇷',division:'Primeira Divisão',players:0},
+{name:'Colo-Colo',city:'Chile',flag:'🇨🇱',division:'Primeira Divisão',players:0},
 
-function addItem(type){let v;if(type==='times'){let n=prompt('Nome do time:');if(!n)return;let c=prompt('País/Cidade:')||'Brasil';let d=prompt('Divisão (Primeira Divisão ou Segunda Divisão):')||'Primeira Divisão';db.teams.push({name:n,city:c,flag:'⚽',division:d,players:0})}else if(type==='jogadores'){let n=prompt('Nome do jogador:');if(!n)return;let t=prompt('Time:')||'';let p=prompt('Posição:')||'Jogador';db.players.push({name:n,team:t,pos:p});let tm=db.teams.find(x=>x.name.toLowerCase()===t.toLowerCase());if(tm)tm.players=(tm.players||0)+1}else if(type==='partidas'){let h=prompt('Time da casa:');if(!h)return;let a=prompt('Adversário:')||'';let d=prompt('Data:')||'';let ti=prompt('Horário:')||'';db.matches.push({home:h,away:a,date:d,time:ti})}else if(type==='noticias'||type==='avisos'){let title=prompt('Título:');if(!title)return;let text=prompt('Texto:')||'';db[type].push({title,text})}else{let n=prompt('Nome do staff:');if(!n)return;let e=prompt('E-mail:')||'';let r=prompt('Cargo:')||'Staff';db.staff.push({name:n,email:e,role:r})}save();tab(type,[...document.querySelectorAll('.adminTabs button')].find(b=>b.textContent.toLowerCase().includes(type==='jogadores'?'jogadores':type==='partidas'?'partidas':type==='noticias'?'notícias':type==='avisos'?'avisos':type==='staff'?'staff':'times'))||document.querySelector('.adminTabs button'));toast('Adicionado')}
+{name:'Talleres',city:'Argentina',flag:'🇦🇷',division:'Segunda Divisão',players:0},
+{name:'Racing',city:'Argentina',flag:'🇦🇷',division:'Segunda Divisão',players:0},
+{name:'Corinthians',city:'Brasil',flag:'🇧🇷',division:'Segunda Divisão',players:0},
+{name:'Fluminense',city:'Brasil',flag:'🇧🇷',division:'Segunda Divisão',players:0},
+{name:'Barcelona de Guayaquil',city:'Equador',flag:'🇪🇨',division:'Segunda Divisão',players:0},
+{name:'Internacional',city:'Brasil',flag:'🇧🇷',division:'Segunda Divisão',players:0},
+{name:'Nacional',city:'Uruguai',flag:'🇺🇾',division:'Segunda Divisão',players:0},
+{name:'Grêmio',city:'Brasil',flag:'🇧🇷',division:'Segunda Divisão',players:0}
+],
 
-function editItem(type,i){let x=(type==='times'?db.teams:type==='jogadores'?db.players:type==='partidas'?db.matches:type==='noticias'?db.news:type==='avisos'?db.notices:db.staff)[i];if(type==='times'){x.name=prompt('Nome:',x.name)||x.name;x.city=prompt('País/Cidade:',x.city)||x.city;x.division=prompt('Divisão:',x.division||'Primeira Divisão')||x.division}else if(type==='jogadores'){x.name=prompt('Nome:',x.name)||x.name;x.team=prompt('Time:',x.team)||x.team;x.pos=prompt('Posição:',x.pos)||x.pos}else if(type==='partidas'){x.home=prompt('Casa:',x.home)||x.home;x.away=prompt('Fora:',x.away)||x.away;x.date=prompt('Data:',x.date)||x.date;x.time=prompt('Horário:',x.time)||x.time}else if(type==='noticias'||type==='avisos'){x.title=prompt('Título:',x.title)||x.title;x.text=prompt('Texto:',x.text)||x.text}else{x.name=prompt('Nome:',x.name)||x.name;x.email=prompt('E-mail:',x.email)||x.email;x.role=prompt('Cargo:',x.role)||x.role}save();tab(type,[...document.querySelectorAll('.adminTabs button')].find(b=>b.textContent.toLowerCase().includes(type==='jogadores'?'jogadores':type==='partidas'?'partidas':type==='noticias'?'notícias':type==='avisos'?'avisos':type==='staff'?'staff':'times')));toast('Alterado')}
+players:[],
 
-function delItem(type,i){if(!confirm('Excluir este registro?'))return;(type==='times'?db.teams:type==='jogadores'?db.players:type==='partidas'?db.matches:type==='noticias'?db.news:type==='avisos'?db.notices:db.staff).splice(i,1);save();tab(type,[...document.querySelectorAll('.adminTabs button')].find(b=>b.textContent.toLowerCase().includes(type==='jogadores'?'jogadores':type==='partidas'?'partidas':type==='noticias'?'notícias':type==='avisos'?'avisos':type==='staff'?'staff':'times')));toast('Excluído')}
+matches:[],
 
-render();document.getElementById('adminModal').addEventListener('click',fu
+news:[
+{
+title:'TSL apresenta as duas divisões',
+text:'A Touch Soccer League está pronta para receber a nova temporada.'
+}
+],
+
+notices:[
+{
+title:'Comunicado oficial',
+text:'Primeira e Segunda Divisão já estão cadastradas no sistema.'
+}
+],
+
+staff:[]
+};
+
+
+function save(){
+
+localStorage.setItem(KEY,JSON.stringify(db));
+
+render();
+
+}
+
+
+function toast(t){
+
+let e=document.getElementById('toast');
+
+e.textContent=t;
+
+e.classList.add('show');
+
+setTimeout(()=>{
+e.classList.remove('show');
+},1800);
+
+}
+
+
+function go(id,btn){
+
+let el=document.getElementById(id);
+
+if(el){
+el.scrollIntoView({
+behavior:'smooth',
+block:'start'
+});
+}
+
+if(btn){
+
+document.querySelectorAll('.links button')
+.forEach(x=>x.classList.remove('active'));
+
+btn.classList.add('active');
+
+}
+
+}
+
+
+function esc(s){
+
+return String(s ?? '').replace(
+/[&<>"']/g,
+m=>({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[m])
+);
+
+}
+
+
+function render(){
+
+document.getElementById('sTeams').textContent=db.teams.length;
+
+document.getElementById('sPlayers').textContent=db.players.length;
+
+document.getElementById('sMatches').textContent=db.matches.length;
+
+
+const first =
+db.teams.filter(t=>t.division==='Primeira Divisão');
+
+const second =
+db.teams.filter(t=>t.division==='Segunda Divisão');
+
+
+const teamCard=t=>`
+
+<div class="card team">
+
+<div class="teamTop">
+
+<div class="crest">
+${esc(t.flag || '⚽')}
+</div>
+
+<div>
+
+<h3>${esc(t.name)}</h3>
+
+<span class="pill">
+${esc(t.city)}
+</span>
+
+</div>
+
+</div>
+
+<div class="players">
+${t.players || 0} jogador(es) registrado(s)
+</div>
+
+</div>
+`;
+
+
+document.getElementById('teams').innerHTML=`
+
+<div class="divisionTitle">
+
+🥇 Primeira Divisão
+
+<span>
+${first.length} clubes
+</span>
+
+</div>
+
+${first.map(teamCard).join('')}
+
+<div
+class="divisionTitle"
+style="margin-top:22px">
+
+🥈 Segunda Divisão
+
+<span>
+${second.length} clubes
+</span>
+
+</div>
+
+${second.map(teamCard).join('')}
+
+`;
+
+
+document.getElementById('players').innerHTML=
+
+db.players.map(p=>`
+
+<tr>
+
+<td>
+<b>${esc(p.name)}</b>
+</td>
+
+<td>${esc(p.team)}</td>
+
+<td>${esc(p.pos)}</td>
+
+<td>
+<span class="pill">Ativo</span>
+</td>
+
+</tr>
+
+`).join('') ||
+
+`
+<tr>
+<td colspan="4" class="empty">
+Nenhum jogador cadastrado.
+</td>
+</tr>
+`;
+
+
+document.getElementById('matches').innerHTML=
+
+db.matches.map(m=>`
+
+<div class="card match">
+
+<span class="pill">
+${esc(m.date)} • ${esc(m.time)}
+</span>
+
+<div
+class="matchLine"
+style="margin-top:18px">
+
+<b>${esc(m.home)}</b>
+
+<span class="score">VS</span>
+
+<b>${esc(m.away)}</b>
+
+</div>
+
+</div>
+
+`).join('') ||
+
+`
+<div class="card empty">
+Nenhuma partida cadastrada ainda.
+</div>
+`;
+
+
+document.getElementById('standings').innerHTML=
+
+db.teams.map((t,i)=>`
+
+<tr>
+
+<td>
+<b>${i+1}</b>
+</td>
+
+<td>
+${esc(t.flag || '⚽')}
+${esc(t.name)}
+</td>
+
+<td>0</td>
+<td>0</td>
+<td>0</td>
+
+</tr>
+
+`).join('');
+
+
+document.getElementById('news').innerHTML=
+
+[...db.news,...db.notices].map(n=>`
+
+<div class="card news">
+
+<span class="pill">
+COMUNICADO
+</span>
+
+<h3 style="margin-top:10px">
+${esc(n.title)}
+</h3>
+
+<p>
+${esc(n.text)}
+</p>
+
+</div>
+
+`).join('') ||
+
+`
+<div class="card empty">
+Nenhuma publicação.
+</div>
+`;
+
+}
+
+
+function openAdmin(){
+
+document.body.style.overflow='hidden';
+
+document.getElementById('adminModal')
+.classList.add('show');
+
+document.getElementById('login')
+.style.display='block';
+
+document.getElementById('dashboard')
+.style.display='none';
+
+document.getElementById('ownerPass').value='';
+
+}
+
+
+function closeAdmin(){
+
+document.getElementById('adminModal')
+.classList.remove('show');
+
+document.body.style.overflow='';
+
+}
+
+
+function login(){
+
+let pass=
+document.getElementById('ownerPass').value;
+
+if(pass!=='tslbeta'){
+
+toast('Senha incorreta');
+
+return;
+
+}
+
+document.getElementById('login')
+.style.display='none';
+
+document.getElementById('dashboard')
+.style.display='block';
+
+tab(
+'times',
+document.querySelector('.adminTabs button')
+);
+
+toast('Painel liberado');
+
+}
+
+
+/* =========================
+   PAINEL
+========================= */
+
+function tab(type,btn){
+
+document.querySelectorAll('.adminTabs button')
+.forEach(x=>x.classList.remove('active'));
+
+if(btn){
+btn.classList.add('active');
+}
+
+let title='';
+let arr=[];
+
+if(type==='times'){
+title='Times';
+arr=db.teams;
+}
+
+else if(type==='jogadores'){
+title='Jogadores';
+arr=db.players;
+}
+
+else if(type==='partidas'){
+title='Partidas';
+arr=db.matches;
+}
+
+else if(type==='noticias'){
+title='Notícias';
+arr=db.news;
+}
+
+else if(type==='avisos'){
+title='Avisos';
+arr=db.notices;
+}
+
+else if(type==='staff'){
+title='Staff';
+arr=db.staff;
+}
+
+
+let rows='';
+
+
+if(type==='times'){
+
+rows=arr.map((team,i)=>`
+
+<div class="row">
+
+<div>
+
+<strong>
+${esc(team.flag || '⚽')}
+${esc(team.name)}
+</strong>
+
+<small>
+${esc(team.city || 'Brasil')}
+•
+${esc(team.division || 'Primeira Divisão')}
+•
+${team.players || 0} jogador(es)
+</small>
+
+</div>
+
+<div class="rowBtns">
+
+<button
+type="button"
+class="mini"
+onclick="editItem('times',${i})">
+
+Editar
+
+</button>
+
+<button
+type="button"
+class="mini red"
+onclick="delItem('times',${i})">
+
+Excluir
+
+</button>
+
+</div>
+
+</div>
+
+`).join('');
+
+}
+
+else{
+
+rows=arr.map((x,i)=>`
+
+<div class="row">
+
+<div>
+
+<strong>
+${esc(
+x.name ||
+x.title ||
+((x.home || '')+' × '+(x.away || ''))
+)}
+</strong>
+
+<small>
+${esc(
+x.team ||
+x.city ||
+x.email ||
+x.text ||
+x.date ||
+x.role ||
+''
+)}
+</small>
+
+</div>
+
+<div class="rowBtns">
+
+<button
+type="button"
+class="mini"
+onclick="editItem('${type}',${i})">
+
+Editar
+
+</button>
+
+<button
+type="button"
+class="mini red"
+onclick="delItem('${type}',${i})">
+
+Excluir
+
+</button>
+
+</div>
+
+</div>
+
+`).join('');
+
+}
+
+
+document.getElementById('adminContent').innerHTML=`
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:4px 0 12px;
+gap:10px;
+">
+
+<div>
+
+<b>${title}</b>
+
+<div class="sub">
+Gerencie os dados da liga
+</div>
+
+</div>
+
+<button
+type="button"
+class="primary"
+onclick="addItem('${type}')">
+
++ Adicionar
+
+</button>
+
+</div>
+
+<div class="adminList">
+
+${
+rows ||
+'<div class="empty">Nenhum registro.</div>'
+}
+
+</div>
+
+`;
+
+}
+
+
+/* =========================
+   ADICIONAR
+========================= */
+
+function addItem(type){
+
+if(type==='times'){
+
+let n=prompt('Nome do time:');
+
+if(!n)return;
+
+let c=prompt('País/Cidade:') || 'Brasil';
+
+let d=prompt(
+'Divisão (Primeira Divisão ou Segunda Divisão):'
+) || 'Primeira Divisão';
+
+let flag=prompt('Bandeira/emoji do time:') || '⚽';
+
+db.teams.push({
+name:n,
+city:c,
+flag:flag,
+division:d,
+players:0
+});
+
+}
+
+else if(type==='jogadores'){
+
+let n=prompt('Nome do jogador:');
+
+if(!n)return;
+
+let t=prompt('Time:') || '';
+
+let p=prompt('Posição:') || 'Jogador';
+
+db.players.push({
+name:n,
+team:t,
+pos:p
+});
+
+let tm=db.teams.find(
+x=>x.name.toLowerCase()===t.toLowerCase()
+);
+
+if(tm){
+tm.players=(tm.players||0)+1;
+}
+
+}
+
+else if(type==='partidas'){
+
+let h=prompt('Time da casa:');
+
+if(!h)return;
+
+let a=prompt('Adversário:') || '';
+
+let d=prompt('Data:') || '';
+
+let ti=prompt('Horário:') || '';
+
+db.matches.push({
+home:h,
+away:a,
+date:d,
+time:ti
+});
+
+}
+
+else if(type==='noticias' || type==='avisos'){
+
+let title=prompt('Título:');
+
+if(!title)return;
+
+let text=prompt('Texto:') || '';
+
+db[type].push({
+title:title,
+text:text
+});
+
+}
+
+else{
+
+let n=prompt('Nome do staff:');
+
+if(!n)re
