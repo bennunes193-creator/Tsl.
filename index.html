@@ -3,220 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TSL - Touch Soccer League</title>
 
 <style>
 *{
-  box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
 }
 
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#eef6ff;
-  color:#10233f;
+    background:#07111f;
+    color:white;
 }
 
 header{
-  background:linear-gradient(135deg,#0757b8,#19a9ff);
-  color:white;
-  padding:20px;
-  box-shadow:0 4px 15px #0002;
+    background:#0d1b2e;
+    padding:18px;
+    text-align:center;
+    border-bottom:2px solid #18a558;
 }
 
-.logo{
-  font-size:29px;
-  font-weight:900;
-}
-
-.subtitle{
-  font-size:11px;
-  opacity:.9;
-  margin-top:3px;
+header h1{
+    color:#20d878;
+    margin-bottom:12px;
 }
 
 nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
 }
 
 button{
-  border:0;
-  border-radius:9px;
-  padding:11px 15px;
-  font-weight:bold;
-  cursor:pointer;
+    border:none;
+    border-radius:8px;
+    padding:11px 15px;
+    background:#18a558;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 button:hover{
-  opacity:.85;
+    background:#20c86b;
 }
 
-nav button{
-  background:white;
-  color:#0757b8;
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
 }
 
-main{
-  max-width:1100px;
-  margin:auto;
-  padding:22px 15px;
+.pagina{
+    display:none;
 }
 
-.page{
-  display:none;
-}
-
-.page.active{
-  display:block;
-}
-
-.hero{
-  background:linear-gradient(135deg,#0757b8,#19a9ff);
-  color:white;
-  border-radius:20px;
-  padding:35px 25px;
-  margin-bottom:20px;
-}
-
-.hero h1{
-  font-size:43px;
-  margin:10px 0;
+.pagina.ativa{
+    display:block;
 }
 
 .card{
-  background:white;
-  border-radius:17px;
-  padding:20px;
-  margin-bottom:16px;
-  box-shadow:0 5px 18px #0000000d;
-  border:1px solid #dceaf7;
+    background:#0d1b2e;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
+h2{
+    color:#20d878;
+    margin-bottom:15px;
 }
 
-.primary{
-  background:#0757b8;
-  color:white;
+h3{
+    margin:15px 0 10px;
 }
 
-.secondary{
-  background:#e3f2ff;
-  color:#0757b8;
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    margin:6px 0 12px;
+    border-radius:7px;
+    border:1px solid #29405d;
+    background:#081524;
+    color:white;
 }
 
-.danger{
-  background:#ffe0e5;
-  color:#c51f39;
-}
-
-input,
-select{
-  width:100%;
-  padding:12px;
-  margin:6px 0 14px;
-  border:1px solid #cbdceb;
-  border-radius:9px;
-  font-size:15px;
-}
-
-label{
-  font-weight:bold;
-  font-size:13px;
+textarea{
+    min-height:100px;
+    resize:vertical;
 }
 
 table{
-  width:100%;
-  border-collapse:collapse;
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
 }
 
-th,
-td{
-  padding:12px;
-  border-bottom:1px solid #dce6ef;
-  text-align:left;
+th,td{
+    padding:12px 8px;
+    border-bottom:1px solid #29405d;
+    text-align:center;
 }
 
 th{
-  background:#eaf5ff;
-  color:#0757b8;
-}
-
-.tablebox{
-  overflow-x:auto;
-}
-
-.hidden{
-  display:none !important;
-}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-.match{
-  background:white;
-  padding:18px;
-  border-radius:15px;
-  margin-bottom:12px;
-  border:1px solid #dceaf7;
+    background:#12263e;
+    color:#20d878;
 }
 
 .club{
-  text-align:center;
+    padding:14px;
+    background:#12263e;
+    border-radius:8px;
+    margin-bottom:8px;
 }
 
-.club .flag{
-  font-size:42px;
+.admin-box{
+    max-width:500px;
+    margin:auto;
 }
 
-.badge{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:20px;
-  background:#e5f3ff;
-  color:#0757b8;
-  font-size:11px;
-  font-weight:bold;
+.escondido{
+    display:none !important;
 }
 
-.admin-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  padding:12px 0;
-  border-bottom:1px solid #e5edf5;
+.msg{
+    padding:12px;
+    border-radius:8px;
+    margin-top:10px;
+    background:#12263e;
 }
 
-.muted{
-  color:#71839a;
+.perigo{
+    background:#a83232;
 }
 
-footer{
-  text-align:center;
-  padding:30px;
-  color:#71839a;
+.amarelo{
+    background:#8a6915;
 }
 
-@media(max-width:600px){
+.jogo{
+    background:#12263e;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:10px;
+}
 
-  .hero h1{
-    font-size:33px;
-  }
+.noticia,.aviso{
+    background:#12263e;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:12px;
+}
 
-  nav button{
-    flex:1;
-  }
+.small{
+    color:#9db0c7;
+    font-size:13px;
+}
 
+.acoes{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:10px;
 }
 </style>
 </head>
@@ -225,178 +177,70 @@ footer{
 
 <header>
 
-<div class="logo">⚽ TSL</div>
-<div class="subtitle">TOUCH SOCCER LEAGUE • BETA</div>
+<h1>⚽ TSL - TOUCH SOCCER LEAGUE</h1>
 
 <nav>
-
-<button onclick="mostrarPagina('home')">Início</button>
-
-<button onclick="mostrarPagina('div1')">
-1ª Divisão
-</button>
-
-<button onclick="mostrarPagina('div2')">
-2ª Divisão
-</button>
-
-<button onclick="mostrarPagina('matches')">
-Partidas
-</button>
-
-<button onclick="mostrarPagina('table')">
-Classificação
-</button>
-
-<button onclick="mostrarPagina('news')">
-Notícias
-</button>
-
-<button onclick="mostrarPagina('notices')">
-Avisos
-</button>
-
-<button onclick="mostrarPagina('admin')">
-🔐 Painel
-</button>
-
+<button onclick="abrirPagina('inicio')">Início</button>
+<button onclick="abrirPagina('primeira')">1ª Divisão</button>
+<button onclick="abrirPagina('segunda')">2ª Divisão</button>
+<button onclick="abrirPagina('partidas')">Partidas</button>
+<button onclick="abrirPagina('classificacao')">Classificação</button>
+<button onclick="abrirPagina('noticias')">Notícias</button>
+<button onclick="abrirPagina('avisos')">Avisos</button>
+<button onclick="abrirPagina('painel')">Painel</button>
 </nav>
 
 </header>
 
-
-<main>
-
+<div class="container">
 
 <!-- INÍCIO -->
+<section id="inicio" class="pagina ativa">
 
-<section id="home" class="page active">
-
-<div class="hero">
-
-<span class="badge">VERSÃO BETA</span>
-
-<h1>Touch Soccer League</h1>
-
-<p>
-Acompanhe clubes, partidas, classificação,
-notícias e avisos da TSL.
+<div class="card">
+<h2>🏆 Bem-vindo à TSL</h2>
+<p>Touch Soccer League</p>
+<p class="small">
+Acompanhe classificação, partidas, notícias e avisos da liga.
 </p>
-
 </div>
-
-
-<div class="grid">
 
 <div class="card">
-
-<h2>🥇 Primeira Divisão</h2>
-
-<p>Os principais clubes da competição.</p>
-
-<button
-class="primary"
-onclick="mostrarPagina('div1')">
-Ver clubes
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>🥈 Segunda Divisão</h2>
-
-<p>Confira os clubes da segunda divisão.</p>
-
-<button
-class="primary"
-onclick="mostrarPagina('div2')">
-Ver clubes
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>🏆 Classificação</h2>
-
-<p>Veja a tabela atualizada.</p>
-
-<button
-class="primary"
-onclick="mostrarPagina('table')">
-Ver classificação
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>📅 Partidas</h2>
-
-<p>Confira os próximos jogos.</p>
-
-<button
-class="primary"
-onclick="mostrarPagina('matches')">
-Ver partidas
-</button>
-
-</div>
-
-</div>
-
-
 <h2>📢 Últimos avisos</h2>
-
-<div id="homeAvisos"></div>
-
-</section>
-
-
-
-<!-- PRIMEIRA DIVISÃO -->
-
-<section id="div1" class="page">
-
-<div class="card">
-
-<h2>🥇 Primeira Divisão</h2>
-
-<div id="listaDiv1" class="grid"></div>
-
+<div id="inicioAvisos"></div>
 </div>
 
 </section>
 
 
-
-<!-- SEGUNDA DIVISÃO -->
-
-<section id="div2" class="page">
+<!-- PRIMEIRA -->
+<section id="primeira" class="pagina">
 
 <div class="card">
-
-<h2>🥈 Segunda Divisão</h2>
-
-<div id="listaDiv2" class="grid"></div>
-
+<h2>🥇 1ª DIVISÃO</h2>
+<div id="listaPrimeira"></div>
 </div>
 
 </section>
 
+
+<!-- SEGUNDA -->
+<section id="segunda" class="pagina">
+
+<div class="card">
+<h2>🥈 2ª DIVISÃO</h2>
+<div id="listaSegunda"></div>
+</div>
+
+</section>
 
 
 <!-- PARTIDAS -->
-
-<section id="matches" class="page">
+<section id="partidas" class="pagina">
 
 <div class="card">
 
-<h2>📅 Partidas</h2>
+<h2>⚽ PARTIDAS</h2>
 
 <div id="listaPartidas"></div>
 
@@ -405,23 +249,23 @@ Ver partidas
 </section>
 
 
-
 <!-- CLASSIFICAÇÃO -->
-
-<section id="table" class="page">
+<section id="classificacao" class="pagina">
 
 <div class="card">
 
-<h2>🏆 Classificação</h2>
+<h2>📊 CLASSIFICAÇÃO</h2>
 
-<div class="tablebox">
+<p class="small">
+A classificação é salva automaticamente neste navegador.
+</p>
+
+<div style="overflow-x:auto;">
 
 <table>
 
 <thead>
-
 <tr>
-
 <th>#</th>
 <th>Clube</th>
 <th>J</th>
@@ -429,12 +273,10 @@ Ver partidas
 <th>E</th>
 <th>D</th>
 <th>PTS</th>
-
 </tr>
-
 </thead>
 
-<tbody id="listaClassificacao"></tbody>
+<tbody id="tabelaPublica"></tbody>
 
 </table>
 
@@ -445,14 +287,12 @@ Ver partidas
 </section>
 
 
-
 <!-- NOTÍCIAS -->
-
-<section id="news" class="page">
+<section id="noticias" class="pagina">
 
 <div class="card">
 
-<h2>📰 Notícias</h2>
+<h2>📰 NOTÍCIAS</h2>
 
 <div id="listaNoticias"></div>
 
@@ -461,14 +301,12 @@ Ver partidas
 </section>
 
 
-
 <!-- AVISOS -->
-
-<section id="notices" class="page">
+<section id="avisos" class="pagina">
 
 <div class="card">
 
-<h2>📢 Avisos</h2>
+<h2>📢 AVISOS</h2>
 
 <div id="listaAvisos"></div>
 
@@ -477,1292 +315,887 @@ Ver partidas
 </section>
 
 
-
 <!-- PAINEL -->
+<section id="painel" class="pagina">
 
-<section id="admin" class="page">
+<div class="card admin-box">
 
+<div id="loginAdmin">
 
-<div id="loginBox" class="card">
-
-<h2>🔐 Painel Administrativo</h2>
-
-<p class="muted">
-Digite a senha para acessar o painel.
-</p>
-
-<label>Senha</label>
+<h2>🔐 PAINEL ADMINISTRATIVO</h2>
 
 <input
-id="senha"
+id="senhaAdmin"
 type="password"
 placeholder="Digite a senha"
 autocomplete="off"
 >
 
-<button
-class="primary"
-onclick="entrarPainel()">
-Entrar
+<button onclick="entrarAdmin()">
+ENTRAR
 </button>
+
+<p id="erroSenha" class="msg escondido">
+Senha incorreta.
+</p>
 
 </div>
 
 
+<div id="adminArea" class="escondido">
 
-<div id="painelBox" class="hidden">
+<h2>⚙️ PAINEL</h2>
 
+<p class="small">
+Alterações da classificação são salvas no navegador.
+</p>
 
-<div class="card">
-
-<h2>👑 Painel Administrativo</h2>
-
-<div class="actions">
-
-<button
-class="primary"
-onclick="abrirEditor('classificacaoEditor')">
-🏆 Classificação
-</button>
-
-<button
-class="primary"
-onclick="abrirEditor('partidasEditor')">
-📅 Partidas
-</button>
-
-<button
-class="primary"
-onclick="abrirEditor('noticiasEditor')">
-📰 Notícias
-</button>
-
-<button
-class="primary"
-onclick="abrirEditor('avisosEditor')">
-📢 Avisos
-</button>
-
-<button
-class="secondary"
-onclick="sairPainel()">
-Sair
-</button>
-
-</div>
-
-</div>
+<hr style="margin:20px 0;border-color:#29405d">
 
 
-
-<!-- EDITAR CLASSIFICAÇÃO -->
-
-<div
-id="classificacaoEditor"
-class="card hidden">
-
-<h3>🏆 Editar classificação</h3>
+<h3>📊 CLASSIFICAÇÃO</h3>
 
 <label>Clube</label>
 
-<select
-id="clubeSelecionado"
-onchange="carregarClube()">
+<select id="clubeSelecionado" onchange="carregarDadosClube()">
 </select>
 
 
-<label>Posição</label>
-
-<input
-id="posicao"
-type="number"
-min="1">
-
-
 <label>Jogos</label>
-
-<input
-id="jogos"
-type="number"
-min="0">
-
+<input id="campoJ" type="number" min="0">
 
 <label>Vitórias</label>
-
-<input
-id="vitorias"
-type="number"
-min="0">
-
+<input id="campoV" type="number" min="0">
 
 <label>Empates</label>
-
-<input
-id="empates"
-type="number"
-min="0">
-
+<input id="campoE" type="number" min="0">
 
 <label>Derrotas</label>
-
-<input
-id="derrotas"
-type="number"
-min="0">
-
+<input id="campoD" type="number" min="0">
 
 <label>Pontos</label>
+<input id="campoPTS" type="number" min="0">
 
-<input
-id="pontos"
-type="number"
-min="0">
+<div class="acoes">
 
+<button onclick="salvarClassificacao()">
+💾 SALVAR CLASSIFICAÇÃO
+</button>
 
-<button
-class="primary"
-onclick="salvarClassificacao()">
-💾 Salvar classificação
+<button onclick="zerarClube()" class="perigo">
+ZERAR CLUBE
 </button>
 
 </div>
 
+<p id="mensagemSalvar" class="msg escondido"></p>
 
 
-<!-- PARTIDAS -->
-
-<div
-id="partidasEditor"
-class="card hidden">
-
-<h3>📅 Adicionar partida</h3>
-
-<label>Mandante</label>
-
-<input
-id="mandante"
-placeholder="Ex.: Flamengo">
+<hr style="margin:25px 0;border-color:#29405d">
 
 
-<label>Visitante</label>
+<h3>⚽ NOVA PARTIDA</h3>
 
-<input
-id="visitante"
-placeholder="Ex.: Palmeiras">
+<input id="dataPartida" type="date">
 
+<input id="horaPartida" type="time">
 
-<label>Data</label>
+<input id="mandante" placeholder="Time mandante">
 
-<input
-id="dataPartida"
-type="date">
+<input id="visitante" placeholder="Time visitante">
 
-
-<label>Horário</label>
-
-<input
-id="horaPartida"
-type="time">
-
-
-<label>Placar</label>
-
-<input
-id="placarPartida"
-placeholder="A definir">
-
-
-<button
-class="primary"
-onclick="salvarPartida()">
-💾 Salvar partida
+<button onclick="salvarPartida()">
+💾 SALVAR PARTIDA
 </button>
 
 
-<h3>Partidas cadastradas</h3>
-
-<div id="partidasAdmin"></div>
-
-</div>
+<hr style="margin:25px 0;border-color:#29405d">
 
 
+<h3>📰 NOVA NOTÍCIA</h3>
 
-<!-- NOTÍCIAS -->
+<input id="tituloNoticia" placeholder="Título">
 
-<div
-id="noticiasEditor"
-class="card hidden">
+<textarea id="textoNoticia" placeholder="Texto da notícia"></textarea>
 
-<h3>📰 Nova notícia</h3>
-
-<label>Título</label>
-
-<input id="tituloNoticia">
+<button onclick="salvarNoticia()">
+PUBLICAR NOTÍCIA
+</button>
 
 
-<label>Texto</label>
-
-<input id="textoNoticia">
+<hr style="margin:25px 0;border-color:#29405d">
 
 
-<button
-class="primary"
-onclick="salvarNoticia()">
-💾 Salvar notícia
+<h3>📢 NOVO AVISO</h3>
+
+<textarea id="textoAviso" placeholder="Digite o aviso"></textarea>
+
+<button onclick="salvarAviso()">
+PUBLICAR AVISO
+</button>
+
+
+<hr style="margin:25px 0;border-color:#29405d">
+
+<button onclick="sairAdmin()" class="perigo">
+SAIR DO PAINEL
 </button>
 
 </div>
-
-
-
-<!-- AVISOS -->
-
-<div
-id="avisosEditor"
-class="card hidden">
-
-<h3>📢 Novo aviso</h3>
-
-<label>Título</label>
-
-<input id="tituloAviso">
-
-
-<label>Mensagem</label>
-
-<input id="textoAviso">
-
-
-<button
-class="primary"
-onclick="salvarAviso()">
-💾 Salvar aviso
-</button>
-
-</div>
-
 
 </div>
 
 </section>
 
-</main>
-
-
-<footer>
-
-TSL — Touch Soccer League • Beta
-
-</footer>
-
+</div>
 
 
 <script>
 
-/* ==========================================
+/* =====================================================
    CLUBES
-========================================== */
+===================================================== */
 
-var clubes = [
+const clubes = [
 
-["🇧🇷","Palmeiras","Brasil",1],
-["🇧🇷","Flamengo","Brasil",1],
-["🇧🇷","São Paulo","Brasil",1],
-["🇦🇷","River Plate","Argentina",1],
-["🇦🇷","Boca Juniors","Argentina",1],
-["🇧🇷","Santos","Brasil",1],
-["🇧🇷","Atlético Mineiro","Brasil",1],
-["🇨🇱","Colo-Colo","Chile",1],
+{nome:"🇧🇷 Palmeiras", divisao:"1ª Divisão"},
+{nome:"🇧🇷 Flamengo", divisao:"1ª Divisão"},
+{nome:"🇧🇷 São Paulo", divisao:"1ª Divisão"},
+{nome:"🇦🇷 River Plate", divisao:"1ª Divisão"},
+{nome:"🇦🇷 Boca Juniors", divisao:"1ª Divisão"},
+{nome:"🇧🇷 Santos", divisao:"1ª Divisão"},
+{nome:"🇧🇷 Atlético Mineiro", divisao:"1ª Divisão"},
+{nome:"🇨🇱 Colo-Colo", divisao:"1ª Divisão"},
 
-["🇦🇷","Talleres","Argentina",2],
-["🇦🇷","Racing","Argentina",2],
-["🇧🇷","Corinthians","Brasil",2],
-["🇧🇷","Fluminense","Brasil",2],
-["🇪🇨","Barcelona de Guayaquil","Equador",2],
-["🇧🇷","Internacional","Brasil",2],
-["🇺🇾","Nacional","Uruguai",2],
-["🇧🇷","Grêmio","Brasil",2]
+{nome:"🇦🇷 Talleres", divisao:"2ª Divisão"},
+{nome:"🇦🇷 Racing", divisao:"2ª Divisão"},
+{nome:"🇧🇷 Corinthians", divisao:"2ª Divisão"},
+{nome:"🇧🇷 Fluminense", divisao:"2ª Divisão"},
+{nome:"🇪🇨 Barcelona de Guayaquil", divisao:"2ª Divisão"},
+{nome:"🇧🇷 Internacional", divisao:"2ª Divisão"},
+{nome:"🇺🇾 Nacional", divisao:"2ª Divisão"},
+{nome:"🇧🇷 Grêmio", divisao:"2ª Divisão"}
 
 ];
 
 
+/* =====================================================
+   CHAVE FIXA DO BANCO LOCAL
+===================================================== */
 
-/* ==========================================
-   CARREGAR DADOS SALVOS
-========================================== */
-
-var tabela =
-JSON.parse(localStorage.getItem("tsl_tabela")) || null;
-
-var partidas =
-JSON.parse(localStorage.getItem("tsl_partidas")) || [];
-
-var noticias =
-JSON.parse(localStorage.getItem("tsl_noticias")) || [];
-
-var avisos =
-JSON.parse(localStorage.getItem("tsl_avisos")) || [];
+const CHAVE_TABELA = "TSL_CLASSIFICACAO_V3";
+const CHAVE_PARTIDAS = "TSL_PARTIDAS_V3";
+const CHAVE_NOTICIAS = "TSL_NOTICIAS_V3";
+const CHAVE_AVISOS = "TSL_AVISOS_V3";
 
 
+/* =====================================================
+   CRIAR CLASSIFICAÇÃO
+===================================================== */
 
-/* ==========================================
-   CRIAR TABELA INICIAL
-========================================== */
+function criarClassificacaoInicial(){
 
-if(!tabela){
+    let tabela = {};
 
-tabela=[];
+    clubes.forEach(clube => {
 
-for(var i=0;i<clubes.length;i++){
+        tabela[clube.nome] = {
+            nome: clube.nome,
+            divisao: clube.divisao,
+            J: 0,
+            V: 0,
+            E: 0,
+            D: 0,
+            PTS: 0
+        };
 
-tabela.push({
+    });
 
-nome:clubes[i][1],
-flag:clubes[i][0],
-j:0,
-v:0,
-e:0,
-d:0,
-pts:0
-
-});
-
-}
-
-localStorage.setItem(
-"tsl_tabela",
-JSON.stringify(tabela)
-);
-
+    return tabela;
 }
 
 
+/* =====================================================
+   CARREGAR CLASSIFICAÇÃO
+===================================================== */
 
-/* ==========================================
-   NAVEGAÇÃO
-========================================== */
+function obterTabela(){
 
-function mostrarPagina(id){
+    try{
 
-var paginas =
-document.querySelectorAll(".page");
+        const salvo = localStorage.getItem(CHAVE_TABELA);
 
-for(var i=0;i<paginas.length;i++){
+        if(!salvo){
 
-paginas[i].classList.remove("active");
+            const nova = criarClassificacaoInicial();
+
+            localStorage.setItem(
+                CHAVE_TABELA,
+                JSON.stringify(nova)
+            );
+
+            return nova;
+        }
+
+        const tabela = JSON.parse(salvo);
+
+        /*
+        Garante que clubes novos não apaguem
+        os dados antigos.
+        */
+
+        clubes.forEach(clube => {
+
+            if(!tabela[clube.nome]){
+
+                tabela[clube.nome] = {
+                    nome:clube.nome,
+                    divisao:clube.divisao,
+                    J:0,
+                    V:0,
+                    E:0,
+                    D:0,
+                    PTS:0
+                };
+
+            }
+
+        });
+
+        return tabela;
+
+    }catch(e){
+
+        console.error("Erro ao carregar classificação:",e);
+
+        return criarClassificacaoInicial();
+    }
 
 }
 
-var pagina =
-document.getElementById(id);
 
-if(pagina){
+/* =====================================================
+   SALVAR CLASSIFICAÇÃO
+===================================================== */
 
-pagina.classList.add("active");
+function salvarTabela(tabela){
+
+    try{
+
+        localStorage.setItem(
+            CHAVE_TABELA,
+            JSON.stringify(tabela)
+        );
+
+        return true;
+
+    }catch(e){
+
+        alert(
+            "Não foi possível salvar os dados neste navegador."
+        );
+
+        console.error(e);
+
+        return false;
+    }
 
 }
 
-window.scrollTo(0,0);
+
+/* =====================================================
+   MOSTRAR PÁGINA
+===================================================== */
+
+function abrirPagina(id){
+
+    document.querySelectorAll(".pagina")
+    .forEach(p => p.classList.remove("ativa"));
+
+    const pagina = document.getElementById(id);
+
+    if(pagina){
+        pagina.classList.add("ativa");
+    }
+
+    if(id === "classificacao"){
+        renderizarTabela();
+    }
+
+    if(id === "inicio"){
+        renderizarInicioAvisos();
+    }
 
 }
 
 
-
-/* ==========================================
+/* =====================================================
    CLUBES
-========================================== */
+===================================================== */
 
 function renderizarClubes(){
 
-var div1="";
-var div2="";
+    const primeira =
+        document.getElementById("listaPrimeira");
 
-for(var i=0;i<clubes.length;i++){
+    const segunda =
+        document.getElementById("listaSegunda");
 
-var c=clubes[i];
+    primeira.innerHTML="";
+    segunda.innerHTML="";
 
-var html=
+    clubes.forEach(clube => {
 
-"<div class='card club'>"+
+        const div=document.createElement("div");
 
-"<div class='flag'>"+
-c[0]+
-"</div>"+
+        div.className="club";
 
-"<h3>"+
-c[1]+
-"</h3>"+
+        div.textContent=clube.nome;
 
-"<p class='muted'>"+
-c[2]+
-"</p>"+
+        if(clube.divisao==="1ª Divisão"){
+            primeira.appendChild(div);
+        }else{
+            segunda.appendChild(div);
+        }
 
-"</div>";
-
-if(c[3]===1){
-
-div1+=html;
-
-}else{
-
-div2+=html;
-
-}
-
-}
-
-document.getElementById(
-"listaDiv1"
-).innerHTML=div1;
-
-document.getElementById(
-"listaDiv2"
-).innerHTML=div2;
+    });
 
 }
 
 
-
-/* ==========================================
-   CLASSIFICAÇÃO
-========================================== */
+/* =====================================================
+   CLASSIFICAÇÃO PÚBLICA
+===================================================== */
 
 function renderizarTabela(){
 
-var html="";
+    const tabela = obterTabela();
 
-for(var i=0;i<tabela.length;i++){
+    const primeira =
+        clubes
+        .filter(c=>c.divisao==="1ª Divisão")
+        .map(c=>tabela[c.nome])
+        .sort((a,b)=>b.PTS-a.PTS);
 
-var c=tabela[i];
+    const segunda =
+        clubes
+        .filter(c=>c.divisao==="2ª Divisão")
+        .map(c=>tabela[c.nome])
+        .sort((a,b)=>b.PTS-a.PTS);
 
-html+=
+    const todas = primeira.concat(segunda);
 
-"<tr>"+
+    const corpo =
+        document.getElementById("tabelaPublica");
 
-"<td><b>"+
-(i+1)+
-"</b></td>"+
+    corpo.innerHTML="";
 
-"<td>"+
-c.flag+
-" "+
-c.nome+
-"</td>"+
+    todas.forEach((clube,index)=>{
 
-"<td>"+
-c.j+
-"</td>"+
+        const tr=document.createElement("tr");
 
-"<td>"+
-c.v+
-"</td>"+
+        tr.innerHTML=`
 
-"<td>"+
-c.e+
-"</td>"+
+        <td>${index+1}</td>
 
-"<td>"+
-c.d+
-"</td>"+
+        <td>${clube.nome}</td>
 
-"<td><b>"+
-c.pts+
-"</b></td>"+
+        <td>${clube.J}</td>
 
-"</tr>";
+        <td>${clube.V}</td>
 
-}
+        <td>${clube.E}</td>
 
-document.getElementById(
-"listaClassificacao"
-).innerHTML=html;
+        <td>${clube.D}</td>
 
-}
+        <td><strong>${clube.PTS}</strong></td>
 
+        `;
 
+        corpo.appendChild(tr);
 
-/* ==========================================
-   PAINEL
-========================================== */
-
-function entrarPainel(){
-
-var senha =
-document.getElementById("senha").value;
-
-if(senha === "tslbeta"){
-
-document.getElementById(
-"loginBox"
-).classList.add("hidden");
-
-document.getElementById(
-"painelBox"
-).classList.remove("hidden");
-
-document.getElementById(
-"senha"
-).value="";
-
-}else{
-
-document.getElementById(
-"senha"
-).value="";
-
-alert("Senha incorreta.");
-
-}
+    });
 
 }
 
 
+/* =====================================================
+   LOGIN
+===================================================== */
 
-function sairPainel(){
+function entrarAdmin(){
 
-document.getElementById(
-"painelBox"
-).classList.add("hidden");
+    const senha =
+        document.getElementById("senhaAdmin").value;
 
-document.getElementById(
-"loginBox"
-).classList.remove("hidden");
+    /*
+    A senha é verificada aqui.
+    O campo não mostra a senha na tela.
+    */
 
-fecharEditores();
+    if(senha === "tslbeta"){
 
-}
+        document
+        .getElementById("loginAdmin")
+        .classList.add("escondido");
 
+        document
+        .getElementById("adminArea")
+        .classList.remove("escondido");
 
+        preencherClubes();
 
-/* ==========================================
-   EDITORES
-========================================== */
+    }else{
 
-function fecharEditores(){
+        document
+        .getElementById("erroSenha")
+        .classList.remove("escondido");
 
-var ids=[
-
-"classificacaoEditor",
-"partidasEditor",
-"noticiasEditor",
-"avisosEditor"
-
-];
-
-for(var i=0;i<ids.length;i++){
-
-document.getElementById(
-ids[i]
-).classList.add("hidden");
-
-}
+    }
 
 }
 
 
+/* =====================================================
+   SAIR
+===================================================== */
 
-function abrirEditor(id){
+function sairAdmin(){
 
-fecharEditores();
+    document
+    .getElementById("adminArea")
+    .classList.add("escondido");
 
-document.getElementById(
-id
-).classList.remove("hidden");
+    document
+    .getElementById("loginAdmin")
+    .classList.remove("escondido");
 
-
-if(id==="classificacaoEditor"){
-
-preencherClubesPainel();
-
-}
-
-
-if(id==="partidasEditor"){
-
-renderizarPartidasAdmin();
-
-}
+    document
+    .getElementById("senhaAdmin")
+    .value="";
 
 }
 
 
+/* =====================================================
+   PREENCHER SELECT
+===================================================== */
 
-/* ==========================================
-   CLASSIFICAÇÃO - PAINEL
-========================================== */
+function preencherClubes(){
 
-function preencherClubesPainel(){
+    const select =
+        document.getElementById("clubeSelecionado");
 
-var select =
-document.getElementById(
-"clubeSelecionado"
-);
+    select.innerHTML="";
 
-select.innerHTML="";
+    clubes.forEach(clube=>{
 
-for(var i=0;i<tabela.length;i++){
+        const option =
+            document.createElement("option");
 
-var option =
-document.createElement("option");
+        option.value=clube.nome;
 
-option.value=i;
+        option.textContent=clube.nome;
 
-option.textContent =
-(i+1)+
-"º - "+
-tabela[i].nome;
+        select.appendChild(option);
 
-select.appendChild(option);
+    });
 
-}
-
-carregarClube();
+    carregarDadosClube();
 
 }
 
 
+/* =====================================================
+   CARREGAR CLUBE
+===================================================== */
 
-function carregarClube(){
+function carregarDadosClube(){
 
-var i =
-parseInt(
-document.getElementById(
-"clubeSelecionado"
-).value
-);
+    const nome =
+        document.getElementById("clubeSelecionado").value;
 
-var c=tabela[i];
+    const tabela=obterTabela();
 
-if(!c)return;
+    const clube=tabela[nome];
 
-document.getElementById(
-"posicao"
-).value=i+1;
+    if(!clube)return;
 
-document.getElementById(
-"jogos"
-).value=c.j;
-
-document.getElementById(
-"vitorias"
-).value=c.v;
-
-document.getElementById(
-"empates"
-).value=c.e;
-
-document.getElementById(
-"derrotas"
-).value=c.d;
-
-document.getElementById(
-"pontos"
-).value=c.pts;
+    document.getElementById("campoJ").value=clube.J;
+    document.getElementById("campoV").value=clube.V;
+    document.getElementById("campoE").value=clube.E;
+    document.getElementById("campoD").value=clube.D;
+    document.getElementById("campoPTS").value=clube.PTS;
 
 }
 
 
-
-/* ==========================================
+/* =====================================================
    SALVAR CLASSIFICAÇÃO
-========================================== */
+===================================================== */
 
 function salvarClassificacao(){
 
-var antigo =
-parseInt(
-document.getElementById(
-"clubeSelecionado"
-).value
-);
+    const nome =
+        document.getElementById("clubeSelecionado").value;
 
-var c=tabela[antigo];
+    const tabela=obterTabela();
 
-c.j =
-parseInt(
-document.getElementById("jogos").value
-)||0;
-
-c.v =
-parseInt(
-document.getElementById("vitorias").value
-)||0;
-
-c.e =
-parseInt(
-document.getElementById("empates").value
-)||0;
-
-c.d =
-parseInt(
-document.getElementById("derrotas").value
-)||0;
-
-c.pts =
-parseInt(
-document.getElementById("pontos").value
-)||0;
+    if(!tabela[nome])return;
 
 
-var nova =
-parseInt(
-document.getElementById("posicao").value
-)||antigo+1;
+    tabela[nome].J =
+        Number(document.getElementById("campoJ").value) || 0;
+
+    tabela[nome].V =
+        Number(document.getElementById("campoV").value) || 0;
+
+    tabela[nome].E =
+        Number(document.getElementById("campoE").value) || 0;
+
+    tabela[nome].D =
+        Number(document.getElementById("campoD").value) || 0;
+
+    tabela[nome].PTS =
+        Number(document.getElementById("campoPTS").value) || 0;
 
 
-if(nova<1){
-nova=1;
-}
+    /*
+    SALVA IMEDIATAMENTE
+    */
 
-if(nova>tabela.length){
-nova=tabela.length;
-}
+    const sucesso=salvarTabela(tabela);
 
 
-tabela.splice(antigo,1);
+    if(sucesso){
 
-tabela.splice(nova-1,0,c);
+        document
+        .getElementById("mensagemSalvar")
+        .classList.remove("escondido");
 
+        document
+        .getElementById("mensagemSalvar")
+        .textContent =
+        "✅ CLASSIFICAÇÃO SALVA COM SUCESSO!";
 
-/* SALVA DE VERDADE */
+        /*
+        Atualiza a classificação pública
+        imediatamente.
+        */
 
-localStorage.setItem(
-"tsl_tabela",
-JSON.stringify(tabela)
-);
+        renderizarTabela();
 
-
-renderizarTabela();
-
-preencherClubesPainel();
-
-alert(
-"Classificação salva com sucesso!"
-);
+    }
 
 }
 
 
+/* =====================================================
+   ZERAR CLUBE
+===================================================== */
 
-/* ==========================================
+function zerarClube(){
+
+    const nome =
+        document.getElementById("clubeSelecionado").value;
+
+    const tabela=obterTabela();
+
+    if(!tabela[nome])return;
+
+
+    tabela[nome].J=0;
+    tabela[nome].V=0;
+    tabela[nome].E=0;
+    tabela[nome].D=0;
+    tabela[nome].PTS=0;
+
+
+    salvarTabela(tabela);
+
+    carregarDadosClube();
+
+    renderizarTabela();
+
+}
+
+
+/* =====================================================
    PARTIDAS
-========================================== */
+===================================================== */
+
+function obterPartidas(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(CHAVE_PARTIDAS)
+        ) || [];
+
+    }catch(e){
+
+        return [];
+
+    }
+
+}
+
 
 function salvarPartida(){
 
-var mandante =
-document.getElementById(
-"mandante"
-).value.trim();
+    const data =
+        document.getElementById("dataPartida").value;
 
-var visitante =
-document.getElementById(
-"visitante"
-).value.trim();
+    const hora =
+        document.getElementById("horaPartida").value;
 
-if(!mandante || !visitante){
+    const mandante =
+        document.getElementById("mandante").value.trim();
 
-alert(
-"Digite o mandante e o visitante."
-);
-
-return;
-
-}
+    const visitante =
+        document.getElementById("visitante").value.trim();
 
 
-var partida={
+    if(!mandante || !visitante){
 
-mandante:mandante,
+        alert("Preencha os dois times.");
 
-visitante:visitante,
-
-data:
-document.getElementById(
-"dataPartida"
-).value,
-
-hora:
-document.getElementById(
-"horaPartida"
-).value,
-
-placar:
-document.getElementById(
-"placarPartida"
-).value || "A definir"
-
-};
+        return;
+    }
 
 
-partidas.push(partida);
+    const partidas=obterPartidas();
 
 
-/* SALVA */
+    partidas.push({
 
-localStorage.setItem(
-"tsl_partidas",
-JSON.stringify(partidas)
-);
+        data:data,
+        hora:hora,
+        mandante:mandante,
+        visitante:visitante
 
-
-document.getElementById(
-"mandante"
-).value="";
-
-document.getElementById(
-"visitante"
-).value="";
-
-document.getElementById(
-"dataPartida"
-).value="";
-
-document.getElementById(
-"horaPartida"
-).value="";
-
-document.getElementById(
-"placarPartida"
-).value="";
+    });
 
 
-renderizarPartidas();
+    localStorage.setItem(
+        CHAVE_PARTIDAS,
+        JSON.stringify(partidas)
+    );
 
-renderizarPartidasAdmin();
 
-alert(
-"Partida salva com sucesso!"
-);
+    document.getElementById("mandante").value="";
+    document.getElementById("visitante").value="";
+
+    renderizarPartidas();
+
+    alert("Partida salva!");
 
 }
 
-
-
-/* ==========================================
-   MOSTRAR PARTIDAS
-========================================== */
 
 function renderizarPartidas(){
 
-var area =
-document.getElementById(
-"listaPartidas"
-);
+    const lista =
+        document.getElementById("listaPartidas");
 
-if(partidas.length===0){
+    const partidas=obterPartidas();
 
-area.innerHTML=
-
-"<div class='card'>"+
-"<h3>Nenhuma partida cadastrada.</h3>"+
-"</div>";
-
-return;
-
-}
+    lista.innerHTML="";
 
 
-var html="";
+    if(partidas.length===0){
+
+        lista.innerHTML=
+        "<p class='small'>Nenhuma partida cadastrada.</p>";
+
+        return;
+
+    }
 
 
-for(var i=0;i<partidas.length;i++){
+    partidas.forEach(p=>{
 
-var p=partidas[i];
+        const div=document.createElement("div");
 
-html+=
+        div.className="jogo";
 
-"<div class='match'>"+
+        div.innerHTML=`
 
-"<span class='badge'>PARTIDA</span>"+
+        <strong>
+        ${p.mandante} x ${p.visitante}
+        </strong>
 
-"<h3>"+
-p.mandante+
-" × "+
-p.visitante+
-"</h3>"+
+        <br>
 
-"<p>📅 "+
-(p.data||"A definir")+
-"</p>"+
+        <span class="small">
+        📅 ${p.data || "Data não definida"}
+        ${p.hora ? " • ⏰ "+p.hora : ""}
+        </span>
 
-"<p>⏰ "+
-(p.hora||"A definir")+
-"</p>"+
+        `;
 
-"<p>⚽ "+
-p.placar+
-"</p>"+
+        lista.appendChild(div);
 
-"</div>";
+    });
 
 }
 
 
-area.innerHTML=html;
-
-}
-
-
-
-/* ==========================================
-   PARTIDAS NO PAINEL
-========================================== */
-
-function renderizarPartidasAdmin(){
-
-var area =
-document.getElementById(
-"partidasAdmin"
-);
-
-if(partidas.length===0){
-
-area.innerHTML =
-"<p class='muted'>Nenhuma partida cadastrada.</p>";
-
-return;
-
-}
-
-
-var html="";
-
-
-for(var i=0;i<partidas.length;i++){
-
-var p=partidas[i];
-
-html+=
-
-"<div class='admin-row'>"+
-
-"<div>"+
-
-"<b>"+
-p.mandante+
-" × "+
-p.visitante+
-"</b>"+
-
-"<br>"+
-
-"<small>"+
-(p.data||"Sem data")+
-" • "+
-(p.hora||"Sem horário")+
-" • "+
-p.placar+
-"</small>"+
-
-"</div>"+
-
-"<button class='danger' "+
-"onclick='excluirPartida("+i+")'>"+
-"Excluir"+
-"</button>"+
-
-"</div>";
-
-}
-
-
-area.innerHTML=html;
-
-}
-
-
-
-function excluirPartida(i){
-
-partidas.splice(i,1);
-
-localStorage.setItem(
-"tsl_partidas",
-JSON.stringify(partidas)
-);
-
-renderizarPartidas();
-
-renderizarPartidasAdmin();
-
-}
-
-
-
-/* ==========================================
+/* =====================================================
    NOTÍCIAS
-========================================== */
+===================================================== */
+
+function obterNoticias(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(CHAVE_NOTICIAS)
+        ) || [];
+
+    }catch(e){
+
+        return [];
+
+    }
+
+}
+
 
 function salvarNoticia(){
 
-var titulo =
-document.getElementById(
-"tituloNoticia"
-).value.trim();
+    const titulo =
+        document.getElementById("tituloNoticia").value.trim();
 
-var texto =
-document.getElementById(
-"textoNoticia"
-).value.trim();
+    const texto =
+        document.getElementById("textoNoticia").value.trim();
 
 
-if(!titulo){
+    if(!titulo || !texto){
 
-alert("Digite o título.");
+        alert("Preencha título e texto.");
 
-return;
+        return;
 
-}
-
-
-noticias.unshift({
-
-titulo:titulo,
-
-texto:texto
-
-});
+    }
 
 
-localStorage.setItem(
-"tsl_noticias",
-JSON.stringify(noticias)
-);
+    const noticias=obterNoticias();
 
 
-document.getElementById(
-"tituloNoticia"
-).value="";
+    noticias.unshift({
 
-document.getElementById(
-"textoNoticia"
-).value="";
+        titulo:titulo,
+        texto:texto,
+        data:new Date().toLocaleString("pt-BR")
+
+    });
 
 
-renderizarNoticias();
+    localStorage.setItem(
+        CHAVE_NOTICIAS,
+        JSON.stringify(noticias)
+    );
 
-alert(
-"Notícia salva com sucesso!"
-);
+
+    document.getElementById("tituloNoticia").value="";
+    document.getElementById("textoNoticia").value="";
+
+
+    renderizarNoticias();
+
+    alert("Notícia publicada!");
 
 }
-
 
 
 function renderizarNoticias(){
 
-var area =
-document.getElementById(
-"listaNoticias"
-);
+    const lista =
+        document.getElementById("listaNoticias");
 
-if(noticias.length===0){
+    const noticias=obterNoticias();
 
-area.innerHTML =
-"<p class='muted'>Nenhuma notícia publicada.</p>";
+    lista.innerHTML="";
 
-return;
+
+    if(noticias.length===0){
+
+        lista.innerHTML=
+        "<p class='small'>Nenhuma notícia publicada.</p>";
+
+        return;
+
+    }
+
+
+    noticias.forEach(n=>{
+
+        const div=document.createElement("div");
+
+        div.className="noticia";
+
+        div.innerHTML=`
+
+        <h3>${n.titulo}</h3>
+
+        <p>${n.texto}</p>
+
+        <br>
+
+        <span class="small">
+        ${n.data}
+        </span>
+
+        `;
+
+        lista.appendChild(div);
+
+    });
 
 }
 
 
-var html="";
-
-
-for(var i=0;i<noticias.length;i++){
-
-html+=
-
-"<div class='card'>"+
-
-"<span class='badge'>NOTÍCIA</span>"+
-
-"<h3>"+
-noticias[i].titulo+
-"</h3>"+
-
-"<p>"+
-noticias[i].texto+
-"</p>"+
-
-"</div>";
-
-}
-
-
-area.innerHTML=html;
-
-}
-
-
-
-/* ==========================================
+/* =====================================================
    AVISOS
-========================================== */
+===================================================== */
+
+function obterAvisos(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(CHAVE_AVISOS)
+        ) || [];
+
+    }catch(e){
+
+        return [];
+
+    }
+
+}
+
 
 function salvarAviso(){
 
-var titulo =
-document.getElementById(
-"tituloAviso"
-).value.trim();
+    const texto =
+        document.getElementById("textoAviso").value.trim();
 
-var texto =
-document.getElementById(
-"textoAviso"
-).value.trim();
 
+    if(!texto){
 
-if(!titulo){
+        alert("Digite um aviso.");
 
-alert("Digite o título.");
+        return;
 
-return;
+    }
 
-}
 
+    const avisos=obterAvisos();
 
-avisos.unshift({
 
-titulo:titulo,
+    avisos.unshift({
 
-texto:texto
-
-});
-
-
-localStorage.setItem(
-"tsl_avisos",
-JSON.stringify(avisos)
-);
-
-
-document.getElementById(
-"tituloAviso"
-).value="";
-
-document.getElementById(
-"textoAviso"
-).value="";
-
-
-renderizarAvisos();
-
-alert(
-"Aviso salvo com sucesso!"
-);
-
-}
-
-
-
-/* ==========================================
-   AVISOS
-========================================== */
-
-function renderizarAvisos(){
-
-var area =
-document.getElementById(
-"listaAvisos"
-);
-
-var home =
-document.getElementById(
-"homeAvisos"
-);
-
-
-if(avisos.length===0){
-
-area.innerHTML =
-"<p class='muted'>Nenhum aviso publicado.</p>";
-
-home.innerHTML =
-"<div class='card'>"+
-"<p class='muted'>Nenhum aviso no momento.</p>"+
-"</div>";
-
-return;
-
-}
-
-
-var html="";
-
-for(var i=0;i<avisos.length;i++){
-
-html+=
-
-"<div class='card'>"+
-
-"<span class='badge'>AVISO</span>"+
-
-"<h3>"+
-avisos[i].titulo+
-"</h3>"+
-
-"<p>"+
-avisos[i].texto+
-"</p>"+
-
-"</div>";
-
-}
-
-area.innerHTML=html;
-
-
-/* mostra os 3 mais recentes na página inicial */
-
-var recentes="";
-
-for(
-var j=0;
-j<avisos.length && j<3;
-j++
-){
-
-recentes+=
-
-"<div class='card'>"+
-
-"<h3>"+
-avisos[j].titulo+
-"</h3>"+
-
-"<p>"+
-avisos[j].texto+
-"</p>"+
-
-"</div>";
-
-}
-
-home.innerHTML=recentes;
-
-}
-
-
-
-/* ==========================================
-   INICIAR SITE
-========================================== */
-
-renderizarClubes();
-
-renderizarTabela();
-
-renderizarPartidas();
-
-renderizarPartidasAdmin();
-
-renderizarNoticias();
-
-renderizarAvisos();
-
-</script>
-
-</body>
-</html>
+        texto:texto,
+        data:new Date().toLocaleSt
