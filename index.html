@@ -244,21 +244,15 @@ flex:1;
 
 </header>
 
-
 <main>
-
 
 <section id="home" class="page active">
 
 <div class="hero">
 
-<span class="badge">
-VERSÃO BETA
-</span>
+<span class="badge">VERSÃO BETA</span>
 
-<h1>
-Touch Soccer League
-</h1>
+<h1>Touch Soccer League</h1>
 
 <p>
 Bem-vindo à TSL. Aqui você encontra clubes, jogadores,
@@ -273,9 +267,7 @@ partidas, classificação, notícias e avisos da liga.
 
 <h2>🥇 Primeira Divisão</h2>
 
-<p>
-8 clubes participantes.
-</p>
+<p>8 clubes participantes.</p>
 
 <button class="primary" data-page="div1">
 Ver clubes
@@ -287,9 +279,7 @@ Ver clubes
 
 <h2>🥈 Segunda Divisão</h2>
 
-<p>
-8 clubes participantes.
-</p>
+<p>8 clubes participantes.</p>
 
 <button class="primary" data-page="div2">
 Ver clubes
@@ -395,31 +385,24 @@ Ver clubes
 
 <h2>🔐 Painel Administrativo</h2>
 
-
 <div id="login">
 
 <div class="card">
 
 <h3>👑 Entrar no painel</h3>
 
-<label>Senha</label>
+<label for="senha">Senha</label>
 
 <input
 id="senha"
 type="password"
 placeholder="Digite a senha"
+autocomplete="off"
 >
 
-<button
-id="entrar"
-class="primary"
->
+<button id="entrar" class="primary">
 Entrar
 </button>
-
-<p class="muted">
-Senha padrão: <b>tslbeta</b>
-</p>
 
 </div>
 
@@ -433,7 +416,7 @@ Senha padrão: <b>tslbeta</b>
 <h2>👑 Painel da TSL</h2>
 
 <p>
-Você está no painel administrativo.
+Área administrativa da Touch Soccer League.
 </p>
 
 <div class="actions">
@@ -467,7 +450,7 @@ Sair
 
 <h3>🏆 Modificar classificação</h3>
 
-<label>Clube</label>
+<label for="clubeSelect">Clube</label>
 
 <select id="clubeSelect"></select>
 
@@ -593,7 +576,6 @@ Sair
 
 </main>
 
-
 <footer>
 TSL — Touch Soccer League • Beta
 </footer>
@@ -601,11 +583,11 @@ TSL — Touch Soccer League • Beta
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded",function(){
 
 /* CLUBES */
 
-const clubes = [
+const clubes=[
 
 {flag:"🇧🇷",nome:"Palmeiras",pais:"Brasil",div:1},
 {flag:"🇧🇷",nome:"Flamengo",pais:"Brasil",div:1},
@@ -628,15 +610,24 @@ const clubes = [
 ];
 
 
-/* CLASSIFICAÇÃO */
+/*
+  SENHA DO PAINEL
 
-let classificacao =
-JSON.parse(
-localStorage.getItem("tsl_classificacao")
-) || clubes.map(function(c){
+  Ela não aparece na interface.
+  IMPORTANTE: em GitHub Pages, o código-fonte
+  continua sendo público para quem souber procurar.
+*/
 
-return {
+const SENHA_PAINEL="tslbeta";
 
+
+/* DADOS */
+
+let classificacao=
+JSON.parse(localStorage.getItem("tsl_classificacao"))||
+clubes.map(function(c){
+
+return{
 nome:c.nome,
 flag:c.flag,
 jogos:0,
@@ -644,22 +635,17 @@ vitorias:0,
 empates:0,
 derrotas:0,
 pontos:0
-
 };
 
 });
 
 
-let partidas =
-JSON.parse(
-localStorage.getItem("tsl_partidas")
-) || [];
+let partidas=
+JSON.parse(localStorage.getItem("tsl_partidas"))||[];
 
 
-let noticias =
-JSON.parse(
-localStorage.getItem("tsl_noticias")
-) || [
+let noticias=
+JSON.parse(localStorage.getItem("tsl_noticias"))||[
 
 {
 titulo:"TSL Beta está no ar!",
@@ -669,27 +655,22 @@ texto:"A Touch Soccer League está pronta."
 ];
 
 
-let avisos =
-JSON.parse(
-localStorage.getItem("tsl_avisos")
-) || [];
+let avisos=
+JSON.parse(localStorage.getItem("tsl_avisos"))||[];
 
 
 /* NAVEGAÇÃO */
 
 function abrirPagina(id){
 
-document
-.querySelectorAll(".page")
+document.querySelectorAll(".page")
 .forEach(function(p){
 
 p.classList.remove("active");
 
 });
 
-
-const pagina =
-document.getElementById(id);
+const pagina=document.getElementById(id);
 
 if(pagina){
 
@@ -702,10 +683,7 @@ window.scrollTo(0,0);
 }
 
 
-/* TODOS OS BOTÕES DE NAVEGAÇÃO */
-
-document
-.querySelectorAll("[data-page]")
+document.querySelectorAll("[data-page]")
 .forEach(function(botao){
 
 botao.addEventListener("click",function(){
@@ -726,12 +704,12 @@ function mostrarClubes(div){
 return clubes
 .filter(function(c){
 
-return c.div === div;
+return c.div===div;
 
 })
 .map(function(c){
 
-return `
+return`
 
 <div class="card">
 
@@ -739,47 +717,33 @@ return `
 ${c.flag}
 </div>
 
-<h3>
-${c.nome}
-</h3>
+<h3>${c.nome}</h3>
 
-<p class="muted">
-${c.pais}
-</p>
+<p class="muted">${c.pais}</p>
 
 </div>
 
 `;
 
-})
-.join("");
+}).join("");
 
 }
 
 
-document
-.getElementById("div1List")
-.innerHTML =
-mostrarClubes(1);
+document.getElementById("div1List")
+.innerHTML=mostrarClubes(1);
 
-
-document
-.getElementById("div2List")
-.innerHTML =
-mostrarClubes(2);
+document.getElementById("div2List")
+.innerHTML=mostrarClubes(2);
 
 
 /* JOGADORES */
 
-document
-.getElementById("playersList")
-.innerHTML = `
+document.getElementById("playersList").innerHTML=`
 
 <div class="card">
 
-<h3>
-👤 Jogadores
-</h3>
+<h3>👤 Jogadores</h3>
 
 <p class="muted">
 Os jogadores cadastrados pela administração aparecerão aqui.
@@ -794,54 +758,37 @@ Os jogadores cadastrados pela administração aparecerão aqui.
 
 function atualizarTabela(){
 
-document
-.getElementById("tableList")
-.innerHTML =
+document.getElementById("tableList").innerHTML=
 
-classificacao
-.map(function(c,index){
+classificacao.map(function(c,index){
 
-return `
+return`
 
 <tr>
 
-<td>
-<b>${index+1}</b>
-</td>
+<td><b>${index+1}</b></td>
 
 <td>
 ${c.flag} <b>${c.nome}</b>
 </td>
 
-<td>
-${c.jogos}
-</td>
+<td>${c.jogos}</td>
 
-<td>
-${c.vitorias}
-</td>
+<td>${c.vitorias}</td>
 
-<td>
-${c.empates}
-</td>
+<td>${c.empates}</td>
 
-<td>
-${c.derrotas}
-</td>
+<td>${c.derrotas}</td>
 
-<td>
-<b>${c.pontos}</b>
-</td>
+<td><b>${c.pontos}</b></td>
 
 </tr>
 
 `;
 
-})
-.join("");
+}).join("");
 
 }
-
 
 atualizarTabela();
 
@@ -850,37 +797,27 @@ atualizarTabela();
 
 function atualizarNoticias(){
 
-document
-.getElementById("newsList")
-.innerHTML =
+document.getElementById("newsList").innerHTML=
 
 noticias.map(function(n){
 
-return `
+return`
 
 <div class="card">
 
-<span class="badge">
-NOTÍCIA
-</span>
+<span class="badge">NOTÍCIA</span>
 
-<h3>
-${n.titulo}
-</h3>
+<h3>${n.titulo}</h3>
 
-<p>
-${n.texto}
-</p>
+<p>${n.texto}</p>
 
 </div>
 
 `;
 
-})
-.join("");
+}).join("");
 
 }
-
 
 atualizarNoticias();
 
@@ -889,64 +826,46 @@ atualizarNoticias();
 
 function atualizarAvisos(){
 
-document
-.getElementById("noticesList")
-.innerHTML =
+document.getElementById("noticesList").innerHTML=
 
 avisos.map(function(a){
 
-return `
+return`
 
 <div class="card">
 
-<span class="badge">
-AVISO
-</span>
+<span class="badge">AVISO</span>
 
-<h3>
-${a.titulo}
-</h3>
+<h3>${a.titulo}</h3>
 
-<p>
-${a.texto}
-</p>
+<p>${a.texto}</p>
 
 </div>
 
 `;
 
-})
-.join("");
+}).join("");
 
 
-document
-.getElementById("homeNotices")
-.innerHTML =
+document.getElementById("homeNotices").innerHTML=
 
-avisos.slice(0,3)
-.map(function(a){
+avisos.slice(0,3).map(function(a){
 
-return `
+return`
 
 <div class="card">
 
-<h3>
-${a.titulo}
-</h3>
+<h3>${a.titulo}</h3>
 
-<p>
-${a.texto}
-</p>
+<p>${a.texto}</p>
 
 </div>
 
 `;
 
-})
-.join("");
+}).join("");
 
 }
-
 
 atualizarAvisos();
 
@@ -955,31 +874,28 @@ atualizarAvisos();
 
 function atualizarPartidas(){
 
-if(partidas.length === 0){
+if(partidas.length===0){
 
-document
-.getElementById("matchesList")
-.innerHTML = `
+document.getElementById("matchesList").innerHTML=`
 
 <div class="card">
 
-<h3>
-Nenhuma partida marcada.
-</h3>
+<h3>Nenhuma partida marcada.</h3>
 
 </div>
 
 `;
 
-}else{
+return;
 
-document
-.getElementById("matchesList")
-.innerHTML =
+}
+
+
+document.getElementById("matchesList").innerHTML=
 
 partidas.map(function(p){
 
-return `
+return`
 
 <div class="match">
 
@@ -993,15 +909,15 @@ ${p.mandante} × ${p.visitante}
 
 <div>
 
-📅 ${p.data || "A definir"}
+📅 ${p.data||"A definir"}
 
 <br>
 
-⏰ ${p.hora || "A definir"}
+⏰ ${p.hora||"A definir"}
 
 <br>
 
-⚽ ${p.placar || "A definir"}
+⚽ ${p.placar||"A definir"}
 
 </div>
 
@@ -1013,36 +929,29 @@ ${p.mandante} × ${p.visitante}
 
 }
 
-}
-
-
 atualizarPartidas();
 
 
 /* LOGIN */
 
-document
-.getElementById("entrar")
+document.getElementById("entrar")
 .addEventListener("click",function(){
 
-const senha =
-document.getElementById("senha").value;
+const senha=document.getElementById("senha").value;
 
-if(senha === "tslbeta"){
+if(senha===SENHA_PAINEL){
 
-document
-.getElementById("login")
+document.getElementById("login")
 .classList.add("hidden");
 
-document
-.getElementById("painel")
+document.getElementById("painel")
 .classList.remove("hidden");
 
-alert("Painel aberto!");
+document.getElementById("senha").value="";
 
 }else{
 
-alert("Senha incorreta!");
+alert("Senha incorreta.");
 
 }
 
@@ -1051,54 +960,45 @@ alert("Senha incorreta!");
 
 /* SAIR */
 
-document
-.getElementById("sair")
+document.getElementById("sair")
 .addEventListener("click",function(){
 
-document
-.getElementById("painel")
+document.getElementById("painel")
 .classList.add("hidden");
 
-document
-.getElementById("login")
+document.getElementById("login")
 .classList.remove("hidden");
 
-document
-.getElementById("senha")
-.value="";
+document.getElementById("senha").value="";
 
 });
 
 
-/* ESCONDER EDITORES */
+/* EDITORES */
 
 function esconderEditores(){
 
-document
-.querySelectorAll("#painel > .card")
-.forEach(function(card,index){
+document.getElementById("editorClassificacao")
+.classList.add("hidden");
 
-if(index > 0){
+document.getElementById("editorPartidas")
+.classList.add("hidden");
 
-card.classList.add("hidden");
+document.getElementById("editorNoticias")
+.classList.add("hidden");
+
+document.getElementById("editorAvisos")
+.classList.add("hidden");
 
 }
 
-});
 
-}
-
-
-/* ABRIR CLASSIFICAÇÃO */
-
-document
-.getElementById("btnClassificacao")
+document.getElementById("btnClassificacao")
 .addEventListener("click",function(){
 
 esconderEditores();
 
-document
-.getElementById("editorClassificacao")
+document.getElementById("editorClassificacao")
 .classList.remove("hidden");
 
 preencherClubes();
@@ -1106,16 +1006,12 @@ preencherClubes();
 });
 
 
-/* ABRIR PARTIDAS */
-
-document
-.getElementById("btnPartidas")
+document.getElementById("btnPartidas")
 .addEventListener("click",function(){
 
 esconderEditores();
 
-document
-.getElementById("editorPartidas")
+document.getElementById("editorPartidas")
 .classList.remove("hidden");
 
 mostrarPartidasAdmin();
@@ -1123,54 +1019,43 @@ mostrarPartidasAdmin();
 });
 
 
-/* ABRIR NOTÍCIAS */
-
-document
-.getElementById("btnNoticias")
+document.getElementById("btnNoticias")
 .addEventListener("click",function(){
 
 esconderEditores();
 
-document
-.getElementById("editorNoticias")
+document.getElementById("editorNoticias")
 .classList.remove("hidden");
 
 });
 
 
-/* ABRIR AVISOS */
-
-document
-.getElementById("btnAvisos")
+document.getElementById("btnAvisos")
 .addEventListener("click",function(){
 
 esconderEditores();
 
-document
-.getElementById("editorAvisos")
+document.getElementById("editorAvisos")
 .classList.remove("hidden");
 
 });
 
 
-/* SELECT CLUBES */
+/* SELECT */
 
 function preencherClubes(){
 
-const select =
-document.getElementById("clubeSelect");
+const select=document.getElementById("clubeSelect");
 
 select.innerHTML="";
 
 classificacao.forEach(function(c,index){
 
-const option =
-document.createElement("option");
+const option=document.createElement("option");
 
 option.value=index;
 
-option.textContent =
-(index+1)+"º - "+c.nome;
+option.textContent=(index+1)+"º - "+c.nome;
 
 select.appendChild(option);
 
@@ -1181,17 +1066,12 @@ carregarClube();
 }
 
 
-/* CARREGAR CLUBE */
-
 function carregarClube(){
 
-const index =
-Number(
-document.getElementById("clubeSelect").value
-);
+const index=
+Number(document.getElementById("clubeSelect").value);
 
-const c =
-classificacao[index];
+const c=classificacao[index];
 
 if(!c)return;
 
@@ -1205,79 +1085,46 @@ document.getElementById("pontos").value=c.pontos;
 }
 
 
-document
-.getElementById("clubeSelect")
+document.getElementById("clubeSelect")
 .addEventListener("change",carregarClube);
 
 
 /* SALVAR CLASSIFICAÇÃO */
 
-document
-.getElementById("salvarClassificacao")
+document.getElementById("salvarClassificacao")
 .addEventListener("click",function(){
 
-const antigo =
-Number(
-document.getElementById("clubeSelect").value
-);
+const antigo=
+Number(document.getElementById("clubeSelect").value);
 
-const clube =
-classificacao[antigo];
+const clube=classificacao[antigo];
 
 if(!clube)return;
 
+clube.jogos=
+Number(document.getElementById("jogos").value)||0;
 
-clube.jogos =
-Number(
-document.getElementById("jogos").value
-) || 0;
+clube.vitorias=
+Number(document.getElementById("vitorias").value)||0;
 
+clube.empates=
+Number(document.getElementById("empates").value)||0;
 
-clube.vitorias =
-Number(
-document.getElementById("vitorias").value
-) || 0;
+clube.derrotas=
+Number(document.getElementById("derrotas").value)||0;
 
+clube.pontos=
+Number(document.getElementById("pontos").value)||0;
 
-clube.empates =
-Number(
-document.getElementById("empates").value
-) || 0;
+let novaPosicao=
+Number(document.getElementById("posicao").value)||antigo+1;
 
-
-clube.derrotas =
-Number(
-document.getElementById("derrotas").value
-) || 0;
-
-
-clube.pontos =
-Number(
-document.getElementById("pontos").value
-) || 0;
-
-
-let novaPosicao =
-Number(
-document.getElementById("posicao").value
-) || antigo+1;
-
-
-novaPosicao =
-Math.max(
+novaPosicao=Math.max(
 1,
-Math.min(
-classificacao.length,
-novaPosicao
-)
+Math.min(classificacao.length,novaPosicao)
 );
 
-
-classificacao.splice(
-antigo,
-1
-);
-
+classificacao.splice(antigo,1);
 
 classificacao.splice(
 novaPosicao-1,
@@ -1285,54 +1132,38 @@ novaPosicao-1,
 clube
 );
 
-
 localStorage.setItem(
 "tsl_classificacao",
 JSON.stringify(classificacao)
 );
 
-
 atualizarTabela();
 
 preencherClubes();
 
-alert(
-"Classificação salva!"
-);
+alert("Classificação salva!");
 
 });
 
 
 /* SALVAR PARTIDA */
 
-document
-.getElementById("salvarPartida")
+document.getElementById("salvarPartida")
 .addEventListener("click",function(){
 
-const mandante =
-document
-.getElementById("mandante")
-.value
-.trim();
+const mandante=
+document.getElementById("mandante").value.trim();
 
+const visitante=
+document.getElementById("visitante").value.trim();
 
-const visitante =
-document
-.getElementById("visitante")
-.value
-.trim();
+if(!mandante||!visitante){
 
-
-if(!mandante || !visitante){
-
-alert(
-"Coloque os dois clubes!"
-);
+alert("Coloque os dois clubes!");
 
 return;
 
 }
-
 
 partidas.push({
 
@@ -1340,73 +1171,41 @@ mandante:mandante,
 
 visitante:visitante,
 
-data:
-document
-.getElementById("dataPartida")
-.value,
+data:document.getElementById("dataPartida").value,
 
-hora:
-document
-.getElementById("horaPartida")
-.value,
+hora:document.getElementById("horaPartida").value,
 
 placar:
-document
-.getElementById("placar")
-.value
-.trim() || "A definir"
+document.getElementById("placar").value.trim()||
+"A definir"
 
 });
-
 
 localStorage.setItem(
 "tsl_partidas",
 JSON.stringify(partidas)
 );
 
-
-document
-.getElementById("mandante")
-.value="";
-
-
-document
-.getElementById("visitante")
-.value="";
-
-
-document
-.getElementById("dataPartida")
-.value="";
-
-
-document
-.getElementById("horaPartida")
-.value="";
-
-
-document
-.getElementById("placar")
-.value="";
-
+document.getElementById("mandante").value="";
+document.getElementById("visitante").value="";
+document.getElementById("dataPartida").value="";
+document.getElementById("horaPartida").value="";
+document.getElementById("placar").value="";
 
 atualizarPartidas();
 
 mostrarPartidasAdmin();
 
-alert(
-"Partida salva!"
-);
+alert("Partida salva!");
 
 });
 
 
-/* PARTIDAS NO PAINEL */
+/* ADMIN PARTIDAS */
 
 function mostrarPartidasAdmin(){
 
-const area =
-document.getElementById("adminPartidas");
+const area=document.getElementById("adminPartidas");
 
 if(partidas.length===0){
 
@@ -1417,12 +1216,11 @@ return;
 
 }
 
-
-area.innerHTML =
+area.innerHTML=
 
 partidas.map(function(p,index){
 
-return `
+return`
 
 <div class="admin-item">
 
@@ -1435,8 +1233,8 @@ ${p.mandante} × ${p.visitante}
 <br>
 
 <small>
-${p.data || "Sem data"} •
-${p.hora || "Sem horário"} •
+${p.data||"Sem data"} •
+${p.hora||"Sem horário"} •
 ${p.placar}
 </small>
 
@@ -1456,21 +1254,15 @@ Excluir
 }).join("");
 
 
-area
-.querySelectorAll("[data-delete]")
+area.querySelectorAll("[data-delete]")
 .forEach(function(botao){
 
 botao.addEventListener("click",function(){
 
-const index =
-Number(
-botao.getAttribute("data-delete")
-);
+const index=
+Number(botao.getAttribute("data-delete"));
 
-partidas.splice(
-index,
-1
-);
+partidas.splice(index,1);
 
 localStorage.setItem(
 "tsl_partidas",
@@ -1488,138 +1280,89 @@ mostrarPartidasAdmin();
 }
 
 
-/* SALVAR NOTÍCIA */
+/* NOTÍCIA */
 
-document
-.getElementById("salvarNoticia")
+document.getElementById("salvarNoticia")
 .addEventListener("click",function(){
 
-const titulo =
-document
-.getElementById("tituloNoticia")
-.value
-.trim();
+const titulo=
+document.getElementById("tituloNoticia")
+.value.trim();
 
-
-const texto =
-document
-.getElementById("textoNoticia")
-.value
-.trim();
-
+const texto=
+document.getElementById("textoNoticia")
+.value.trim();
 
 if(!titulo){
 
-alert(
-"Coloque um título!"
-);
+alert("Coloque um título!");
 
 return;
 
 }
 
-
 noticias.unshift({
-
 titulo:titulo,
-
 texto:texto
-
 });
-
 
 localStorage.setItem(
 "tsl_noticias",
 JSON.stringify(noticias)
 );
 
-
-document
-.getElementById("tituloNoticia")
-.value="";
-
-
-document
-.getElementById("textoNoticia")
-.value="";
-
+document.getElementById("tituloNoticia").value="";
+document.getElementById("textoNoticia").value="";
 
 atualizarNoticias();
 
-alert(
-"Notícia salva!"
-);
+alert("Notícia salva!");
 
 });
 
 
-/* SALVAR AVISO */
+/* AVISO */
 
-document
-.getElementById("salvarAviso")
+document.getElementById("salvarAviso")
 .addEventListener("click",function(){
 
-const titulo =
-document
-.getElementById("tituloAviso")
-.value
-.trim();
+const titulo=
+document.getElementById("tituloAviso")
+.value.trim();
 
-
-const texto =
-document
-.getElementById("textoAviso")
-.value
-.trim();
-
+const texto=
+document.getElementById("textoAviso")
+.value.trim();
 
 if(!titulo){
 
-alert(
-"Coloque um título!"
-);
+alert("Coloque um título!");
 
 return;
 
 }
 
-
 avisos.unshift({
-
 titulo:titulo,
-
 texto:texto
-
 });
-
 
 localStorage.setItem(
 "tsl_avisos",
 JSON.stringify(avisos)
 );
 
-
-document
-.getElementById("tituloAviso")
-.value="";
-
-
-document
-.getElementById("textoAviso")
-.value="";
-
+document.getElementById("tituloAviso").value="";
+document.getElementById("textoAviso").value="";
 
 atualizarAvisos();
 
-alert(
-"Aviso salvo!"
-);
+alert("Aviso salvo!");
 
 });
-
 
 });
 </script>
 
 </body>
-</html>
+  </html>
