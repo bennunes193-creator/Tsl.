@@ -6,230 +6,215 @@
 <title>TSL - Touch Soccer League</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html,body{
-    margin:0;
-    padding:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f3f8ff;
-    color:#10233f;
-}
-
-button{
-    border:0;
-    border-radius:10px;
-    padding:11px 14px;
-    font-weight:700;
-    cursor:pointer;
-    touch-action:manipulation;
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f3f8ff;
+color:#10233f;
 }
 
 header{
-    background:linear-gradient(135deg,#0757b8,#12a1ff);
-    color:white;
-    padding:18px 5%;
-    position:sticky;
-    top:0;
-    z-index:100;
+background:linear-gradient(135deg,#0757b8,#13a5ff);
+color:white;
+padding:20px;
 }
 
-.brand{
-    font-size:25px;
-    font-weight:900;
+.logo{
+font-size:27px;
+font-weight:bold;
 }
 
-.brand small{
-    display:block;
-    font-size:10px;
-    margin-top:3px;
-    opacity:.85;
+.logo small{
+display:block;
+font-size:11px;
+opacity:.8;
 }
 
 nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
-    margin-top:14px;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:18px;
+}
+
+button{
+border:0;
+border-radius:10px;
+padding:12px 15px;
+font-weight:bold;
+cursor:pointer;
+font-size:14px;
 }
 
 nav button{
-    background:#ffffff25;
-    color:white;
+background:#ffffff22;
+color:white;
 }
 
 nav button:hover{
-    background:white;
-    color:#0757b8;
+background:white;
+color:#0757b8;
 }
 
 main{
-    max-width:1100px;
-    margin:auto;
-    padding:25px 5% 60px;
+max-width:1100px;
+margin:auto;
+padding:25px 15px 60px;
 }
 
 .page{
-    display:none;
+display:none;
 }
 
 .page.active{
-    display:block;
+display:block;
 }
 
 .hero{
-    background:linear-gradient(135deg,#0757b8,#15a2ff);
-    color:white;
-    border-radius:24px;
-    padding:35px 25px;
-    box-shadow:0 15px 40px #0757b833;
+background:linear-gradient(135deg,#0757b8,#16a7ff);
+color:white;
+padding:35px 25px;
+border-radius:25px;
+margin-bottom:25px;
 }
 
 .hero h1{
-    font-size:clamp(38px,8vw,68px);
-    margin:12px 0;
+font-size:50px;
+margin:15px 0;
+}
+
+.card{
+background:white;
+border:1px solid #d9e9fa;
+border-radius:17px;
+padding:20px;
+margin-bottom:15px;
+box-shadow:0 8px 25px #0000000a;
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:14px;
-}
-
-.card,
-.panel{
-    background:white;
-    border:1px solid #dbeaff;
-    border-radius:17px;
-    padding:18px;
-    margin-bottom:14px;
-    box-shadow:0 7px 22px #174b7d0d;
-}
-
-.badge{
-    display:inline-block;
-    background:#e5f2ff;
-    color:#0757b8;
-    border-radius:50px;
-    padding:6px 10px;
-    font-size:11px;
-    font-weight:800;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
 }
 
 .primary{
-    background:#0757b8;
-    color:white;
+background:#0757b8;
+color:white;
 }
 
 .secondary{
-    background:#eaf4ff;
-    color:#0757b8;
+background:#e6f3ff;
+color:#0757b8;
 }
 
 .danger{
-    background:#ffe8eb;
-    color:#c21f38;
+background:#ffe5e8;
+color:#c52038;
 }
 
-.muted{
-    color:#6d7e95;
-}
-
-.section{
-    margin:25px 0 14px;
-}
-
-input,
-select{
-    width:100%;
-    padding:12px;
-    border:1px solid #cbdced;
-    border-radius:10px;
-    margin:5px 0 12px;
-    background:white;
-    font-size:15px;
+input,select{
+width:100%;
+padding:13px;
+border:1px solid #cbdced;
+border-radius:10px;
+margin:6px 0 14px;
+font-size:15px;
 }
 
 label{
-    font-size:13px;
-    font-weight:700;
+font-weight:bold;
+font-size:13px;
 }
 
 .formgrid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:10px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
 }
 
 .actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
 }
 
 table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+width:100%;
+border-collapse:collapse;
+background:white;
 }
 
-th,
-td{
-    text-align:left;
-    padding:12px;
-    border-bottom:1px solid #e4edf8;
+th,td{
+padding:13px;
+text-align:left;
+border-bottom:1px solid #e3edf7;
 }
 
-th{
-    color:#6d7e95;
-    font-size:12px;
-}
-
-.tablewrap{
-    overflow-x:auto;
+.tablebox{
+overflow-x:auto;
 }
 
 .match{
-    background:white;
-    border:1px solid #dbeaff;
-    border-radius:15px;
-    padding:17px;
-    margin:10px 0;
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
+background:white;
+border:1px solid #d9e9fa;
+border-radius:15px;
+padding:18px;
+margin-bottom:12px;
+display:flex;
+justify-content:space-between;
+gap:15px;
+}
+
+.badge{
+display:inline-block;
+padding:6px 10px;
+border-radius:20px;
+background:#e5f3ff;
+color:#0757b8;
+font-size:11px;
+font-weight:bold;
 }
 
 .hidden{
-    display:none !important;
+display:none!important;
 }
 
-.adminrow{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    padding:12px 0;
-    border-bottom:1px solid #e4edf8;
+.muted{
+color:#71839a;
+}
+
+.admin-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+padding:12px 0;
+border-bottom:1px solid #e5edf5;
 }
 
 footer{
-    text-align:center;
-    color:#71839a;
-    padding:25px;
+text-align:center;
+padding:30px;
+color:#71839a;
 }
 
 @media(max-width:600px){
 
-    nav button{
-        flex:1;
-    }
+.hero h1{
+font-size:38px;
+}
 
-    .match{
-        flex-direction:column;
-    }
+.match{
+flex-direction:column;
+}
+
+nav button{
+flex:1;
+}
+
 }
 </style>
 </head>
@@ -238,57 +223,30 @@ footer{
 
 <header>
 
-<div class="brand">
+<div class="logo">
 ⚽ TSL
 <small>TOUCH SOCCER LEAGUE • BETA</small>
 </div>
 
 <nav>
 
-<button type="button" onclick="go('home')">
-Início
-</button>
-
-<button type="button" onclick="go('div1')">
-1ª Divisão
-</button>
-
-<button type="button" onclick="go('div2')">
-2ª Divisão
-</button>
-
-<button type="button" onclick="go('players')">
-Jogadores
-</button>
-
-<button type="button" onclick="go('matches')">
-Partidas
-</button>
-
-<button type="button" onclick="go('table')">
-Classificação
-</button>
-
-<button type="button" onclick="go('news')">
-Notícias
-</button>
-
-<button type="button" onclick="go('notices')">
-Avisos
-</button>
-
-<button type="button" onclick="go('admin')">
-🔐 Painel
-</button>
+<button data-page="home">Início</button>
+<button data-page="div1">1ª Divisão</button>
+<button data-page="div2">2ª Divisão</button>
+<button data-page="players">Jogadores</button>
+<button data-page="matches">Partidas</button>
+<button data-page="table">Classificação</button>
+<button data-page="news">Notícias</button>
+<button data-page="notices">Avisos</button>
+<button data-page="admin">🔐 Painel</button>
 
 </nav>
+
 </header>
 
 
 <main>
 
-
-<!-- INÍCIO -->
 
 <section id="home" class="page active">
 
@@ -303,63 +261,37 @@ Touch Soccer League
 </h1>
 
 <p>
-A competição, clubes, jogadores, partidas e novidades da TSL.
+Bem-vindo à TSL. Aqui você encontra clubes, jogadores,
+partidas, classificação, notícias e avisos da liga.
 </p>
 
-</div>
-
-<div class="section">
-<h2>
-Divisões
-</h2>
 </div>
 
 <div class="grid">
 
 <div class="card">
 
-<span class="badge">
-TOPO
-</span>
-
-<h3>
-🥇 Primeira Divisão
-</h3>
+<h2>🥇 Primeira Divisão</h2>
 
 <p>
 8 clubes participantes.
 </p>
 
-<button
-type="button"
-class="primary"
-onclick="go('div1')"
->
+<button class="primary" data-page="div1">
 Ver clubes
 </button>
 
 </div>
-
 
 <div class="card">
 
-<span class="badge">
-BAIXO
-</span>
-
-<h3>
-🥈 Segunda Divisão
-</h3>
+<h2>🥈 Segunda Divisão</h2>
 
 <p>
 8 clubes participantes.
 </p>
 
-<button
-type="button"
-class="primary"
-onclick="go('div2')"
->
+<button class="primary" data-page="div2">
 Ver clubes
 </button>
 
@@ -367,103 +299,54 @@ Ver clubes
 
 </div>
 
+<h2>📢 Últimos avisos</h2>
 
-<div class="section">
-<h2>
-Últimos avisos
-</h2>
-</div>
-
-<div
-id="homeNotices"
-class="grid"
-></div>
+<div id="homeNotices"></div>
 
 </section>
 
-
-<!-- PRIMEIRA DIVISÃO -->
 
 <section id="div1" class="page">
 
-<div class="section">
-<h2>
-🥇 Primeira Divisão
-</h2>
-</div>
+<h2>🥇 Primeira Divisão</h2>
 
-<div
-id="div1Grid"
-class="grid"
-></div>
+<div id="div1List" class="grid"></div>
 
 </section>
 
-
-<!-- SEGUNDA DIVISÃO -->
 
 <section id="div2" class="page">
 
-<div class="section">
-<h2>
-🥈 Segunda Divisão
-</h2>
-</div>
+<h2>🥈 Segunda Divisão</h2>
 
-<div
-id="div2Grid"
-class="grid"
-></div>
+<div id="div2List" class="grid"></div>
 
 </section>
 
-
-<!-- JOGADORES -->
 
 <section id="players" class="page">
 
-<div class="section">
-<h2>
-👤 Jogadores
-</h2>
-</div>
+<h2>👤 Jogadores</h2>
 
-<div
-id="playersGrid"
-class="grid"
-></div>
+<div id="playersList" class="grid"></div>
 
 </section>
 
-
-<!-- PARTIDAS -->
 
 <section id="matches" class="page">
 
-<div class="section">
-<h2>
-📅 Partidas
-</h2>
-</div>
+<h2>📅 Partidas</h2>
 
-<div
-id="matchesList"
-></div>
+<div id="matchesList"></div>
 
 </section>
 
 
-<!-- CLASSIFICAÇÃO -->
-
 <section id="table" class="page">
 
-<div class="section">
-<h2>
-🏆 Classificação
-</h2>
-</div>
+<h2>🏆 Classificação</h2>
 
-<div class="panel tablewrap">
+<div class="card tablebox">
 
 <table>
 
@@ -481,8 +364,7 @@ id="matchesList"
 
 </thead>
 
-<tbody id="tableBody">
-</tbody>
+<tbody id="tableList"></tbody>
 
 </table>
 
@@ -491,145 +373,88 @@ id="matchesList"
 </section>
 
 
-<!-- NOTÍCIAS -->
-
 <section id="news" class="page">
 
-<div class="section">
-<h2>
-📰 Notícias
-</h2>
-</div>
+<h2>📰 Notícias</h2>
 
-<div
-id="newsGrid"
-class="grid"
-></div>
+<div id="newsList" class="grid"></div>
 
 </section>
 
-
-<!-- AVISOS -->
 
 <section id="notices" class="page">
 
-<div class="section">
-<h2>
-📢 Avisos
-</h2>
-</div>
+<h2>📢 Avisos</h2>
 
-<div
-id="noticesGrid"
-class="grid"
-></div>
+<div id="noticesList" class="grid"></div>
 
 </section>
 
 
-<!-- PAINEL ADMIN -->
-
 <section id="admin" class="page">
 
-<div class="section">
-<h2>
-🔐 Painel Administrativo
-</h2>
-</div>
+<h2>🔐 Painel Administrativo</h2>
 
 
-<!-- LOGIN -->
+<div id="login">
 
-<div
-id="loginBox"
-class="panel"
->
+<div class="card">
 
-<h3>
-👑 Acesso do Dono
-</h3>
+<h3>👑 Entrar no painel</h3>
 
-<p class="muted">
-Digite a senha para abrir o painel.
-</p>
-
-<label>
-Senha
-</label>
+<label>Senha</label>
 
 <input
-id="password"
+id="senha"
 type="password"
-placeholder="Senha do painel"
+placeholder="Digite a senha"
 >
 
 <button
-type="button"
+id="entrar"
 class="primary"
-id="loginBtn"
 >
 Entrar
 </button>
 
+<p class="muted">
+Senha padrão: <b>tslbeta</b>
+</p>
+
+</div>
+
 </div>
 
 
-<!-- PAINEL -->
+<div id="painel" class="hidden">
 
-<div
-id="dashboard"
-class="hidden"
->
+<div class="card">
 
-<div class="panel">
+<h2>👑 Painel da TSL</h2>
 
-<h2>
-👑 Painel do Dono
-</h2>
-
-<p class="muted">
-Aqui você consegue modificar a TSL.
+<p>
+Você está no painel administrativo.
 </p>
 
 <div class="actions">
 
-<button
-type="button"
-class="primary"
-id="openStandings"
->
+<button id="btnClassificacao" class="primary">
 🏆 Classificação
 </button>
 
-<button
-type="button"
-class="primary"
-id="openMatches"
->
+<button id="btnPartidas" class="primary">
 📅 Partidas
 </button>
 
-<button
-type="button"
-class="primary"
-id="openNews"
->
+<button id="btnNoticias" class="primary">
 📰 Notícias
 </button>
 
-<button
-type="button"
-class="primary"
-id="openNotices"
->
+<button id="btnAvisos" class="primary">
 📢 Avisos
 </button>
 
-<button
-type="button"
-class="secondary"
-id="logoutBtn"
->
+<button id="sair" class="secondary">
 Sair
 </button>
 
@@ -638,308 +463,125 @@ Sair
 </div>
 
 
-<!-- CLASSIFICAÇÃO -->
+<div id="editorClassificacao" class="card hidden">
 
-<div
-id="standingsEditor"
-class="panel hidden"
->
+<h3>🏆 Modificar classificação</h3>
 
-<h3>
-🏆 Editar classificação
-</h3>
+<label>Clube</label>
 
-<label>
-Clube
-</label>
-
-<select id="standClub">
-</select>
-
+<select id="clubeSelect"></select>
 
 <div class="formgrid">
 
 <div>
-
-<label>
-Posição
-</label>
-
-<input
-id="stPos"
-type="number"
-min="1"
->
-
+<label>Posição</label>
+<input id="posicao" type="number" min="1">
 </div>
-
 
 <div>
-
-<label>
-Jogos
-</label>
-
-<input
-id="stJ"
-type="number"
-min="0"
->
-
+<label>Jogos</label>
+<input id="jogos" type="number" min="0">
 </div>
-
 
 <div>
-
-<label>
-Vitórias
-</label>
-
-<input
-id="stV"
-type="number"
-min="0"
->
-
+<label>Vitórias</label>
+<input id="vitorias" type="number" min="0">
 </div>
-
 
 <div>
-
-<label>
-Empates
-</label>
-
-<input
-id="stE"
-type="number"
-min="0"
->
-
+<label>Empates</label>
+<input id="empates" type="number" min="0">
 </div>
-
 
 <div>
-
-<label>
-Derrotas
-</label>
-
-<input
-id="stD"
-type="number"
-min="0"
->
-
+<label>Derrotas</label>
+<input id="derrotas" type="number" min="0">
 </div>
-
 
 <div>
-
-<label>
-Pontos
-</label>
-
-<input
-id="stPts"
-type="number"
-min="0"
->
-
+<label>Pontos</label>
+<input id="pontos" type="number" min="0">
 </div>
 
 </div>
 
-
-<button
-type="button"
-class="primary"
-id="saveStandBtn"
->
+<button id="salvarClassificacao" class="primary">
 💾 SALVAR CLASSIFICAÇÃO
 </button>
 
 </div>
 
 
-<!-- PARTIDAS -->
+<div id="editorPartidas" class="card hidden">
 
-<div
-id="matchEditor"
-class="panel hidden"
->
+<h3>📅 Adicionar partida</h3>
 
-<h3>
-📅 Adicionar partida
-</h3>
+<label>Mandante</label>
+<input id="mandante" placeholder="Flamengo">
 
+<label>Visitante</label>
+<input id="visitante" placeholder="Palmeiras">
 
 <div class="formgrid">
 
 <div>
-
-<label>
-Mandante
-</label>
-
-<input
-id="mHome"
-placeholder="Flamengo"
->
-
+<label>Data</label>
+<input id="dataPartida" type="date">
 </div>
-
 
 <div>
-
-<label>
-Visitante
-</label>
-
-<input
-id="mAway"
-placeholder="Palmeiras"
->
-
-</div>
-
-
-<div>
-
-<label>
-Data
-</label>
-
-<input
-id="mDate"
-type="date"
->
-
-</div>
-
-
-<div>
-
-<label>
-Horário
-</label>
-
-<input
-id="mTime"
-type="time"
->
-
-</div>
-
-
-<div>
-
-<label>
-Placar
-</label>
-
-<input
-id="mScore"
-placeholder="A definir"
->
-
+<label>Horário</label>
+<input id="horaPartida" type="time">
 </div>
 
 </div>
 
+<label>Placar</label>
+<input id="placar" placeholder="A definir">
 
-<button
-type="button"
-class="primary"
-id="saveMatchBtn"
->
+<button id="salvarPartida" class="primary">
 💾 SALVAR PARTIDA
 </button>
 
+<h3>Partidas cadastradas</h3>
 
-<hr>
-
-<div
-id="adminMatches"
-></div>
+<div id="adminPartidas"></div>
 
 </div>
 
 
-<!-- NOTÍCIAS -->
+<div id="editorNoticias" class="card hidden">
 
-<div
-id="newsEditor"
-class="panel hidden"
->
+<h3>📰 Adicionar notícia</h3>
 
-<h3>
-📰 Nova notícia
-</h3>
+<label>Título</label>
 
-<label>
-Título
-</label>
+<input id="tituloNoticia">
 
-<input
-id="nTitle"
-placeholder="Título da notícia"
->
+<label>Texto</label>
 
-<label>
-Texto
-</label>
+<input id="textoNoticia">
 
-<input
-id="nText"
-placeholder="Texto da notícia"
->
-
-<button
-type="button"
-class="primary"
-id="saveNewsBtn"
->
+<button id="salvarNoticia" class="primary">
 💾 SALVAR NOTÍCIA
 </button>
 
 </div>
 
 
-<!-- AVISOS -->
+<div id="editorAvisos" class="card hidden">
 
-<div
-id="noticeEditor"
-class="panel hidden"
->
+<h3>📢 Adicionar aviso</h3>
 
-<h3>
-📢 Novo aviso
-</h3>
+<label>Título</label>
 
-<label>
-Título
-</label>
+<input id="tituloAviso">
 
-<input
-id="aTitle"
-placeholder="Título do aviso"
->
+<label>Mensagem</label>
 
-<label>
-Mensagem
-</label>
+<input id="textoAviso">
 
-<input
-id="aText"
-placeholder="Mensagem do aviso"
->
-
-<button
-type="button"
-class="primary"
-id="saveNoticeBtn"
->
+<button id="salvarAviso" class="primary">
 💾 SALVAR AVISO
 </button>
 
@@ -959,204 +601,150 @@ TSL — Touch Soccer League • Beta
 
 <script>
 
-(function(){
-
-"use strict";
-
+document.addEventListener("DOMContentLoaded", function(){
 
 /* CLUBES */
 
-const clubs = [
+const clubes = [
 
-["🇧🇷","Palmeiras","Brasil",1],
-["🇧🇷","Flamengo","Brasil",1],
-["🇧🇷","São Paulo","Brasil",1],
-["🇦🇷","River Plate","Argentina",1],
-["🇦🇷","Boca Juniors","Argentina",1],
-["🇧🇷","Santos","Brasil",1],
-["🇧🇷","Atlético Mineiro","Brasil",1],
-["🇨🇱","Colo-Colo","Chile",1],
+{flag:"🇧🇷",nome:"Palmeiras",pais:"Brasil",div:1},
+{flag:"🇧🇷",nome:"Flamengo",pais:"Brasil",div:1},
+{flag:"🇧🇷",nome:"São Paulo",pais:"Brasil",div:1},
+{flag:"🇦🇷",nome:"River Plate",pais:"Argentina",div:1},
+{flag:"🇦🇷",nome:"Boca Juniors",pais:"Argentina",div:1},
+{flag:"🇧🇷",nome:"Santos",pais:"Brasil",div:1},
+{flag:"🇧🇷",nome:"Atlético Mineiro",pais:"Brasil",div:1},
+{flag:"🇨🇱",nome:"Colo-Colo",pais:"Chile",div:1},
 
-["🇦🇷","Talleres","Argentina",2],
-["🇦🇷","Racing","Argentina",2],
-["🇧🇷","Corinthians","Brasil",2],
-["🇧🇷","Fluminense","Brasil",2],
-["🇪🇨","Barcelona de Guayaquil","Equador",2],
-["🇧🇷","Internacional","Brasil",2],
-["🇺🇾","Nacional","Uruguai",2],
-["🇧🇷","Grêmio","Brasil",2]
+{flag:"🇦🇷",nome:"Talleres",pais:"Argentina",div:2},
+{flag:"🇦🇷",nome:"Racing",pais:"Argentina",div:2},
+{flag:"🇧🇷",nome:"Corinthians",pais:"Brasil",div:2},
+{flag:"🇧🇷",nome:"Fluminense",pais:"Brasil",div:2},
+{flag:"🇪🇨",nome:"Barcelona de Guayaquil",pais:"Equador",div:2},
+{flag:"🇧🇷",nome:"Internacional",pais:"Brasil",div:2},
+{flag:"🇺🇾",nome:"Nacional",pais:"Uruguai",div:2},
+{flag:"🇧🇷",nome:"Grêmio",pais:"Brasil",div:2}
 
 ];
 
 
-const defaultStandings =
-clubs.map(function(c){
+/* CLASSIFICAÇÃO */
+
+let classificacao =
+JSON.parse(
+localStorage.getItem("tsl_classificacao")
+) || clubes.map(function(c){
 
 return {
 
-club:c[1],
-flag:c[0],
-j:0,
-v:0,
-e:0,
-d:0,
-pts:0
+nome:c.nome,
+flag:c.flag,
+jogos:0,
+vitorias:0,
+empates:0,
+derrotas:0,
+pontos:0
 
 };
 
 });
 
 
-/* BANCO LOCAL */
-
-function readData(key,fallback){
-
-try{
-
-const data =
-localStorage.getItem(key);
-
-if(data){
-
-return JSON.parse(data);
-
-}
-
-}catch(error){}
-
-return fallback;
-
-}
+let partidas =
+JSON.parse(
+localStorage.getItem("tsl_partidas")
+) || [];
 
 
-let standings =
-readData(
-"tslStandings",
-defaultStandings
-);
-
-
-let matches =
-readData(
-"tslMatches",
-[]
-);
-
-
-let news =
-readData(
-"tslNews",
-[
+let noticias =
+JSON.parse(
+localStorage.getItem("tsl_noticias")
+) || [
 
 {
-title:"TSL Beta está no ar!",
-text:"A Touch Soccer League está pronta."
+titulo:"TSL Beta está no ar!",
+texto:"A Touch Soccer League está pronta."
 }
 
-]
-
-);
+];
 
 
-let notices =
-readData(
-"tslNotices",
-[]
-);
-
-
-let players = [];
-
-
-/* SALVAR */
-
-function saveData(){
-
-localStorage.setItem(
-"tslStandings",
-JSON.stringify(standings)
-);
-
-localStorage.setItem(
-"tslMatches",
-JSON.stringify(matches)
-);
-
-localStorage.setItem(
-"tslNews",
-JSON.stringify(news)
-);
-
-localStorage.setItem(
-"tslNotices",
-JSON.stringify(notices)
-);
-
-}
+let avisos =
+JSON.parse(
+localStorage.getItem("tsl_avisos")
+) || [];
 
 
 /* NAVEGAÇÃO */
 
-window.go = function(id){
+function abrirPagina(id){
 
 document
 .querySelectorAll(".page")
-.forEach(function(page){
+.forEach(function(p){
 
-page.classList.remove("active");
+p.classList.remove("active");
 
 });
 
 
-const selected =
+const pagina =
 document.getElementById(id);
 
+if(pagina){
 
-if(selected){
+pagina.classList.add("active");
 
-selected.classList.add("active");
+}
+
+window.scrollTo(0,0);
 
 }
 
 
-render();
+/* TODOS OS BOTÕES DE NAVEGAÇÃO */
 
-window.scrollTo(
-0,
-0
+document
+.querySelectorAll("[data-page]")
+.forEach(function(botao){
+
+botao.addEventListener("click",function(){
+
+abrirPagina(
+botao.getAttribute("data-page")
 );
 
-};
+});
+
+});
 
 
 /* CLUBES */
 
-function renderClubCards(div){
+function mostrarClubes(div){
 
-return clubs
-
+return clubes
 .filter(function(c){
 
-return c[3] === div;
+return c.div === div;
 
 })
-
 .map(function(c){
 
 return `
 
 <div class="card">
 
-<div style="font-size:30px">
-${c[0]}
+<div style="font-size:35px">
+${c.flag}
 </div>
 
 <h3>
-${c[1]}
+${c.nome}
 </h3>
 
 <p class="muted">
-${c[2]}
+${c.pais}
 </p>
 
 </div>
@@ -1164,194 +752,109 @@ ${c[2]}
 `;
 
 })
-
 .join("");
 
 }
 
 
-/* RENDER */
-
-function render(){
-
 document
-.getElementById("div1Grid")
+.getElementById("div1List")
 .innerHTML =
-renderClubCards(1);
+mostrarClubes(1);
 
 
 document
-.getElementById("div2Grid")
+.getElementById("div2List")
 .innerHTML =
-renderClubCards(2);
+mostrarClubes(2);
 
 
 /* JOGADORES */
 
-if(players.length){
-
 document
-.getElementById("playersGrid")
-.innerHTML =
-
-players.map(function(p){
-
-return `
-
-<div class="card">
-
-<h3>
-👤 ${p.name}
-</h3>
-
-<p>
-${p.position} • ${p.team}
-</p>
-
-</div>
-
-`;
-
-}).join("");
-
-}else{
-
-document
-.getElementById("playersGrid")
+.getElementById("playersList")
 .innerHTML = `
 
 <div class="card">
 
 <h3>
-Nenhum jogador cadastrado.
+👤 Jogadores
 </h3>
 
 <p class="muted">
-Os jogadores aparecerão aqui.
+Os jogadores cadastrados pela administração aparecerão aqui.
 </p>
 
 </div>
 
 `;
-
-}
-
-
-/* PARTIDAS */
-
-if(matches.length){
-
-document
-.getElementById("matchesList")
-.innerHTML =
-
-matches.map(function(m){
-
-return `
-
-<div class="match">
-
-<div>
-
-<b>
-${m.home} × ${m.away}
-</b>
-
-</div>
-
-<div>
-
-📅 ${m.date || "A definir"}
-
-<br>
-
-⏰ ${m.time || "A definir"}
-
-<br>
-
-⚽ ${m.score || "A definir"}
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}else{
-
-document
-.getElementById("matchesList")
-.innerHTML = `
-
-<div class="card">
-
-<h3>
-Nenhuma partida cadastrada.
-</h3>
-
-</div>
-
-`;
-
-}
 
 
 /* CLASSIFICAÇÃO */
 
+function atualizarTabela(){
+
 document
-.getElementById("tableBody")
+.getElementById("tableList")
 .innerHTML =
 
-standings.map(function(r,i){
+classificacao
+.map(function(c,index){
 
 return `
 
 <tr>
 
 <td>
-<b>${i + 1}</b>
+<b>${index+1}</b>
 </td>
 
 <td>
-${r.flag} <b>${r.club}</b>
+${c.flag} <b>${c.nome}</b>
 </td>
 
 <td>
-${r.j}
+${c.jogos}
 </td>
 
 <td>
-${r.v}
+${c.vitorias}
 </td>
 
 <td>
-${r.e}
+${c.empates}
 </td>
 
 <td>
-${r.d}
+${c.derrotas}
 </td>
 
 <td>
-<b>${r.pts}</b>
+<b>${c.pontos}</b>
 </td>
 
 </tr>
 
 `;
 
-}).join("");
+})
+.join("");
+
+}
+
+
+atualizarTabela();
 
 
 /* NOTÍCIAS */
 
+function atualizarNoticias(){
+
 document
-.getElementById("newsGrid")
+.getElementById("newsList")
 .innerHTML =
 
-news.map(function(n){
+noticias.map(function(n){
 
 return `
 
@@ -1362,27 +865,35 @@ NOTÍCIA
 </span>
 
 <h3>
-${n.title}
+${n.titulo}
 </h3>
 
 <p>
-${n.text}
+${n.texto}
 </p>
 
 </div>
 
 `;
 
-}).join("");
+})
+.join("");
+
+}
+
+
+atualizarNoticias();
 
 
 /* AVISOS */
 
+function atualizarAvisos(){
+
 document
-.getElementById("noticesGrid")
+.getElementById("noticesList")
 .innerHTML =
 
-notices.map(function(n){
+avisos.map(function(a){
 
 return `
 
@@ -1393,38 +904,106 @@ AVISO
 </span>
 
 <h3>
-${n.title}
+${a.titulo}
 </h3>
 
 <p>
-${n.text}
+${a.texto}
 </p>
 
 </div>
 
 `;
 
-}).join("");
+})
+.join("");
 
 
 document
 .getElementById("homeNotices")
 .innerHTML =
 
-notices.slice(0,2)
-.map(function(n){
+avisos.slice(0,3)
+.map(function(a){
 
 return `
 
 <div class="card">
 
 <h3>
-${n.title}
+${a.titulo}
 </h3>
 
 <p>
-${n.text}
+${a.texto}
 </p>
+
+</div>
+
+`;
+
+})
+.join("");
+
+}
+
+
+atualizarAvisos();
+
+
+/* PARTIDAS */
+
+function atualizarPartidas(){
+
+if(partidas.length === 0){
+
+document
+.getElementById("matchesList")
+.innerHTML = `
+
+<div class="card">
+
+<h3>
+Nenhuma partida marcada.
+</h3>
+
+</div>
+
+`;
+
+}else{
+
+document
+.getElementById("matchesList")
+.innerHTML =
+
+partidas.map(function(p){
+
+return `
+
+<div class="match">
+
+<div>
+
+<h3>
+${p.mandante} × ${p.visitante}
+</h3>
+
+</div>
+
+<div>
+
+📅 ${p.data || "A definir"}
+
+<br>
+
+⏰ ${p.hora || "A definir"}
+
+<br>
+
+⚽ ${p.placar || "A definir"}
+
+</div>
 
 </div>
 
@@ -1432,373 +1011,322 @@ ${n.text}
 
 }).join("");
 
-
-fillStandSelect();
-
-renderAdminMatches();
+}
 
 }
+
+
+atualizarPartidas();
 
 
 /* LOGIN */
 
-function login(){
-
-const password =
 document
-.getElementById("password")
-.value;
+.getElementById("entrar")
+.addEventListener("click",function(){
 
+const senha =
+document.getElementById("senha").value;
 
-if(password === "tslbeta"){
+if(senha === "tslbeta"){
 
 document
-.getElementById("loginBox")
+.getElementById("login")
 .classList.add("hidden");
 
-
 document
-.getElementById("dashboard")
+.getElementById("painel")
 .classList.remove("hidden");
 
-
-alert(
-"Painel liberado!"
-);
-
+alert("Painel aberto!");
 
 }else{
 
-alert(
-"Senha incorreta!"
-);
+alert("Senha incorreta!");
 
 }
 
-}
+});
 
 
-/* LOGOUT */
-
-function logout(){
+/* SAIR */
 
 document
-.getElementById("dashboard")
+.getElementById("sair")
+.addEventListener("click",function(){
+
+document
+.getElementById("painel")
 .classList.add("hidden");
 
-
 document
-.getElementById("loginBox")
+.getElementById("login")
 .classList.remove("hidden");
 
-
 document
-.getElementById("password")
-.value = "";
+.getElementById("senha")
+.value="";
 
-}
+});
 
 
 /* ESCONDER EDITORES */
 
-function hideEditors(){
-
-[
-"standingsEditor",
-"matchEditor",
-"newsEditor",
-"noticeEditor"
-
-].forEach(function(id){
+function esconderEditores(){
 
 document
-.getElementById(id)
-.classList.add("hidden");
+.querySelectorAll("#painel > .card")
+.forEach(function(card,index){
+
+if(index > 0){
+
+card.classList.add("hidden");
+
+}
 
 });
 
 }
 
 
-/* ABRIR EDITOR */
-
-function showEditor(id){
-
-hideEditors();
+/* ABRIR CLASSIFICAÇÃO */
 
 document
-.getElementById(id)
+.getElementById("btnClassificacao")
+.addEventListener("click",function(){
+
+esconderEditores();
+
+document
+.getElementById("editorClassificacao")
 .classList.remove("hidden");
 
+preencherClubes();
 
-if(id === "standingsEditor"){
-
-fillStandSelect();
-
-loadStandForm();
-
-}
+});
 
 
-if(id === "matchEditor"){
+/* ABRIR PARTIDAS */
 
-renderAdminMatches();
+document
+.getElementById("btnPartidas")
+.addEventListener("click",function(){
 
-}
+esconderEditores();
 
-}
+document
+.getElementById("editorPartidas")
+.classList.remove("hidden");
+
+mostrarPartidasAdmin();
+
+});
 
 
-/* CLASSIFICAÇÃO */
+/* ABRIR NOTÍCIAS */
 
-function fillStandSelect(){
+document
+.getElementById("btnNoticias")
+.addEventListener("click",function(){
+
+esconderEditores();
+
+document
+.getElementById("editorNoticias")
+.classList.remove("hidden");
+
+});
+
+
+/* ABRIR AVISOS */
+
+document
+.getElementById("btnAvisos")
+.addEventListener("click",function(){
+
+esconderEditores();
+
+document
+.getElementById("editorAvisos")
+.classList.remove("hidden");
+
+});
+
+
+/* SELECT CLUBES */
+
+function preencherClubes(){
 
 const select =
-document
-.getElementById("standClub");
+document.getElementById("clubeSelect");
 
+select.innerHTML="";
 
-const oldValue =
-select.value;
+classificacao.forEach(function(c,index){
 
+const option =
+document.createElement("option");
 
-select.innerHTML =
+option.value=index;
 
-standings.map(function(r,i){
+option.textContent =
+(index+1)+"º - "+c.nome;
 
-return `
+select.appendChild(option);
 
-<option value="${i}">
-${i + 1}º — ${r.club}
-</option>
+});
 
-`;
-
-}).join("");
-
-
-if(
-oldValue !== "" &&
-standings[oldValue]
-){
-
-select.value =
-oldValue;
-
-}
+carregarClube();
 
 }
 
 
 /* CARREGAR CLUBE */
 
-function loadStandForm(){
+function carregarClube(){
 
 const index =
 Number(
-document
-.getElementById("standClub")
-.value || 0
+document.getElementById("clubeSelect").value
 );
 
+const c =
+classificacao[index];
 
-const row =
-standings[index];
+if(!c)return;
 
-
-if(!row){
-
-return;
-
-}
-
-
-document
-.getElementById("stPos")
-.value =
-index + 1;
-
-
-document
-.getElementById("stJ")
-.value =
-row.j;
-
-
-document
-.getElementById("stV")
-.value =
-row.v;
-
-
-document
-.getElementById("stE")
-.value =
-row.e;
-
-
-document
-.getElementById("stD")
-.value =
-row.d;
-
-
-document
-.getElementById("stPts")
-.value =
-row.pts;
+document.getElementById("posicao").value=index+1;
+document.getElementById("jogos").value=c.jogos;
+document.getElementById("vitorias").value=c.vitorias;
+document.getElementById("empates").value=c.empates;
+document.getElementById("derrotas").value=c.derrotas;
+document.getElementById("pontos").value=c.pontos;
 
 }
+
+
+document
+.getElementById("clubeSelect")
+.addEventListener("change",carregarClube);
 
 
 /* SALVAR CLASSIFICAÇÃO */
 
-function saveStand(){
-
-const oldIndex =
-Number(
 document
-.getElementById("standClub")
-.value
+.getElementById("salvarClassificacao")
+.addEventListener("click",function(){
+
+const antigo =
+Number(
+document.getElementById("clubeSelect").value
 );
 
+const clube =
+classificacao[antigo];
 
-const row =
-standings[oldIndex];
-
-
-if(!row){
-
-return;
-
-}
+if(!clube)return;
 
 
-const newPosition =
+clube.jogos =
+Number(
+document.getElementById("jogos").value
+) || 0;
+
+
+clube.vitorias =
+Number(
+document.getElementById("vitorias").value
+) || 0;
+
+
+clube.empates =
+Number(
+document.getElementById("empates").value
+) || 0;
+
+
+clube.derrotas =
+Number(
+document.getElementById("derrotas").value
+) || 0;
+
+
+clube.pontos =
+Number(
+document.getElementById("pontos").value
+) || 0;
+
+
+let novaPosicao =
+Number(
+document.getElementById("posicao").value
+) || antigo+1;
+
+
+novaPosicao =
 Math.max(
-
 1,
-
 Math.min(
-
-standings.length,
-
-Number(
-document
-.getElementById("stPos")
-.value
-) ||
-oldIndex + 1
-
+classificacao.length,
+novaPosicao
 )
-
 );
 
 
-row.j =
-Math.max(
-0,
-Number(
-document
-.getElementById("stJ")
-.value
-) || 0
-);
-
-
-row.v =
-Math.max(
-0,
-Number(
-document
-.getElementById("stV")
-.value
-) || 0
-);
-
-
-row.e =
-Math.max(
-0,
-Number(
-document
-.getElementById("stE")
-.value
-) || 0
-);
-
-
-row.d =
-Math.max(
-0,
-Number(
-document
-.getElementById("stD")
-.value
-) || 0
-);
-
-
-row.pts =
-Math.max(
-0,
-Number(
-document
-.getElementById("stPts")
-.value
-) || 0
-);
-
-
-standings.splice(
-oldIndex,
+classificacao.splice(
+antigo,
 1
 );
 
 
-standings.splice(
-newPosition - 1,
+classificacao.splice(
+novaPosicao-1,
 0,
-row
+clube
 );
 
 
-saveData();
+localStorage.setItem(
+"tsl_classificacao",
+JSON.stringify(classificacao)
+);
 
-render();
 
-fillStandSelect();
+atualizarTabela();
 
+preencherClubes();
 
 alert(
-"Classificação salva com sucesso!"
+"Classificação salva!"
 );
 
-}
+});
 
 
 /* SALVAR PARTIDA */
 
-function saveMatch(){
-
-const home =
 document
-.getElementById("mHome")
+.getElementById("salvarPartida")
+.addEventListener("click",function(){
+
+const mandante =
+document
+.getElementById("mandante")
 .value
 .trim();
 
 
-const away =
+const visitante =
 document
-.getElementById("mAway")
+.getElementById("visitante")
 .value
 .trim();
 
 
-if(!home || !away){
+if(!mandante || !visitante){
 
 alert(
-"Preencha os dois clubes."
+"Coloque os dois clubes!"
 );
 
 return;
@@ -1806,79 +1334,83 @@ return;
 }
 
 
-matches.push({
+partidas.push({
 
-home:home,
+mandante:mandante,
 
-away:away,
+visitante:visitante,
 
-date:
+data:
 document
-.getElementById("mDate")
+.getElementById("dataPartida")
 .value,
 
-time:
+hora:
 document
-.getElementById("mTime")
+.getElementById("horaPartida")
 .value,
 
-score:
+placar:
 document
-.getElementById("mScore")
+.getElementById("placar")
 .value
-.trim()
-|| "A definir"
+.trim() || "A definir"
 
 });
 
 
-saveData();
-
-
-[
-"mHome",
-"mAway",
-"mDate",
-"mTime",
-"mScore"
-
-].forEach(function(id){
-
-document
-.getElementById(id)
-.value = "";
-
-});
-
-
-render();
-
-
-showEditor(
-"matchEditor"
+localStorage.setItem(
+"tsl_partidas",
+JSON.stringify(partidas)
 );
 
+
+document
+.getElementById("mandante")
+.value="";
+
+
+document
+.getElementById("visitante")
+.value="";
+
+
+document
+.getElementById("dataPartida")
+.value="";
+
+
+document
+.getElementById("horaPartida")
+.value="";
+
+
+document
+.getElementById("placar")
+.value="";
+
+
+atualizarPartidas();
+
+mostrarPartidasAdmin();
 
 alert(
 "Partida salva!"
 );
 
-}
+});
 
 
-/* PARTIDAS DO PAINEL */
+/* PARTIDAS NO PAINEL */
 
-function renderAdminMatches(){
+function mostrarPartidasAdmin(){
 
-const box =
-document
-.getElementById("adminMatches");
+const area =
+document.getElementById("adminPartidas");
 
+if(partidas.length===0){
 
-if(!matches.length){
-
-box.innerHTML =
-
+area.innerHTML=
 "<p class='muted'>Nenhuma partida cadastrada.</p>";
 
 return;
@@ -1886,46 +1418,35 @@ return;
 }
 
 
-box.innerHTML =
+area.innerHTML =
 
-matches.map(function(m,i){
+partidas.map(function(p,index){
 
 return `
 
-<div class="adminrow">
+<div class="admin-item">
 
-<span>
+<div>
 
 <b>
-${m.home} × ${m.away}
+${p.mandante} × ${p.visitante}
 </b>
 
 <br>
 
 <small>
-
-📅 ${m.date || "—"}
-
-•
-
-⏰ ${m.time || "—"}
-
-•
-
-⚽ ${m.score || "—"}
-
+${p.data || "Sem data"} •
+${p.hora || "Sem horário"} •
+${p.placar}
 </small>
 
-</span>
+</div>
 
 <button
-type="button"
 class="danger"
-onclick="deleteMatch(${i})"
+data-delete="${index}"
 >
-
 Excluir
-
 </button>
 
 </div>
@@ -1934,60 +1455,63 @@ Excluir
 
 }).join("");
 
-}
 
+area
+.querySelectorAll("[data-delete]")
+.forEach(function(botao){
 
-/* EXCLUIR PARTIDA */
+botao.addEventListener("click",function(){
 
-window.deleteMatch =
-function(index){
+const index =
+Number(
+botao.getAttribute("data-delete")
+);
 
-if(
-confirm(
-"Excluir esta partida?"
-)
-){
-
-matches.splice(
+partidas.splice(
 index,
 1
 );
 
-saveData();
-
-render();
-
-showEditor(
-"matchEditor"
+localStorage.setItem(
+"tsl_partidas",
+JSON.stringify(partidas)
 );
 
-}
+atualizarPartidas();
 
-};
+mostrarPartidasAdmin();
+
+});
+
+});
+
+}
 
 
 /* SALVAR NOTÍCIA */
 
-function saveNews(){
-
-const title =
 document
-.getElementById("nTitle")
+.getElementById("salvarNoticia")
+.addEventListener("click",function(){
+
+const titulo =
+document
+.getElementById("tituloNoticia")
 .value
 .trim();
 
 
-const text =
+const texto =
 document
-.getElementById("nText")
+.getElementById("textoNoticia")
 .value
 .trim();
 
 
-if(!title){
+if(!titulo){
 
 alert(
-"Digite um título."
+"Coloque um título!"
 );
 
 return;
@@ -1995,65 +1519,64 @@ return;
 }
 
 
-news.unshift({
+noticias.unshift({
 
-title:title,
+titulo:titulo,
 
-text:text
+texto:texto
 
 });
 
 
-saveData();
-
-
-document
-.getElementById("nTitle")
-.value = "";
-
-
-document
-.getElementById("nText")
-.value = "";
-
-
-render();
-
-
-showEditor(
-"newsEditor"
+localStorage.setItem(
+"tsl_noticias",
+JSON.stringify(noticias)
 );
 
+
+document
+.getElementById("tituloNoticia")
+.value="";
+
+
+document
+.getElementById("textoNoticia")
+.value="";
+
+
+atualizarNoticias();
 
 alert(
 "Notícia salva!"
 );
 
-}
+});
 
 
 /* SALVAR AVISO */
 
-function saveNotice(){
-
-const title =
 document
-.getElementById("aTitle")
+.getElementById("salvarAviso")
+.addEventListener("click",function(){
+
+const titulo =
+document
+.getElementById("tituloAviso")
 .value
 .trim();
 
 
-const text =
+const texto =
 document
-.getElementById("aText")
+.getElementById("textoAviso")
 .value
 .trim();
 
 
-if(!title){
+if(!titulo){
 
 alert(
-"Digite um título."
+"Coloque um título!"
 );
 
 return;
@@ -2061,163 +1584,42 @@ return;
 }
 
 
-notices.unshift({
+avisos.unshift({
 
-title:title,
+titulo:titulo,
 
-text:text
+texto:texto
 
 });
 
 
-saveData();
-
-
-document
-.getElementById("aTitle")
-.value = "";
-
-
-document
-.getElementById("aText")
-.value = "";
-
-
-render();
-
-
-showEditor(
-"noticeEditor"
+localStorage.setItem(
+"tsl_avisos",
+JSON.stringify(avisos)
 );
 
+
+document
+.getElementById("tituloAviso")
+.value="";
+
+
+document
+.getElementById("textoAviso")
+.value="";
+
+
+atualizarAvisos();
 
 alert(
 "Aviso salvo!"
 );
 
-}
+});
 
 
-/* BOTÕES */
-
-document
-.getElementById("loginBtn")
-.addEventListener(
-"click",
-login
-);
-
-
-document
-.getElementById("logoutBtn")
-.addEventListener(
-"click",
-logout
-);
-
-
-document
-.getElementById("openStandings")
-.addEventListener(
-"click",
-function(){
-
-showEditor(
-"standingsEditor"
-);
-
-}
-);
-
-
-document
-.getElementById("openMatches")
-.addEventListener(
-"click",
-function(){
-
-showEditor(
-"matchEditor"
-);
-
-}
-);
-
-
-document
-.getElementById("openNews")
-.addEventListener(
-"click",
-function(){
-
-showEditor(
-"newsEditor"
-);
-
-}
-);
-
-
-document
-.getElementById("openNotices")
-.addEventListener(
-"click",
-function(){
-
-showEditor(
-"noticeEditor"
-);
-
-}
-);
-
-
-document
-.getElementById("saveStandBtn")
-.addEventListener(
-"click",
-saveStand
-);
-
-
-document
-.getElementById("saveMatchBtn")
-.addEventListener(
-"click",
-saveMatch
-);
-
-
-document
-.getElementById("saveNewsBtn")
-.addEventListener(
-"click",
-saveNews
-);
-
-
-document
-.getElementById("saveNoticeBtn")
-.addEventListener(
-"click",
-saveNotice
-);
-
-
-document
-.getElementById("standClub")
-.addEventListener(
-"change",
-loadStandForm
-);
-
-
-/* INICIAR */
-
-render();
-
-})();
+});
 </script>
 
 </body>
-    </html>
+</html>
