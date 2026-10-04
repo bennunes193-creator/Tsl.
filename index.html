@@ -1,253 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>TSL - Touch Soccer League</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TSL — Touch Soccer League</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f4f9ff;
-    color:#10233f;
-}
-
-header{
-    background:linear-gradient(135deg,#0757b8,#0b8cff);
-    color:white;
-    padding:18px 5%;
-    position:sticky;
-    top:0;
-    z-index:10;
-    box-shadow:0 5px 20px #0757b833;
-}
-
-.logo{
-    font-size:26px;
-    font-weight:900;
-}
-
-.logo small{
-    display:block;
-    font-size:11px;
-    opacity:.8;
-    margin-top:3px;
-}
-
-nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
-    margin-top:15px;
-}
-
-nav button{
-    border:0;
-    border-radius:10px;
-    padding:10px 14px;
-    background:#ffffff22;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-nav button:hover{
-    background:white;
-    color:#0757b8;
-}
-
-main{
-    max-width:1100px;
-    margin:auto;
-    padding:28px 5% 60px;
-}
-
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
-
-.hero{
-    background:linear-gradient(135deg,#0757b8,#16a1ff);
-    color:white;
-    border-radius:25px;
-    padding:40px 30px;
-    margin-bottom:28px;
-    box-shadow:0 15px 40px #0757b833;
-}
-
-.badge{
-    display:inline-block;
-    background:#e5f2ff;
-    color:#0757b8;
-    border-radius:50px;
-    padding:6px 11px;
-    font-size:11px;
-    font-weight:900;
-}
-
-.hero .badge{
-    background:#ffffff22;
-    color:white;
-}
-
-.hero h1{
-    font-size:clamp(38px,8vw,70px);
-    margin:15px 0;
-}
-
-.hero p{
-    font-size:18px;
-    opacity:.9;
-}
-
-.section{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin:25px 0 15px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:15px;
-}
-
-.card{
-    background:white;
-    border:1px solid #dbeaff;
-    border-radius:17px;
-    padding:19px;
-    box-shadow:0 7px 22px #174b7d0d;
-}
-
-.card h3{
-    margin:9px 0;
-}
-
-.muted{
-    color:#6d7e95;
-}
-
-.primary{
-    background:#0757b8;
-    color:white;
-}
-
-button{
-    border:0;
-    border-radius:10px;
-    padding:10px 14px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-button:hover{
-    transform:translateY(-1px);
-}
-
-.match{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:white;
-    border:1px solid #dbeaff;
-    border-radius:15px;
-    padding:18px;
-    margin:10px 0;
-}
-
-.score{
-    font-size:20px;
-    font-weight:900;
-}
-
-.panel{
-    background:white;
-    border:1px solid #dbeaff;
-    border-radius:20px;
-    padding:20px;
-    margin-top:15px;
-}
-
-.panel input,
-.panel textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #cbdced;
-    border-radius:10px;
-    margin:6px 0;
-}
-
-.panel textarea{
-    min-height:100px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-}
-
-th,td{
-    text-align:left;
-    padding:13px;
-    border-bottom:1px solid #e4edf8;
-}
-
-th{
-    color:#6d7e95;
-    font-size:12px;
-}
-
-footer{
-    text-align:center;
-    color:#71839a;
-    padding:25px;
-}
-
-.hidden{
-    display:none !important;
-}
-
-.admin-actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:15px;
-}
-
-.danger{
-    background:#ffe8eb;
-    color:#c21f38;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f9ff;color:#10233f}
+header{background:linear-gradient(135deg,#0757b8,#0b8cff);color:white;padding:18px 5%;position:sticky;top:0;z-index:5;box-shadow:0 4px 18px #0757b833}
+.brand{font-size:25px;font-weight:900}
+.brand small{display:block;font-size:11px;opacity:.8}
+nav{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+button{border:0;border-radius:10px;padding:10px 14px;background:#eaf4ff;color:#0757b8;font-weight:700;cursor:pointer}
+nav button{background:#ffffff22;color:#fff}
+main{max-width:1100px;margin:auto;padding:25px 5% 60px}
+.page{display:none}
+.page.active{display:block}
+.hero{background:linear-gradient(135deg,#0757b8,#16a1ff);color:white;border-radius:24px;padding:35px;margin-bottom:25px;box-shadow:0 15px 40px #0757b833}
+.hero h1{font-size:clamp(38px,7vw,68px);margin:12px 0}
+.hero p{opacity:.9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:white;border:1px solid #dbeaff;border-radius:17px;padding:18px;box-shadow:0 7px 22px #174b7d0d}
+.card h3{margin:8px 0}
+.muted{color:#6d7e95}
+.badge{display:inline-block;background:#e5f2ff;color:#0757b8;border-radius:99px;padding:6px 10px;font-size:11px;font-weight:800}
+.section{display:flex;justify-content:space-between;align-items:center;margin:25px 0 14px}
+.match{display:flex;justify-content:space-between;align-items:center;background:white;border:1px solid #dbeaff;border-radius:15px;padding:17px;margin:9px 0}
+table{width:100%;border-collapse:collapse;background:white;border-radius:15px;overflow:hidden}
+th,td{text-align:left;padding:13px;border-bottom:1px solid #e4edf8}
+th{color:#6d7e95;font-size:12px}
+.panel{background:white;border:1px solid #dbeaff;border-radius:20px;padding:20px;margin-top:15px}
+.panel input,.panel textarea{width:100%;padding:11px;border:1px solid #cbdced;border-radius:10px;margin:5px 0}
+.panel textarea{min-height:90px}
+.adminrow{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #e4edf8;padding:10px 0}
+.danger{background:#ffe8eb;color:#c21f38}
+.primary{background:#0757b8;color:white}
+.hidden{display:none!important}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+footer{text-align:center;color:#71839a;padding:25px}
 
 @media(max-width:600px){
-
-    .match{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-    }
-
-    nav button{
-        flex:1;
-    }
-
-    .hero{
-        padding:30px 22px;
-    }
+.match{flex-direction:column;align-items:flex-start;gap:10px}
+nav button{flex:1}
 }
 </style>
 </head>
@@ -256,71 +51,33 @@ footer{
 
 <header>
 
-<div class="logo">
+<div class="brand">
 ⚽ TSL
 <small>TOUCH SOCCER LEAGUE • BETA</small>
 </div>
 
 <nav>
-
 <button onclick="go('home')">Início</button>
-
-<button onclick="go('div1')">
-1ª Divisão
-</button>
-
-<button onclick="go('div2')">
-2ª Divisão
-</button>
-
-<button onclick="go('players')">
-Jogadores
-</button>
-
-<button onclick="go('matches')">
-Partidas
-</button>
-
-<button onclick="go('table')">
-Classificação
-</button>
-
-<button onclick="go('news')">
-Notícias
-</button>
-
-<button onclick="go('notices')">
-Avisos
-</button>
-
-<button onclick="go('admin')">
-🔐 Painel
-</button>
-
+<button onclick="go('div1')">1ª Divisão</button>
+<button onclick="go('div2')">2ª Divisão</button>
+<button onclick="go('players')">Jogadores</button>
+<button onclick="go('matches')">Partidas</button>
+<button onclick="go('table')">Classificação</button>
+<button onclick="go('news')">Notícias</button>
+<button onclick="go('notices')">Avisos</button>
+<button onclick="go('admin')">🔐 Painel</button>
 </nav>
 
 </header>
 
 <main>
 
-<!-- INÍCIO -->
-
 <section id="home" class="page active">
 
 <div class="hero">
-
-<span class="badge">
-VERSÃO BETA
-</span>
-
-<h1>
-Touch Soccer League
-</h1>
-
-<p>
-A liga, os clubes, jogadores e notícias da TSL em um só lugar.
-</p>
-
+<span class="badge">VERSÃO BETA</span>
+<h1>Touch Soccer League</h1>
+<p>A competição, os clubes e as novidades da TSL em um só lugar.</p>
 </div>
 
 <div class="section">
@@ -330,47 +87,17 @@ A liga, os clubes, jogadores e notícias da TSL em um só lugar.
 <div class="grid">
 
 <div class="card">
-
-<span class="badge">
-TOPO
-</span>
-
-<h3>
-🥇 Primeira Divisão
-</h3>
-
-<p class="muted">
-8 clubes participantes.
-</p>
-
-<br>
-
-<button class="primary" onclick="go('div1')">
-Ver clubes
-</button>
-
+<span class="badge">TOPO</span>
+<h3>🥇 Primeira Divisão</h3>
+<p class="muted">8 clubes participantes.</p>
+<button class="primary" onclick="go('div1')">Ver clubes</button>
 </div>
 
 <div class="card">
-
-<span class="badge">
-BAIXO
-</span>
-
-<h3>
-🥈 Segunda Divisão
-</h3>
-
-<p class="muted">
-8 clubes participantes.
-</p>
-
-<br>
-
-<button class="primary" onclick="go('div2')">
-Ver clubes
-</button>
-
+<span class="badge">BAIXO</span>
+<h3>🥈 Segunda Divisão</h3>
+<p class="muted">8 clubes participantes.</p>
+<button class="primary" onclick="go('div2')">Ver clubes</button>
 </div>
 
 </div>
@@ -384,14 +111,10 @@ Ver clubes
 </section>
 
 
-<!-- PRIMEIRA DIVISÃO -->
-
 <section id="div1" class="page">
 
 <div class="section">
-<h2>
-🥇 Primeira Divisão
-</h2>
+<h2>🥇 Primeira Divisão</h2>
 </div>
 
 <div id="div1Grid" class="grid"></div>
@@ -399,14 +122,10 @@ Ver clubes
 </section>
 
 
-<!-- SEGUNDA DIVISÃO -->
-
 <section id="div2" class="page">
 
 <div class="section">
-<h2>
-🥈 Segunda Divisão
-</h2>
+<h2>🥈 Segunda Divisão</h2>
 </div>
 
 <div id="div2Grid" class="grid"></div>
@@ -414,14 +133,10 @@ Ver clubes
 </section>
 
 
-<!-- JOGADORES -->
-
 <section id="players" class="page">
 
 <div class="section">
-<h2>
-👤 Jogadores
-</h2>
+<h2>👤 Jogadores</h2>
 </div>
 
 <div id="playersGrid" class="grid"></div>
@@ -429,14 +144,10 @@ Ver clubes
 </section>
 
 
-<!-- PARTIDAS -->
-
 <section id="matches" class="page">
 
 <div class="section">
-<h2>
-📅 Partidas
-</h2>
+<h2>📅 Partidas</h2>
 </div>
 
 <div id="matchesList"></div>
@@ -444,14 +155,10 @@ Ver clubes
 </section>
 
 
-<!-- CLASSIFICAÇÃO -->
-
 <section id="table" class="page">
 
 <div class="section">
-<h2>
-🏆 Classificação
-</h2>
+<h2>🏆 Classificação</h2>
 </div>
 
 <div class="panel">
@@ -459,9 +166,7 @@ Ver clubes
 <table>
 
 <thead>
-
 <tr>
-
 <th>#</th>
 <th>Clube</th>
 <th>J</th>
@@ -469,9 +174,7 @@ Ver clubes
 <th>E</th>
 <th>D</th>
 <th>PTS</th>
-
 </tr>
-
 </thead>
 
 <tbody id="tableBody"></tbody>
@@ -483,14 +186,10 @@ Ver clubes
 </section>
 
 
-<!-- NOTÍCIAS -->
-
 <section id="news" class="page">
 
 <div class="section">
-<h2>
-📰 Notícias
-</h2>
+<h2>📰 Notícias</h2>
 </div>
 
 <div id="newsGrid" class="grid"></div>
@@ -498,14 +197,10 @@ Ver clubes
 </section>
 
 
-<!-- AVISOS -->
-
 <section id="notices" class="page">
 
 <div class="section">
-<h2>
-📢 Avisos
-</h2>
+<h2>📢 Avisos</h2>
 </div>
 
 <div id="noticesGrid" class="grid"></div>
@@ -513,89 +208,79 @@ Ver clubes
 </section>
 
 
-<!-- PAINEL -->
-
 <section id="admin" class="page">
 
 <div class="section">
-<h2>
-🔐 Painel Administrativo
-</h2>
+<h2>🔐 Painel Administrativo</h2>
 </div>
 
-<div id="loginBox" class="panel">
+<div id="login" class="panel">
 
-<h3>
-Acesso do dono
-</h3>
+<h3>Acesso do Dono</h3>
 
 <p class="muted">
-Digite a senha do painel.
+Digite a senha para entrar no painel.
 </p>
 
-<br>
-
 <input
-id="password"
+id="pass"
 type="password"
 placeholder="Senha do painel"
 >
 
-<br>
-
-<button
-class="primary"
-onclick="login()"
->
+<button class="primary" onclick="login()">
 Entrar
 </button>
 
 </div>
 
 
-<div
-id="dashboard"
-class="panel hidden"
->
+<div id="dash" class="panel hidden">
 
-<h2>
-👑 Painel do Dono
-</h2>
+<h2>👑 Painel do Dono</h2>
 
 <p class="muted">
-Gerencie as informações da TSL.
+Todas as alterações abaixo são feitas pelo painel.
 </p>
 
-<div class="admin-actions">
 
-<button
-class="primary"
-onclick="addNews()"
->
+<div class="section">
+<h3>📰 Notícias</h3>
+</div>
+
+<button class="primary" onclick="addNews()">
 ➕ Adicionar notícia
 </button>
 
-<button
-class="primary"
-onclick="addNotice()"
->
-📢 Adicionar aviso
-</button>
 
+<div class="section">
+<h3>📢 Avisos</h3>
 </div>
 
-<br>
+<button class="primary" onclick="addNotice()">
+➕ Adicionar aviso
+</button>
 
-<hr>
 
-<br>
+<div class="section">
+<h3>📅 Partidas</h3>
+</div>
 
-<p>
-<b>16 clubes</b> cadastrados.
-</p>
+<button class="primary" onclick="addMatch()">
+➕ Adicionar partida
+</button>
+
+
+<div class="section">
+<h3>🏆 Classificação</h3>
+</div>
+
+<button class="primary" onclick="editStandings()">
+✏️ Editar classificação
+</button>
 
 <p class="muted">
-8 clubes na Primeira Divisão e 8 clubes na Segunda Divisão.
+Você poderá alterar J, V, E, D, pontos e mover o clube para outra posição.
 </p>
 
 </div>
@@ -604,54 +289,39 @@ onclick="addNotice()"
 
 </main>
 
-
 <footer>
-
 TSL — Touch Soccer League • Beta
-
 </footer>
 
 
 <script>
 
-const clubs = [
+const clubs=[
 
 ["🇧🇷","Palmeiras","Brasil",1],
-
 ["🇧🇷","Flamengo","Brasil",1],
-
 ["🇧🇷","São Paulo","Brasil",1],
-
 ["🇦🇷","River Plate","Argentina",1],
-
 ["🇦🇷","Boca Juniors","Argentina",1],
-
 ["🇧🇷","Santos","Brasil",1],
-
 ["🇧🇷","Atlético Mineiro","Brasil",1],
-
 ["🇨🇱","Colo-Colo","Chile",1],
 
 ["🇦🇷","Talleres","Argentina",2],
-
 ["🇦🇷","Racing","Argentina",2],
-
 ["🇧🇷","Corinthians","Brasil",2],
-
 ["🇧🇷","Fluminense","Brasil",2],
-
 ["🇪🇨","Barcelona de Guayaquil","Equador",2],
-
 ["🇧🇷","Internacional","Brasil",2],
-
 ["🇺🇾","Nacional","Uruguai",2],
-
 ["🇧🇷","Grêmio","Brasil",2]
 
 ];
 
 
-let news = [
+let news=JSON.parse(
+localStorage.getItem("tslNews")||"null"
+)||[
 
 {
 title:"TSL Beta está no ar!",
@@ -661,7 +331,9 @@ text:"A Touch Soccer League está pronta para receber clubes e jogadores."
 ];
 
 
-let notices = [
+let notices=JSON.parse(
+localStorage.getItem("tslNotices")||"null"
+)||[
 
 {
 title:"Bem-vindos à TSL",
@@ -671,22 +343,65 @@ text:"Acompanhe aqui os próximos avisos da liga."
 ];
 
 
-let players = [];
+let matches=JSON.parse(
+localStorage.getItem("tslMatches")||"[]"
+);
 
-let matches = [];
+
+let standings=JSON.parse(
+localStorage.getItem("tslStandings")||"null"
+)||clubs.map(
+
+c=>({
+
+club:c[1],
+flag:c[0],
+j:0,
+v:0,
+e:0,
+d:0,
+pts:0
+
+})
+
+);
 
 
-function go(page){
+function saveAll(){
+
+localStorage.setItem(
+"tslNews",
+JSON.stringify(news)
+);
+
+localStorage.setItem(
+"tslNotices",
+JSON.stringify(notices)
+);
+
+localStorage.setItem(
+"tslMatches",
+JSON.stringify(matches)
+);
+
+localStorage.setItem(
+"tslStandings",
+JSON.stringify(standings)
+);
+
+}
+
+
+function go(id){
 
 document
 .querySelectorAll(".page")
 .forEach(
-element =>
-element.classList.remove("active")
+p=>p.classList.remove("active")
 );
 
 document
-.getElementById(page)
+.getElementById(id)
 .classList.add("active");
 
 render();
@@ -696,38 +411,29 @@ window.scrollTo(0,0);
 }
 
 
-function createClubCards(division){
+function clubCards(div){
 
 return clubs
 
-.filter(
-club =>
-club[3] === division
-)
+.filter(c=>c[3]===div)
 
-.map(
-
-club => `
+.map(c=>`
 
 <div class="card">
 
-<div style="font-size:32px">
-${club[0]}
+<div style="font-size:30px">
+${c[0]}
 </div>
 
-<h3>
-${club[1]}
-</h3>
+<h3>${c[1]}</h3>
 
 <p class="muted">
-${club[2]}
+${c[2]}
 </p>
 
 </div>
 
-`
-
-).join("");
+`).join("");
 
 }
 
@@ -736,27 +442,25 @@ function render(){
 
 document
 .getElementById("div1Grid")
-.innerHTML =
-createClubCards(1);
+.innerHTML=
+clubCards(1);
 
 
 document
 .getElementById("div2Grid")
-.innerHTML =
-createClubCards(2);
+.innerHTML=
+clubCards(2);
 
 
-if(players.length === 0){
+if(players.length===0){
 
 document
 .getElementById("playersGrid")
-.innerHTML = `
+.innerHTML=`
 
 <div class="card">
 
-<h3>
-Nenhum jogador cadastrado
-</h3>
+<h3>Nenhum jogador cadastrado.</h3>
 
 <p class="muted">
 Os jogadores aparecerão aqui.
@@ -766,46 +470,18 @@ Os jogadores aparecerão aqui.
 
 `;
 
-}else{
-
-document
-.getElementById("playersGrid")
-.innerHTML =
-
-players.map(
-
-player => `
-
-<div class="card">
-
-<h3>
-👤 ${player.name}
-</h3>
-
-<p class="muted">
-${player.position} • ${player.team}
-</p>
-
-</div>
-
-`
-
-).join("");
-
 }
 
 
-if(matches.length === 0){
+if(matches.length===0){
 
 document
 .getElementById("matchesList")
-.innerHTML = `
+.innerHTML=`
 
 <div class="card">
 
-<h3>
-Nenhuma partida cadastrada
-</h3>
+<h3>Nenhuma partida cadastrada.</h3>
 
 <p class="muted">
 As próximas partidas aparecerão aqui.
@@ -819,23 +495,35 @@ As próximas partidas aparecerão aqui.
 
 document
 .getElementById("matchesList")
-.innerHTML =
+.innerHTML=
 
 matches.map(
 
-match => `
+m=>`
 
 <div class="match">
 
+<div>
+
 <b>
-${match.home} x ${match.away}
+${m.home} × ${m.away}
 </b>
 
-<span>
-${match.date}
-•
-${match.score}
-</span>
+</div>
+
+<div>
+
+📅 ${m.date}
+
+<br>
+
+⏰ ${m.time}
+
+<br>
+
+⚽ ${m.score}
+
+</div>
 
 </div>
 
@@ -848,27 +536,27 @@ ${match.score}
 
 document
 .getElementById("tableBody")
-.innerHTML =
+.innerHTML=
 
-clubs.map(
+standings.map(
 
-(club,index) => `
+(r,i)=>`
 
 <tr>
 
 <td>
-${index + 1}
+<b>${i+1}</b>
 </td>
 
 <td>
-${club[0]} <b>${club[1]}</b>
+${r.flag} <b>${r.club}</b>
 </td>
 
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td>${r.j}</td>
+<td>${r.v}</td>
+<td>${r.e}</td>
+<td>${r.d}</td>
+<td><b>${r.pts}</b></td>
 
 </tr>
 
@@ -879,11 +567,11 @@ ${club[0]} <b>${club[1]}</b>
 
 document
 .getElementById("newsGrid")
-.innerHTML =
+.innerHTML=
 
 news.map(
 
-item => `
+n=>`
 
 <div class="card">
 
@@ -891,12 +579,10 @@ item => `
 NOTÍCIA
 </span>
 
-<h3>
-${item.title}
-</h3>
+<h3>${n.title}</h3>
 
 <p class="muted">
-${item.text}
+${n.text}
 </p>
 
 </div>
@@ -908,11 +594,11 @@ ${item.text}
 
 document
 .getElementById("noticesGrid")
-.innerHTML =
+.innerHTML=
 
 notices.map(
 
-item => `
+n=>`
 
 <div class="card">
 
@@ -920,12 +606,10 @@ item => `
 AVISO
 </span>
 
-<h3>
-${item.title}
-</h3>
+<h3>${n.title}</h3>
 
 <p class="muted">
-${item.text}
+${n.text}
 </p>
 
 </div>
@@ -937,20 +621,18 @@ ${item.text}
 
 document
 .getElementById("homeNotices")
-.innerHTML =
+.innerHTML=
 
 notices.slice(0,2).map(
 
-item => `
+n=>`
 
 <div class="card">
 
-<h3>
-${item.title}
-</h3>
+<h3>${n.title}</h3>
 
 <p class="muted">
-${item.text}
+${n.text}
 </p>
 
 </div>
@@ -964,17 +646,17 @@ ${item.text}
 
 function login(){
 
-const password =
-document.getElementById("password").value;
+const password=
+document.getElementById("pass").value;
 
-if(password === "tslbeta"){
+if(password==="tslbeta"){
 
 document
-.getElementById("loginBox")
+.getElementById("login")
 .classList.add("hidden");
 
 document
-.getElementById("dashboard")
+.getElementById("dash")
 .classList.remove("hidden");
 
 }else{
@@ -988,23 +670,22 @@ alert("Senha incorreta.");
 
 function addNews(){
 
-const title =
+const title=
 prompt("Título da notícia:");
 
-if(!title){
-return;
-}
+if(!title)return;
 
-const text =
-prompt("Texto da notícia:") || "";
+const text=
+prompt("Texto da notícia:")||"";
 
 news.unshift({
 
 title:title,
-
 text:text
 
 });
+
+saveAll();
 
 render();
 
@@ -1013,28 +694,196 @@ render();
 
 function addNotice(){
 
-const title =
+const title=
 prompt("Título do aviso:");
 
-if(!title){
-return;
-}
+if(!title)return;
 
-const text =
-prompt("Mensagem do aviso:") || "";
+const text=
+prompt("Mensagem do aviso:")||"";
 
 notices.unshift({
 
 title:title,
-
 text:text
 
 });
+
+saveAll();
 
 render();
 
 }
 
+
+function addMatch(){
+
+const home=
+prompt("Time mandante:");
+
+if(!home)return;
+
+const away=
+prompt("Time visitante:");
+
+if(!away)return;
+
+const date=
+prompt("Data da partida (ex.: 10/10/2026):");
+
+if(!date)return;
+
+const time=
+prompt("Horário (ex.: 20:30):")||"A definir";
+
+const score=
+prompt("Placar (ex.: 2x1). Se ainda não aconteceu, deixe vazio:")
+||"A definir";
+
+
+matches.push({
+
+home:home,
+away:away,
+date:date,
+time:time,
+score:score
+
+});
+
+saveAll();
+
+render();
+
+alert("Partida adicionada com sucesso!");
+
+}
+
+
+function editStandings(){
+
+let list="";
+
+standings.forEach(
+
+(r,i)=>{
+
+list+=
+(i+1)+". "+
+r.club+
+"\n";
+
+}
+
+);
+
+const selected=
+prompt(
+"Digite o número do clube que deseja editar:\n\n"+
+list
+);
+
+const index=
+parseInt(selected)-1;
+
+if(
+isNaN(index)||
+!standings[index]
+){
+
+alert("Número inválido.");
+
+return;
+
+}
+
+
+const row=standings[index];
+
+
+row.j=
+parseInt(
+prompt(
+"Jogos (J):",
+row.j
+)
+)||0;
+
+
+row.v=
+parseInt(
+prompt(
+"Vitórias (V):",
+row.v
+)
+)||0;
+
+
+row.e=
+parseInt(
+prompt(
+"Empates (E):",
+row.e
+)
+)||0;
+
+
+row.d=
+parseInt(
+prompt(
+"Derrotas (D):",
+row.d
+)
+)||0;
+
+
+row.pts=
+parseInt(
+prompt(
+"Pontos (PTS):",
+row.pts
+)
+)||0;
+
+
+const newPosition=
+parseInt(
+prompt(
+"Nova posição:\n1 = primeiro\n2 = segundo\n3 = terceiro...",
+index+1
+)
+);
+
+
+if(
+!isNaN(newPosition)&&
+newPosition>=1&&
+newPosition<=standings.length
+){
+
+standings.splice(index,1);
+
+standings.splice(
+newPosition-1,
+0,
+row
+);
+
+}
+
+
+saveAll();
+
+render();
+
+alert(
+"Classificação atualizada!"
+);
+
+}
+
+
+let players=[];
 
 render();
 
