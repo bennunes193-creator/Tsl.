@@ -3,257 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TSL • Touch Soccer League</title>
+<title>TSL - Touch Soccer League</title>
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f8ff;color:#10233f}
-header{background:linear-gradient(135deg,#0757b8,#12a5ff);color:white;padding:20px;box-shadow:0 5px 20px #0002}
-.logo{font-size:28px;font-weight:900}
-.logo small{display:block;font-size:10px;letter-spacing:1px;margin-top:4px}
-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-button{border:0;border-radius:10px;padding:12px 15px;font-weight:bold;cursor:pointer}
-nav button{background:#ffffff25;color:white}
-nav button:hover{background:white;color:#0757b8}
-main{max-width:1100px;margin:auto;padding:25px 15px}
-.page{display:none}.page.active{display:block}
-.hero{background:linear-gradient(135deg,#0757b8,#12a5ff);color:white;padding:35px 25px;border-radius:22px;margin-bottom:22px}
-.hero h1{font-size:45px;margin:15px 0}
-.card{background:white;border:1px solid #d8e8f8;border-radius:16px;padding:20px;margin-bottom:15px;box-shadow:0 7px 20px #00000009}
+body{margin:0;font-family:Arial;background:#eef7ff;color:#10233f}
+header{background:linear-gradient(135deg,#0757b8,#19a9ff);color:white;padding:20px}
+.logo{font-size:28px;font-weight:bold}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+button{border:0;border-radius:9px;padding:11px 15px;font-weight:bold;cursor:pointer}
+nav button{background:white;color:#0757b8}
+main{max-width:1100px;margin:auto;padding:20px}
+.page{display:none}
+.page.active{display:block}
+.hero,.card{background:white;border-radius:18px;padding:22px;margin-bottom:18px}
+.hero{background:linear-gradient(135deg,#0757b8,#19a9ff);color:white}
+.hero h1{font-size:42px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
 .primary{background:#0757b8;color:white}
-.secondary{background:#e5f2ff;color:#0757b8}
-.danger{background:#ffe5e8;color:#c52038}
-input,select{width:100%;padding:12px;margin:6px 0 14px;border:1px solid #c9dbea;border-radius:9px;font-size:15px}
-label{font-weight:bold;font-size:13px}
-.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-.actions{display:flex;flex-wrap:wrap;gap:8px}
+.secondary{background:#e2f1ff;color:#0757b8}
+.danger{background:#ffdfe3;color:#c21d36}
+input,select{width:100%;padding:12px;margin:5px 0 12px;border:1px solid #ccdcea;border-radius:8px}
 table{width:100%;border-collapse:collapse}
-th,td{padding:12px;text-align:left;border-bottom:1px solid #e1ebf4}
-th{background:#edf7ff;color:#0757b8}
-.tablebox{overflow:auto}
-.badge{display:inline-block;padding:5px 9px;border-radius:20px;background:#e5f3ff;color:#0757b8;font-size:11px;font-weight:bold}
-.match{background:white;border:1px solid #d8e8f8;border-radius:14px;padding:18px;margin-bottom:12px;display:flex;justify-content:space-between;gap:15px}
+th,td{padding:12px;border-bottom:1px solid #ddd;text-align:left}
+th{background:#eaf5ff}
 .hidden{display:none!important}
-.admin-item{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e5edf5;padding:12px 0}
-.muted{color:#71839a}
-footer{text-align:center;color:#71839a;padding:30px}
-@media(max-width:600px){.hero h1{font-size:34px}.match{flex-direction:column}nav button{flex:1}}
+.match{background:white;padding:18px;border-radius:15px;margin-bottom:12px}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">⚽ TSL <small>TOUCH SOCCER LEAGUE • BETA</small></div>
+<div class="logo">⚽ TSL</div>
 
 <nav>
-<button onclick="page('home')">Início</button>
-<button onclick="page('div1')">1ª Divisão</button>
-<button onclick="page('div2')">2ª Divisão</button>
-<button onclick="page('matches')">Partidas</button>
-<button onclick="page('table')">Classificação</button>
-<button onclick="page('news')">Notícias</button>
-<button onclick="page('notices')">Avisos</button>
-<button onclick="page('admin')">🔐 Painel</button>
+<button onclick="mostrar('home')">Início</button>
+<button onclick="mostrar('div1')">1ª Divisão</button>
+<button onclick="mostrar('div2')">2ª Divisão</button>
+<button onclick="mostrar('matches')">Partidas</button>
+<button onclick="mostrar('table')">Classificação</button>
+<button onclick="mostrar('news')">Notícias</button>
+<button onclick="mostrar('notices')">Avisos</button>
+<button onclick="mostrar('admin')">🔐 Painel</button>
 </nav>
 </header>
 
 <main>
 
-<section id="home" class="page active">
+<div id="home" class="page active">
+
 <div class="hero">
-<span class="badge">VERSÃO BETA</span>
 <h1>Touch Soccer League</h1>
-<p>A plataforma da TSL para acompanhar clubes, partidas, classificação, notícias e avisos.</p>
+<p>Bem-vindo à TSL.</p>
 </div>
 
 <div class="grid">
+
 <div class="card">
 <h2>🥇 Primeira Divisão</h2>
-<p>8 clubes.</p>
-<button class="primary" onclick="page('div1')">Ver clubes</button>
+<button class="primary" onclick="mostrar('div1')">Ver clubes</button>
 </div>
 
 <div class="card">
 <h2>🥈 Segunda Divisão</h2>
-<p>8 clubes.</p>
-<button class="primary" onclick="page('div2')">Ver clubes</button>
+<button class="primary" onclick="mostrar('div2')">Ver clubes</button>
 </div>
 
 <div class="card">
 <h2>🏆 Classificação</h2>
-<button class="primary" onclick="page('table')">Ver classificação</button>
+<button class="primary" onclick="mostrar('table')">Ver classificação</button>
 </div>
 
 <div class="card">
 <h2>📅 Partidas</h2>
-<button class="primary" onclick="page('matches')">Ver partidas</button>
+<button class="primary" onclick="mostrar('matches')">Ver partidas</button>
 </div>
+
 </div>
 
-<h2>📢 Avisos</h2>
-<div id="homeNotices"></div>
-</section>
+</div>
 
 
-<section id="div1" class="page">
+<div id="div1" class="page">
+<div class="card">
 <h2>🥇 Primeira Divisão</h2>
-<div id="div1List" class="grid"></div>
-</section>
+<div id="lista1"></div>
+</div>
+</div>
 
 
-<section id="div2" class="page">
+<div id="div2" class="page">
+<div class="card">
 <h2>🥈 Segunda Divisão</h2>
-<div id="div2List" class="grid"></div>
-</section>
+<div id="lista2"></div>
+</div>
+</div>
 
 
-<section id="matches" class="page">
+<div id="matches" class="page">
+<div class="card">
 <h2>📅 Partidas</h2>
-<div id="matchesList"></div>
-</section>
+<div id="listaPartidas"></div>
+</div>
+</div>
 
 
-<section id="table" class="page">
+<div id="table" class="page">
+<div class="card">
 <h2>🏆 Classificação</h2>
-<div class="card tablebox">
+
 <table>
 <thead>
-<tr><th>#</th><th>Clube</th><th>J</th><th>V</th><th>E</th><th>D</th><th>PTS</th></tr>
+<tr>
+<th>#</th>
+<th>Clube</th>
+<th>J</th>
+<th>V</th>
+<th>E</th>
+<th>D</th>
+<th>PTS</th>
+</tr>
 </thead>
-<tbody id="tableList"></tbody>
+
+<tbody id="classificacao"></tbody>
+
 </table>
 </div>
-</section>
+</div>
 
 
-<section id="news" class="page">
+<div id="news" class="page">
+<div class="card">
 <h2>📰 Notícias</h2>
-<div id="newsList" class="grid"></div>
-</section>
+<div id="listaNoticias"></div>
+</div>
+</div>
 
 
-<section id="notices" class="page">
+<div id="notices" class="page">
+<div class="card">
 <h2>📢 Avisos</h2>
-<div id="noticesList" class="grid"></div>
-</section>
+<div id="listaAvisos"></div>
+</div>
+</div>
 
 
-<section id="admin" class="page">
-
-<h2>🔐 Painel Administrativo</h2>
+<div id="admin" class="page">
 
 <div id="login" class="card">
-<h3>Entrar no painel</h3>
+
+<h2>🔐 Painel</h2>
 
 <label>Senha</label>
-<input id="senha" type="password" placeholder="Digite a senha" autocomplete="off">
 
-<button class="primary" onclick="login()">Entrar</button>
+<input
+id="senha"
+type="password"
+placeholder="Digite a senha"
+>
+
+<button class="primary" onclick="entrar()">Entrar</button>
+
 </div>
 
 
 <div id="painel" class="hidden">
 
 <div class="card">
-<h2>👑 Painel TSL</h2>
+
+<h2>👑 Painel Administrativo</h2>
 
 <div class="actions">
-<button class="primary" onclick="editor('classificacao')">🏆 Classificação</button>
-<button class="primary" onclick="editor('partidas')">📅 Partidas</button>
-<button class="primary" onclick="editor('noticias')">📰 Notícias</button>
-<button class="primary" onclick="editor('avisos')">📢 Avisos</button>
-<button class="secondary" onclick="logout()">Sair</button>
+
+<button class="primary"
+onclick="abrirEditor('classificacaoEditor')">
+🏆 Classificação
+</button>
+
+<button class="primary"
+onclick="abrirEditor('partidasEditor')">
+📅 Partidas
+</button>
+
+<button class="primary"
+onclick="abrirEditor('noticiasEditor')">
+📰 Notícias
+</button>
+
+<button class="primary"
+onclick="abrirEditor('avisosEditor')">
+📢 Avisos
+</button>
+
+<button class="secondary"
+onclick="sair()">
+Sair
+</button>
+
 </div>
+
 </div>
 
 
 <div id="classificacaoEditor" class="card hidden">
-<h3>🏆 Editar classificação</h3>
 
-<label>Clube</label>
-<select id="clubSelect" onchange="loadClub()"></select>
+<h3>Editar classificação</h3>
 
-<div class="formgrid">
-<div><label>Posição</label><input id="pos" type="number" min="1"></div>
-<div><label>Jogos</label><input id="jogos" type="number" min="0"></div>
-<div><label>Vitórias</label><input id="vitorias" type="number" min="0"></div>
-<div><label>Empates</label><input id="empates" type="number" min="0"></div>
-<div><label>Derrotas</label><input id="derrotas" type="number" min="0"></div>
-<div><label>Pontos</label><input id="pontos" type="number" min="0"></div>
-</div>
+<select id="clube" onchange="carregarClube()"></select>
 
-<button class="primary" onclick="saveTable()">💾 Salvar classificação</button>
+<label>Posição</label>
+<input id="posicao" type="number">
+
+<label>Jogos</label>
+<input id="jogos" type="number">
+
+<label>Vitórias</label>
+<input id="vitorias" type="number">
+
+<label>Empates</label>
+<input id="empates" type="number">
+
+<label>Derrotas</label>
+<input id="derrotas" type="number">
+
+<label>Pontos</label>
+<input id="pontos" type="number">
+
+<button class="primary" onclick="salvarClassificacao()">
+💾 Salvar classificação
+</button>
+
 </div>
 
 
 <div id="partidasEditor" class="card hidden">
-<h3>📅 Adicionar partida</h3>
+
+<h3>Adicionar partida</h3>
 
 <label>Mandante</label>
-<input id="homeTeam" placeholder="Flamengo">
+<input id="mandante">
 
 <label>Visitante</label>
-<input id="awayTeam" placeholder="Palmeiras">
+<input id="visitante">
 
-<div class="formgrid">
-<div><label>Data</label><input id="matchDate" type="date"></div>
-<div><label>Horário</label><input id="matchTime" type="time"></div>
-</div>
+<label>Data</label>
+<input id="data" type="date">
+
+<label>Horário</label>
+<input id="hora" type="time">
 
 <label>Placar</label>
-<input id="score" placeholder="A definir">
+<input id="placar" placeholder="A definir">
 
-<button class="primary" onclick="saveMatch()">💾 Salvar partida</button>
+<button class="primary" onclick="salvarPartida()">
+💾 Salvar partida
+</button>
 
-<h3>Partidas cadastradas</h3>
-<div id="adminMatches"></div>
 </div>
 
 
 <div id="noticiasEditor" class="card hidden">
-<h3>📰 Nova notícia</h3>
+
+<h3>Adicionar notícia</h3>
 
 <label>Título</label>
-<input id="newsTitle">
+<input id="tituloNoticia">
 
 <label>Texto</label>
-<input id="newsText">
+<input id="textoNoticia">
 
-<button class="primary" onclick="saveNews()">💾 Salvar notícia</button>
+<button class="primary" onclick="salvarNoticia()">
+💾 Salvar notícia
+</button>
+
 </div>
 
 
 <div id="avisosEditor" class="card hidden">
-<h3>📢 Novo aviso</h3>
+
+<h3>Adicionar aviso</h3>
 
 <label>Título</label>
-<input id="noticeTitle">
+<input id="tituloAviso">
 
 <label>Mensagem</label>
-<input id="noticeText">
+<input id="textoAviso">
 
-<button class="primary" onclick="saveNotice()">💾 Salvar aviso</button>
+<button class="primary" onclick="salvarAviso()">
+💾 Salvar aviso
+</button>
+
 </div>
 
 </div>
-</section>
+
+</div>
 
 </main>
-
-<footer>TSL — Touch Soccer League • Beta</footer>
 
 
 <script>
 
 /* NAVEGAÇÃO */
 
-function page(id){
+function mostrar(id){
 
-document.querySelectorAll(".page").forEach(function(x){
-x.classList.remove("active");
-});
+var paginas=document.querySelectorAll(".page");
+
+for(var i=0;i<paginas.length;i++){
+paginas[i].classList.remove("active");
+}
 
 document.getElementById(id).classList.add("active");
 
@@ -263,7 +324,7 @@ window.scrollTo(0,0);
 
 /* CLUBES */
 
-const clubs=[
+var clubes=[
 ["🇧🇷","Palmeiras","Brasil",1],
 ["🇧🇷","Flamengo","Brasil",1],
 ["🇧🇷","São Paulo","Brasil",1],
@@ -284,426 +345,369 @@ const clubs=[
 ];
 
 
-let tableData=JSON.parse(localStorage.getItem("tsl_table"));
+/* CLASSIFICAÇÃO */
 
-if(!tableData){
-tableData=clubs.map(c=>({
-flag:c[0],
-name:c[1],
-games:0,
-wins:0,
-draws:0,
-losses:0,
-points:0
-}));
+var tabela=[];
+
+for(var i=0;i<clubes.length;i++){
+
+tabela.push({
+nome:clubes[i][1],
+flag:clubes[i][0],
+j:0,
+v:0,
+e:0,
+d:0,
+pts:0
+});
+
 }
 
-
-let matches=JSON.parse(localStorage.getItem("tsl_matches"))||[];
-
-let news=JSON.parse(localStorage.getItem("tsl_news"))||[
-{
-title:"TSL Beta está no ar!",
-text:"A Touch Soccer League está pronta."
-}
-];
-
-let notices=JSON.parse(localStorage.getItem("tsl_notices"))||[];
+var partidas=[];
+var noticias=[];
+var avisos=[];
 
 
 /* CLUBES */
 
-function renderClubs(){
+function carregarClubes(){
 
-document.getElementById("div1List").innerHTML=
-clubs.filter(c=>c[3]===1).map(c=>`
-<div class="card">
-<div style="font-size:38px">${c[0]}</div>
-<h3>${c[1]}</h3>
-<p class="muted">${c[2]}</p>
-</div>
-`).join("");
+var a="";
+var b="";
 
-document.getElementById("div2List").innerHTML=
-clubs.filter(c=>c[3]===2).map(c=>`
-<div class="card">
-<div style="font-size:38px">${c[0]}</div>
-<h3>${c[1]}</h3>
-<p class="muted">${c[2]}</p>
-</div>
-`).join("");
+for(var i=0;i<clubes.length;i++){
+
+var c=clubes[i];
+
+var html=
+"<div class='card'>"+
+"<h3>"+c[0]+" "+c[1]+"</h3>"+
+"<p>"+c[2]+"</p>"+
+"</div>";
+
+if(c[3]===1)a+=html;
+else b+=html;
+
+}
+
+document.getElementById("lista1").innerHTML=a;
+document.getElementById("lista2").innerHTML=b;
 }
 
 
-/* CLASSIFICAÇÃO */
+/* TABELA */
 
-function renderTable(){
+function renderTabela(){
 
-document.getElementById("tableList").innerHTML=
-tableData.map((c,i)=>`
-<tr>
-<td><b>${i+1}</b></td>
-<td>${c.flag} <b>${c.name}</b></td>
-<td>${c.games}</td>
-<td>${c.wins}</td>
-<td>${c.draws}</td>
-<td>${c.losses}</td>
-<td><b>${c.points}</b></td>
-</tr>
-`).join("");
+var html="";
+
+for(var i=0;i<tabela.length;i++){
+
+var c=tabela[i];
+
+html+=
+"<tr>"+
+"<td>"+(i+1)+"</td>"+
+"<td>"+c.flag+" "+c.nome+"</td>"+
+"<td>"+c.j+"</td>"+
+"<td>"+c.v+"</td>"+
+"<td>"+c.e+"</td>"+
+"<td>"+c.d+"</td>"+
+"<td><b>"+c.pts+"</b></td>"+
+"</tr>";
+
 }
 
-
-/* PARTIDAS */
-
-function renderMatches(){
-
-if(!matches.length){
-document.getElementById("matchesList").innerHTML=
-`<div class="card"><h3>Nenhuma partida marcada.</h3></div>`;
-return;
-}
-
-document.getElementById("matchesList").innerHTML=
-matches.map(m=>`
-<div class="match">
-<div>
-<span class="badge">PARTIDA</span>
-<h3>${m.home} × ${m.away}</h3>
-</div>
-<div>
-📅 ${m.date||"A definir"}<br>
-⏰ ${m.time||"A definir"}<br>
-⚽ ${m.score||"A definir"}
-</div>
-</div>
-`).join("");
-}
-
-
-/* NOTÍCIAS */
-
-function renderNews(){
-
-document.getElementById("newsList").innerHTML=
-news.map(n=>`
-<div class="card">
-<span class="badge">NOTÍCIA</span>
-<h3>${n.title}</h3>
-<p>${n.text}</p>
-</div>
-`).join("");
-}
-
-
-/* AVISOS */
-
-function renderNotices(){
-
-document.getElementById("noticesList").innerHTML=
-notices.map(n=>`
-<div class="card">
-<span class="badge">AVISO</span>
-<h3>${n.title}</h3>
-<p>${n.text}</p>
-</div>
-`).join("");
-
-document.getElementById("homeNotices").innerHTML=
-notices.slice(0,3).map(n=>`
-<div class="card">
-<h3>${n.title}</h3>
-<p>${n.text}</p>
-</div>
-`).join("");
-}
-
-
-/* HASH DA SENHA */
-
-const PASSWORD_HASH="cc6267cc10e76eba930ff4b00a46df21ccff8062b5e5078b1cc87bad76c67fab";
-
-
-async function hash(value){
-
-const data=new TextEncoder().encode(value);
-
-const result=await crypto.subtle.digest("SHA-256",data);
-
-return Array.from(new Uint8Array(result))
-.map(x=>x.toString(16).padStart(2,"0"))
-.join("");
+document.getElementById("classificacao").innerHTML=html;
 }
 
 
 /* LOGIN */
 
-async function login(){
+function entrar(){
 
-const input=document.getElementById("senha");
+var senha=document.getElementById("senha").value;
 
-if(!input.value){
-alert("Digite a senha.");
-return;
-}
-
-const result=await hash(input.value);
-
-if(result===PASSWORD_HASH){
+if(senha==="tslbeta"){
 
 document.getElementById("login").classList.add("hidden");
 document.getElementById("painel").classList.remove("hidden");
 
-input.value="";
-
 }else{
 
-input.value="";
+document.getElementById("senha").value="";
 alert("Senha incorreta.");
 
 }
+
 }
 
 
-/* LOGOUT */
+/* SAIR */
 
-function logout(){
+function sair(){
 
 document.getElementById("painel").classList.add("hidden");
 document.getElementById("login").classList.remove("hidden");
 document.getElementById("senha").value="";
-hideEditors();
+
+abrirEditor("");
 }
 
 
 /* EDITORES */
 
-function hideEditors(){
+function abrirEditor(id){
 
-document.getElementById("classificacaoEditor").classList.add("hidden");
-document.getElementById("partidasEditor").classList.add("hidden");
-document.getElementById("noticiasEditor").classList.add("hidden");
-document.getElementById("avisosEditor").classList.add("hidden");
+var ids=[
+"classificacaoEditor",
+"partidasEditor",
+"noticiasEditor",
+"avisosEditor"
+];
+
+for(var i=0;i<ids.length;i++){
+document.getElementById(ids[i]).classList.add("hidden");
+}
+
+if(id){
+document.getElementById(id).classList.remove("hidden");
+}
+
+if(id==="classificacaoEditor"){
+preencherSelect();
+}
+
 }
 
 
-function editor(type){
+/* CLASSIFICAÇÃO */
 
-hideEditors();
+function preencherSelect(){
 
-if(type==="classificacao"){
-document.getElementById("classificacaoEditor").classList.remove("hidden");
-fillClubSelect();
-}
-
-if(type==="partidas"){
-document.getElementById("partidasEditor").classList.remove("hidden");
-renderAdminMatches();
-}
-
-if(type==="noticias"){
-document.getElementById("noticiasEditor").classList.remove("hidden");
-}
-
-if(type==="avisos"){
-document.getElementById("avisosEditor").classList.remove("hidden");
-}
-}
-
-
-/* EDITAR CLASSIFICAÇÃO */
-
-function fillClubSelect(){
-
-const select=document.getElementById("clubSelect");
+var select=document.getElementById("clube");
 
 select.innerHTML="";
 
-tableData.forEach((c,i)=>{
+for(var i=0;i<tabela.length;i++){
 
-const option=document.createElement("option");
+var option=document.createElement("option");
 
 option.value=i;
-option.textContent=(i+1)+"º - "+c.name;
+option.textContent=(i+1)+"º - "+tabela[i].nome;
 
 select.appendChild(option);
-});
 
-loadClub();
+}
+
+carregarClube();
 }
 
 
-function loadClub(){
+function carregarClube(){
 
-const i=Number(document.getElementById("clubSelect").value);
-
-const c=tableData[i];
+var i=parseInt(document.getElementById("clube").value);
+var c=tabela[i];
 
 if(!c)return;
 
-document.getElementById("pos").value=i+1;
-document.getElementById("jogos").value=c.games;
-document.getElementById("vitorias").value=c.wins;
-document.getElementById("empates").value=c.draws;
-document.getElementById("derrotas").value=c.losses;
-document.getElementById("pontos").value=c.points;
+document.getElementById("posicao").value=i+1;
+document.getElementById("jogos").value=c.j;
+document.getElementById("vitorias").value=c.v;
+document.getElementById("empates").value=c.e;
+document.getElementById("derrotas").value=c.d;
+document.getElementById("pontos").value=c.pts;
+
 }
 
 
-function saveTable(){
+function salvarClassificacao(){
 
-const oldIndex=Number(document.getElementById("clubSelect").value);
+var antigo=parseInt(document.getElementById("clube").value);
+var c=tabela[antigo];
 
-const club=tableData[oldIndex];
+c.j=parseInt(document.getElementById("jogos").value)||0;
+c.v=parseInt(document.getElementById("vitorias").value)||0;
+c.e=parseInt(document.getElementById("empates").value)||0;
+c.d=parseInt(document.getElementById("derrotas").value)||0;
+c.pts=parseInt(document.getElementById("pontos").value)||0;
 
-club.games=Number(document.getElementById("jogos").value)||0;
-club.wins=Number(document.getElementById("vitorias").value)||0;
-club.draws=Number(document.getElementById("empates").value)||0;
-club.losses=Number(document.getElementById("derrotas").value)||0;
-club.points=Number(document.getElementById("pontos").value)||0;
+var nova=parseInt(document.getElementById("posicao").value)||antigo+1;
 
-let newPosition=Number(document.getElementById("pos").value)||oldIndex+1;
+if(nova<1)nova=1;
+if(nova>tabela.length)nova=tabela.length;
 
-newPosition=Math.max(1,Math.min(tableData.length,newPosition));
+tabela.splice(antigo,1);
+tabela.splice(nova-1,0,c);
 
-tableData.splice(oldIndex,1);
-tableData.splice(newPosition-1,0,club);
-
-localStorage.setItem("tsl_table",JSON.stringify(tableData));
-
-renderTable();
-fillClubSelect();
+renderTabela();
+preencherSelect();
 
 alert("Classificação salva!");
+
 }
 
 
 /* PARTIDAS */
 
-function saveMatch(){
+function salvarPartida(){
 
-const home=document.getElementById("homeTeam").value.trim();
-const away=document.getElementById("awayTeam").value.trim();
+var mandante=document.getElementById("mandante").value;
+var visitante=document.getElementById("visitante").value;
 
-if(!home||!away){
-alert("Preencha os dois clubes.");
+if(!mandante||!visitante){
+
+alert("Preencha os clubes.");
 return;
+
 }
 
-matches.push({
-home:home,
-away:away,
-date:document.getElementById("matchDate").value,
-time:document.getElementById("matchTime").value,
-score:document.getElementById("score").value.trim()||"A definir"
+partidas.push({
+mandante:mandante,
+visitante:visitante,
+data:document.getElementById("data").value,
+hora:document.getElementById("hora").value,
+placar:document.getElementById("placar").value||"A definir"
 });
 
-localStorage.setItem("tsl_matches",JSON.stringify(matches));
+renderPartidas();
 
-document.getElementById("homeTeam").value="";
-document.getElementById("awayTeam").value="";
-document.getElementById("matchDate").value="";
-document.getElementById("matchTime").value="";
-document.getElementById("score").value="";
-
-renderMatches();
-renderAdminMatches();
+document.getElementById("mandante").value="";
+document.getElementById("visitante").value="";
+document.getElementById("data").value="";
+document.getElementById("hora").value="";
+document.getElementById("placar").value="";
 
 alert("Partida salva!");
+
 }
 
 
-function renderAdminMatches(){
+function renderPartidas(){
 
-const area=document.getElementById("adminMatches");
+var html="";
 
-if(!matches.length){
-area.innerHTML="<p class='muted'>Nenhuma partida cadastrada.</p>";
-return;
+if(partidas.length===0){
+html="<div class='card'><h3>Nenhuma partida cadastrada.</h3></div>";
 }
 
-area.innerHTML=matches.map((m,i)=>`
-<div class="admin-item">
-<div>
-<b>${m.home} × ${m.away}</b><br>
-<small>${m.date||"Sem data"} • ${m.time||"Sem horário"} • ${m.score}</small>
-</div>
-<button class="danger" onclick="deleteMatch(${i})">Excluir</button>
-</div>
-`).join("");
+for(var i=0;i<partidas.length;i++){
+
+var p=partidas[i];
+
+html+=
+"<div class='match'>"+
+"<h3>"+p.mandante+" × "+p.visitante+"</h3>"+
+"<p>📅 "+(p.data||"A definir")+"</p>"+
+"<p>⏰ "+(p.hora||"A definir")+"</p>"+
+"<p>⚽ "+p.placar+"</p>"+
+"</div>";
+
 }
 
-
-function deleteMatch(i){
-
-matches.splice(i,1);
-
-localStorage.setItem("tsl_matches",JSON.stringify(matches));
-
-renderMatches();
-renderAdminMatches();
+document.getElementById("listaPartidas").innerHTML=html;
 }
 
 
 /* NOTÍCIAS */
 
-function saveNews(){
+function salvarNoticia(){
 
-const title=document.getElementById("newsTitle").value.trim();
-const text=document.getElementById("newsText").value.trim();
+var titulo=document.getElementById("tituloNoticia").value;
+var texto=document.getElementById("textoNoticia").value;
 
-if(!title){
+if(!titulo){
 alert("Digite o título.");
 return;
 }
 
-news.unshift({title:title,text:text});
+noticias.unshift({
+titulo:titulo,
+texto:texto
+});
 
-localStorage.setItem("tsl_news",JSON.stringify(news));
+renderNoticias();
 
-document.getElementById("newsTitle").value="";
-document.getElementById("newsText").value="";
-
-renderNews();
+document.getElementById("tituloNoticia").value="";
+document.getElementById("textoNoticia").value="";
 
 alert("Notícia salva!");
+
+}
+
+
+function renderNoticias(){
+
+var html="";
+
+for(var i=0;i<noticias.length;i++){
+
+html+=
+"<div class='card'>"+
+"<h3>"+noticias[i].titulo+"</h3>"+
+"<p>"+noticias[i].texto+"</p>"+
+"</div>";
+
+}
+
+document.getElementById("listaNoticias").innerHTML=html;
 }
 
 
 /* AVISOS */
 
-function saveNotice(){
+function salvarAviso(){
 
-const title=document.getElementById("noticeTitle").value.trim();
-const text=document.getElementById("noticeText").value.trim();
+var titulo=document.getElementById("tituloAviso").value;
+var texto=document.getElementById("textoAviso").value;
 
-if(!title){
+if(!titulo){
 alert("Digite o título.");
 return;
 }
 
-notices.unshift({title:title,text:text});
+avisos.unshift({
+titulo:titulo,
+texto:texto
+});
 
-localStorage.setItem("tsl_notices",JSON.stringify(notices));
+renderAvisos();
 
-document.getElementById("noticeTitle").value="";
-document.getElementById("noticeText").value="";
-
-renderNotices();
+document.getElementById("tituloAviso").value="";
+document.getElementById("textoAviso").value="";
 
 alert("Aviso salvo!");
+
 }
 
 
-/* INICIALIZAÇÃO */
+function renderAvisos(){
 
-renderClubs();
-renderTable();
-renderMatches();
-renderNews();
-renderNotices();
+var html="";
+
+for(var i=0;i<avisos.length;i++){
+
+html+=
+"<div class='card'>"+
+"<h3>"+avisos[i].titulo+"</h3>"+
+"<p>"+avisos[i].texto+"</p>"+
+"</div>";
+
+}
+
+document.getElementById("listaAvisos").innerHTML=html;
+}
+
+
+/* INICIAR */
+
+carregarClubes();
+renderTabela();
+renderPartidas();
+renderNoticias();
+renderAvisos();
 
 </script>
 
 </body>
- </html>
+</html>
